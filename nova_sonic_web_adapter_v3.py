@@ -1274,10 +1274,9 @@ class NovaSonicWebAdapterV3:
                     except Exception as dump_exc:
                         self._log(f"⚠️ No se pudo escribir debug PCM: {dump_exc}")
 
-                # Enviar en chunks de ~100ms (3200 bytes) para balance latencia/throughput
-                # Demasiado pequeño (20ms) genera overhead de red
-                # Demasiado grande (>200ms) agrega latencia perceptible
-                chunk_size = 3200  # 100ms @ 16kHz mono 16-bit
+                # Enviar en chunks de ~75ms (2400 bytes) para reducir latencia perceptible en redes
+                # con jitter sin disparar demasiado el overhead de red.
+                chunk_size = 2400  # ~75ms @ 16kHz mono 16-bit
                 for offset in range(0, len(pcm_bytes), chunk_size):
                     portion = pcm_bytes[offset:offset + chunk_size]
                     if not portion:
