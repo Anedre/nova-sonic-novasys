@@ -5,10 +5,7 @@ services:
     runtime: python-3.12
     region: oregon
     plan: free
-    buildCommand: |
-      apt-get update
-      apt-get install -y ffmpeg
-      pip install -r requirements.txt
+    buildCommand: bash setup.sh
     startCommand: gunicorn -c gunicorn_config.py app:app
     envVars:
       - key: AWS_ACCESS_KEY_ID
