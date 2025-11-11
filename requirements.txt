@@ -1,5 +1,6 @@
 aws_sdk_bedrock_runtime==0.1.0
 reactivex==4.0.4
+rx==3.2.0
 flask==3.0.3
 flask-socketio==5.3.6
 python-engineio==4.9.0
