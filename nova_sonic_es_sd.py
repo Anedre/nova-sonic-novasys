@@ -12,18 +12,27 @@ import os
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
 
-from rx.subject import Subject
+try:
+    from rx.subject import Subject
+except ImportError as e:
+    raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
 
-from aws_sdk_bedrock_runtime.client import (
-    BedrockRuntimeClient,
-    InvokeModelWithBidirectionalStreamOperationInput
-)
-from aws_sdk_bedrock_runtime.models import (
-    BidirectionalInputPayloadPart,
-    InvokeModelWithBidirectionalStreamInputChunk
-)
-from aws_sdk_bedrock_runtime.config import Config
-from smithy_aws_core.identity.environment import EnvironmentCredentialsResolver
+try:
+    from aws_sdk_bedrock_runtime.client import (
+        BedrockRuntimeClient,
+        InvokeModelWithBidirectionalStreamOperationInput
+    )
+    from aws_sdk_bedrock_runtime.models import (
+        BidirectionalInputPayloadPart,
+        InvokeModelWithBidirectionalStreamInputChunk
+    )
+    from aws_sdk_bedrock_runtime.config import Config
+    from smithy_aws_core.identity.environment import EnvironmentCredentialsResolver
+except ImportError as e:
+    raise ImportError(
+        f"AWS SDK not installed: {e}. "
+        f"Run: pip install aws_sdk_bedrock_runtime==0.1.0"
+    )
 
 from processors.base import DataProcessor
 from processors.tool_use_processor import ToolUseProcessor

@@ -1,13 +1,9 @@
 aws_sdk_bedrock_runtime==0.1.0
-sounddevice==0.5.2
-numpy>=1.26
-tiktoken>=0.5.1
 flask>=3.0.0
 flask-socketio>=5.3.6
 python-engineio>=4.8.0
 python-socketio>=5.10.0
 reactivex>=4.0.0
-pydub>=0.25.1
 PyYAML>=6.0
 python-dotenv>=1.0
 gunicorn>=21.2.0
