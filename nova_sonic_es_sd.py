@@ -508,11 +508,24 @@ class BedrockStreamManager:
 
     def _ensure_client(self) -> BedrockRuntimeClient:
         if not self.bedrock_client:
-            config = Config(
-                endpoint_uri=f"https://bedrock-runtime.{self.region}.amazonaws.com",
-                region=self.region,
-                aws_credentials_identity_resolver=EnvironmentCredentialsResolver()
-            )
+            # Auto-detect credentials: IAM role (App Runner/ECS) o environment vars (local/Railway)
+            # Si AWS_ACCESS_KEY_ID existe, usar EnvironmentCredentialsResolver
+            # Si no, dejar que el SDK detecte IAM role automáticamente
+            config_params = {
+                "endpoint_uri": f"https://bedrock-runtime.{self.region}.amazonaws.com",
+                "region": self.region,
+            }
+            
+            # Solo especificar resolver si hay variables de entorno explícitas
+            if os.getenv("AWS_ACCESS_KEY_ID"):
+                config_params["aws_credentials_identity_resolver"] = EnvironmentCredentialsResolver()
+            # Si no hay AWS_ACCESS_KEY_ID, el SDK usa la cadena por defecto:
+            # 1. Environment variables
+            # 2. EC2 instance metadata (IAM role)
+            # 3. ECS task role
+            # 4. App Runner service role
+            
+            config = Config(**config_params)
             self.bedrock_client = BedrockRuntimeClient(config=config)
         return self.bedrock_client
 

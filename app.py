@@ -44,6 +44,12 @@ socketio = SocketIO(
     ping_interval=10,
     ping_timeout=20,
     max_http_buffer_size=4 * 1024 * 1024,
+    # Forzar WebSocket desde el inicio, evitar handshake con polling
+    transports=['websocket'],
+    allow_upgrades=False,
+    # Configuración adicional para estabilidad
+    engineio_logger=False,
+    logger=False
 )
 
 # Diccionario para manejar múltiples sesiones de Nova Sonic

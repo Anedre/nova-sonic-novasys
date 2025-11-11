@@ -1,5 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const socket = io();
+    const socket = io({
+        transports: ['websocket', 'polling'],
+        upgrade: true,
+        reconnectionAttempts: 5,
+        reconnectionDelay: 1000,
+        timeout: 10000,
+        forceNew: true
+    });
     let mediaRecorder;
     let isCallActive = false;
     let totalTokens = 0;

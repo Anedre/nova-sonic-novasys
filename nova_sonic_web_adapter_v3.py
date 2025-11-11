@@ -920,27 +920,42 @@ class NovaSonicWebAdapterV3:
         )
 
     def _ensure_env_credentials(self) -> None:
-        """Valida que existan credenciales AWS cuando se usa EnvironmentCredentialsResolver."""
+        """
+        Valida credenciales AWS si se especifican explícitamente.
+        
+        Si no hay AWS_ACCESS_KEY_ID, asume que se usará IAM role (App Runner/ECS)
+        y el SDK lo detectará automáticamente. Solo valida si hay variables explícitas.
+        """
         access_key = (os.environ.get("AWS_ACCESS_KEY_ID") or "").strip()
         secret_key = (os.environ.get("AWS_SECRET_ACCESS_KEY") or "").strip()
         session_token = (os.environ.get("AWS_SESSION_TOKEN") or "").strip()
 
-        if not access_key or not secret_key:
+        # Si no hay access_key, asumir IAM role (válido en App Runner/ECS/EC2)
+        if not access_key:
+            print("ℹ️  No se detectó AWS_ACCESS_KEY_ID, usando IAM role del entorno (App Runner/ECS/EC2)")
+            return
+        
+        # Si hay access_key pero no secret, error
+        if not secret_key:
             redacted_access = access_key[:4] + "…" if access_key else "<no-key>"
             raise RuntimeError(
-                "Credenciales de AWS no configuradas. "
-                "Define AWS_ACCESS_KEY_ID y AWS_SECRET_ACCESS_KEY en Railway (opcional AWS_SESSION_TOKEN). "
+                "AWS_ACCESS_KEY_ID definido pero falta AWS_SECRET_ACCESS_KEY. "
+                "Define ambos o elimina AWS_ACCESS_KEY_ID para usar IAM role. "
                 f"Actual valor detectado: {redacted_access}"
             )
 
-        if access_key.startswith("AKIA") and not session_token:
-            # Acceso básico, todo bien
+        # Validar formato de credenciales temporales
+        if access_key.startswith("AKIA"):
+            # Credenciales permanentes, todo bien
+            print(f"✅ Usando credenciales permanentes AWS: {access_key[:8]}...")
             return
         if access_key.startswith("ASIA") and not session_token:
             raise RuntimeError(
-                "La clave AWS detectada requiere AWS_SESSION_TOKEN. "
+                "La clave AWS detectada (ASIA*) requiere AWS_SESSION_TOKEN. "
                 "Agrega el token temporal a las variables de entorno del despliegue."
             )
+        
+        print(f"✅ Usando credenciales temporales AWS: {access_key[:8]}...")
 
     # ---------------------------------------------------------------- runtime
     def start(self) -> None:
