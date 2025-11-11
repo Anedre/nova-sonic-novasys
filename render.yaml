@@ -2,6 +2,7 @@ services:
   - type: web
     name: nova-sonic-novasys
     env: python
+    runtime: python-3.12
     region: oregon
     plan: free
     buildCommand: |

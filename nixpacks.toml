@@ -1,4 +1,5 @@
-providers = ["...", "nixpkgs"]
-
 [phases.setup]
-nixPkgs = ["...", "ffmpeg"]
+nixPkgs = ["ffmpeg"]
+
+[phases.install]
+cmds = ["pip install --upgrade pip"]
