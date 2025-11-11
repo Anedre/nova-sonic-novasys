@@ -919,6 +919,29 @@ class NovaSonicWebAdapterV3:
             explicit_kb=kb_arg,
         )
 
+    def _ensure_env_credentials(self) -> None:
+        """Valida que existan credenciales AWS cuando se usa EnvironmentCredentialsResolver."""
+        access_key = (os.environ.get("AWS_ACCESS_KEY_ID") or "").strip()
+        secret_key = (os.environ.get("AWS_SECRET_ACCESS_KEY") or "").strip()
+        session_token = (os.environ.get("AWS_SESSION_TOKEN") or "").strip()
+
+        if not access_key or not secret_key:
+            redacted_access = access_key[:4] + "…" if access_key else "<no-key>"
+            raise RuntimeError(
+                "Credenciales de AWS no configuradas. "
+                "Define AWS_ACCESS_KEY_ID y AWS_SECRET_ACCESS_KEY en Railway (opcional AWS_SESSION_TOKEN). "
+                f"Actual valor detectado: {redacted_access}"
+            )
+
+        if access_key.startswith("AKIA") and not session_token:
+            # Acceso básico, todo bien
+            return
+        if access_key.startswith("ASIA") and not session_token:
+            raise RuntimeError(
+                "La clave AWS detectada requiere AWS_SESSION_TOKEN. "
+                "Agrega el token temporal a las variables de entorno del despliegue."
+            )
+
     # ---------------------------------------------------------------- runtime
     def start(self) -> None:
         if self.is_running:
@@ -927,12 +950,17 @@ class NovaSonicWebAdapterV3:
         self._ready.clear()
 
         def runner() -> None:
-            self.loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(self.loop)
+            loop = asyncio.new_event_loop()
+            self.loop = loop
+            asyncio.set_event_loop(loop)
             try:
-                self.loop.run_until_complete(self._bootstrap())
+                loop.run_until_complete(self._bootstrap())
             finally:
-                self.loop.close()
+                try:
+                    loop.close()
+                finally:
+                    if self.loop is loop:
+                        self.loop = None
 
         self.thread = threading.Thread(target=runner, daemon=True)
         self.thread.start()
@@ -963,6 +991,9 @@ class NovaSonicWebAdapterV3:
 
             self._log(f"🌎 Región seleccionada: {self.region}")
             self._log(f"⏱️ Timeout de inicialización configurado en {self.startup_timeout:.1f}s")
+
+            # Validar credenciales antes de contactar a Bedrock
+            self._ensure_env_credentials()
 
             self.manager = BedrockStreamManager(
                 context_sources=sources,

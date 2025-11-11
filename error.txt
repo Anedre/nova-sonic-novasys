@@ -1,139 +1,199 @@
-2025-11-11T16:25:05.000000000Z [inf]  Starting Container
-2025-11-11T16:25:06.557854127Z [inf]  [start.sh] Using PORT=8080
-2025-11-11T16:25:06.557862072Z [err]  [2025-11-11 16:25:05 +0000] [1] [INFO] Starting gunicorn 21.2.0
-2025-11-11T16:25:06.557869967Z [err]  [2025-11-11 16:25:05 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
-2025-11-11T16:25:06.557878279Z [err]  [2025-11-11 16:25:05 +0000] [1] [INFO] Using worker: eventlet
-2025-11-11T16:25:06.557886242Z [err]  [2025-11-11 16:25:05 +0000] [3] [INFO] Booting worker with pid: 3
-2025-11-11T16:25:56.636483162Z [inf]  100.64.0.2 - - [11/Nov/2025:16:25:49 +0000] "GET / HTTP/1.1" 200 8977 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
-2025-11-11T16:25:56.636490010Z [inf]  100.64.0.2 - - [11/Nov/2025:16:25:49 +0000] "GET /static/css/styles.css HTTP/1.1" 200 0 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
-2025-11-11T16:25:56.636496498Z [inf]  100.64.0.2 - - [11/Nov/2025:16:25:50 +0000] "GET /static/js/app.js HTTP/1.1" 200 0 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
-2025-11-11T16:25:56.636504034Z [inf]  100.64.0.2 - - [11/Nov/2025:16:25:50 +0000] "GET /socket.io/?EIO=4&transport=polling&t=PfplF6b HTTP/1.1" 200 97 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
-2025-11-11T16:25:56.636513052Z [inf]  100.64.0.2 - - [11/Nov/2025:16:25:51 +0000] "GET /favicon.ico HTTP/1.1" 404 207 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
-2025-11-11T16:25:56.636520625Z [inf]  100.64.0.2 - - [11/Nov/2025:16:25:51 +0000] "POST /socket.io/?EIO=4&transport=polling&t=PfplFBv&sid=I_xEeDkONi_u_9ZeAAAA HTTP/1.1" 200 2 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
-2025-11-11T16:25:56.636527464Z [inf]  100.64.0.2 - - [11/Nov/2025:16:25:51 +0000] "GET /socket.io/?EIO=4&transport=polling&t=PfplFBw&sid=I_xEeDkONi_u_9ZeAAAA HTTP/1.1" 200 178 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
-2025-11-11T16:25:56.639127169Z [inf]  100.64.0.2 - - [11/Nov/2025:16:25:52 +0000] "GET /socket.io/?EIO=4&transport=polling&t=PfplFHJ&sid=I_xEeDkONi_u_9ZeAAAA HTTP/1.1" 200 1 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
-2025-11-11T16:26:01.883859065Z [inf]  [NovaSonic] 🔄 Inicializando Nova Sonic...
-2025-11-11T16:26:01.883875378Z [inf]  [NovaSonic] ✅ Contexto cargado: 2 bloques
-2025-11-11T16:26:01.883886197Z [inf]  [NovaSonic] 🌎 Región seleccionada: us-east-1
-2025-11-11T16:26:01.883894932Z [inf]  [NovaSonic] 📡 Solicitando stream Nova Sonic...
-2025-11-11T16:26:06.994133781Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:07.883679205Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:07.883684115Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:07.883688906Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:08.864737083Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:08.864744532Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:08.864752491Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:08.940123436Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:09.810457416Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:09.810464265Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:09.834494688Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:10.942093507Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:10.942268235Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:10.942274809Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:11.892211044Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:11.892215539Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:11.892220644Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:11.947709139Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:12.668883932Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:12.668894229Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:12.764741999Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:13.887131792Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:13.887138012Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:13.887143641Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:13.887149115Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:14.818679730Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:14.818684855Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:14.818689403Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:15.011936504Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:15.826494703Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:15.826501441Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:15.911865633Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:17.014669901Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:17.014675870Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:17.014683379Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:17.750072606Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:17.750078472Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:17.750085113Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:18.011924804Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:18.823140742Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:18.823147389Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:18.909085800Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:19.794741177Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:19.794749875Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:19.840017925Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:20.726432338Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:20.726438598Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:20.726445085Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:21.011781067Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:22.044084716Z [err]                             ^^^^^^^^^^^^^^^^^
-2025-11-11T16:26:22.044099284Z [err]  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:26:22.044114687Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
-2025-11-11T16:26:22.044131596Z [inf]  [NovaSonic] ⚠️ Timeout esperando la sesión de Nova Sonic
-2025-11-11T16:26:22.044144469Z [inf]  [NovaSonic] ❌ Error en adaptador: Timeout inicializando stream Nova Sonic
-2025-11-11T16:26:22.044144599Z [err]  Traceback (most recent call last):
-2025-11-11T16:26:22.044154373Z [err]  Exception in thread Thread-6 (runner):
-2025-11-11T16:26:22.044161668Z [err]    File "/usr/local/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
-2025-11-11T16:26:22.044169510Z [err]      return await fut
-2025-11-11T16:26:22.044177842Z [err]             ^^^^^^^^^
-2025-11-11T16:26:22.044186533Z [err]    File "/app/nova_sonic_es_sd.py", line 323, in initialize_stream
-2025-11-11T16:26:22.044195077Z [err]      self.stream_response = await client.invoke_model_with_bidirectional_stream(request)
-2025-11-11T16:26:23.015529639Z [err]  ^
-2025-11-11T16:26:23.015536335Z [err]    File "/usr/local/lib/python3.12/site-packages/aws_sdk_bedrock_runtime/client.py", line 487, in invoke_model_with_bidirectional_stream
-2025-11-11T16:26:23.015542259Z [err]      return await pipeline.duplex_stream(
-2025-11-11T16:26:23.015549246Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:26:23.015556009Z [err]    File "/usr/local/lib/python3.12/site-packages/smithy_core/aio/client.py", line 202, in duplex_stream
-2025-11-11T16:26:23.015564369Z [err]      request_context = await request_future
-2025-11-11T16:26:23.015570788Z [err]                        ^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:26:23.015577819Z [err]  asyncio.exceptions.CancelledError
-2025-11-11T16:26:23.015585131Z [err]  
-2025-11-11T16:26:23.015591822Z [err]  The above exception was the direct cause of the following exception:
-2025-11-11T16:26:23.015598751Z [err]  
-2025-11-11T16:26:23.015605923Z [err]  Traceback (most recent call last):
-2025-11-11T16:26:23.015612596Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 974, in _bootstrap
-2025-11-11T16:26:23.015620287Z [err]      await asyncio.wait_for(self.manager.initialize_stream(), timeout=20)
-2025-11-11T16:26:23.015627918Z [err]    File "/usr/local/lib/python3.12/asyncio/tasks.py", line 519, in wait_for
-2025-11-11T16:26:23.016003985Z [err]      async with timeouts.timeout(timeout):
-2025-11-11T16:26:23.016011466Z [err]                 ^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:26:23.016018182Z [err]    File "/usr/local/lib/python3.12/asyncio/timeouts.py", line 115, in __aexit__
-2025-11-11T16:26:23.016025386Z [err]      raise TimeoutError from exc_val
-2025-11-11T16:26:23.016030990Z [err]  TimeoutError
-2025-11-11T16:26:23.016037223Z [err]  
-2025-11-11T16:26:23.016044032Z [err]  The above exception was the direct cause of the following exception:
-2025-11-11T16:26:23.016051719Z [err]  
-2025-11-11T16:26:23.016058442Z [err]  Traceback (most recent call last):
-2025-11-11T16:26:23.016084016Z [err]    File "/usr/local/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
-2025-11-11T16:26:23.016090725Z [err]      self.run()
-2025-11-11T16:26:23.016097322Z [err]    File "/usr/local/lib/python3.12/threading.py", line 1012, in run
-2025-11-11T16:26:23.016106029Z [err]      self._target(*self._args, **self._kwargs)
-2025-11-11T16:26:23.016112756Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 925, in runner
-2025-11-11T16:26:23.016123543Z [err]      self.loop.run_until_complete(self._bootstrap())
-2025-11-11T16:26:23.016129120Z [err]    File "/usr/local/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
-2025-11-11T16:26:23.016135443Z [err]      return future.result()
-2025-11-11T16:26:23.016142001Z [err]             ^^^^^^^^^^^^^^^
-2025-11-11T16:26:23.016148623Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 976, in _bootstrap
-2025-11-11T16:26:23.016156117Z [err]      raise RuntimeError("Timeout inicializando stream Nova Sonic") from exc
-2025-11-11T16:26:23.016164777Z [err]  RuntimeError: Timeout inicializando stream Nova Sonic
-2025-11-11T16:26:23.018447999Z [inf]  [NovaSonic] ✅ Adaptador detenido
-2025-11-11T16:26:23.018452781Z [err]  Exception in thread Thread-64 (_handle_event_internal):
-2025-11-11T16:26:23.018457776Z [err]  Traceback (most recent call last):
-2025-11-11T16:26:23.018462388Z [err]    File "/usr/local/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
-2025-11-11T16:26:23.018466878Z [err]      self.run()
-2025-11-11T16:26:23.018471610Z [err]    File "/usr/local/lib/python3.12/threading.py", line 1012, in run
-2025-11-11T16:26:23.018476009Z [err]      self._target(*self._args, **self._kwargs)
-2025-11-11T16:26:23.018481185Z [err]    File "/usr/local/lib/python3.12/site-packages/socketio/server.py", line 586, in _handle_event_internal
-2025-11-11T16:26:23.018486041Z [err]      r = server._trigger_event(data[0], namespace, sid, *data[1:])
-2025-11-11T16:26:23.018490816Z [err]          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:26:23.018495047Z [err]    File "/usr/local/lib/python3.12/site-packages/socketio/server.py", line 611, in _trigger_event
-2025-11-11T16:26:23.018500684Z [err]      return handler(*args)
-2025-11-11T16:26:23.018505174Z [err]             ^^^^^^^^^^^^^^
-2025-11-11T16:26:23.018509689Z [err]    File "/usr/local/lib/python3.12/site-packages/flask_socketio/__init__.py", line 282, in _handler
-2025-11-11T16:26:23.018514426Z [err]      return self._handle_event(handler, message, namespace, sid,
-2025-11-11T16:26:23.018519211Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:26:23.019475977Z [err]  KeyError: 'kSWnMkVyNJWN-WlaAAAB'
-2025-11-11T16:26:23.019497562Z [err]    File "/usr/local/lib/python3.12/site-packages/flask_socketio/__init__.py", line 827, in _handle_event
-2025-11-11T16:26:23.019505291Z [err]      ret = handler(*args)
-2025-11-11T16:26:23.019521423Z [err]            ^^^^^^^^^^^^^^
-2025-11-11T16:26:23.019534313Z [err]    File "/app/app.py", line 283, in handle_call_ended
-2025-11-11T16:26:23.019549532Z [err]      del nova_adapters[session_id]
-2025-11-11T16:26:23.019559029Z [err]          ~~~~~~~~~~~~~^^^^^^^^^^^^
-2025-11-11T16:26:23.019567099Z [err]  
+2025-11-11T16:35:27.000000000Z [inf]  Starting Container
+2025-11-11T16:35:28.006053641Z [err]  [2025-11-11 16:35:27 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
+2025-11-11T16:35:28.006066333Z [err]  [2025-11-11 16:35:27 +0000] [1] [INFO] Using worker: eventlet
+2025-11-11T16:35:28.006075088Z [err]  [2025-11-11 16:35:27 +0000] [3] [INFO] Booting worker with pid: 3
+2025-11-11T16:35:28.006191921Z [inf]  [start.sh] Using PORT=8080
+2025-11-11T16:35:28.006199675Z [err]  [2025-11-11 16:35:27 +0000] [1] [INFO] Starting gunicorn 21.2.0
+2025-11-11T16:35:35.265904532Z [inf]  100.64.0.2 - - [11/Nov/2025:16:35:35 +0000] "GET /socket.io/?EIO=4&transport=polling&t=PfpnTaw HTTP/1.1" 200 97 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:35:35.905770642Z [inf]  100.64.0.2 - - [11/Nov/2025:16:35:35 +0000] "POST /socket.io/?EIO=4&transport=polling&t=PfpnTqp&sid=YPjPd7GWcT6mmv6RAAAA HTTP/1.1" 200 2 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:35:35.905779035Z [inf]  100.64.0.2 - - [11/Nov/2025:16:35:35 +0000] "GET /socket.io/?EIO=4&transport=polling&t=PfpnTqq&sid=YPjPd7GWcT6mmv6RAAAA HTTP/1.1" 200 178 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:35:36.145009755Z [inf]  100.64.0.2 - - [11/Nov/2025:16:35:36 +0000] "GET /socket.io/?EIO=4&transport=polling&t=PfpnTzg&sid=YPjPd7GWcT6mmv6RAAAA HTTP/1.1" 200 1 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:35:36.820631190Z [inf]  100.64.0.2 - - [11/Nov/2025:16:35:36 +0000] "GET /socket.io/?EIO=4&transport=polling&t=PfpnU2k&sid=YPjPd7GWcT6mmv6RAAAA HTTP/1.1" 200 1 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:36:36.478064711Z [inf]  100.64.0.2 - - [11/Nov/2025:16:36:33 +0000] "GET / HTTP/1.1" 200 8977 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:36:36.478072007Z [inf]  100.64.0.2 - - [11/Nov/2025:16:36:34 +0000] "GET /static/css/styles.css HTTP/1.1" 200 0 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:36:36.478078006Z [inf]  100.64.0.2 - - [11/Nov/2025:16:36:34 +0000] "GET /static/js/app.js HTTP/1.1" 200 0 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:36:36.478084956Z [inf]  100.64.0.2 - - [11/Nov/2025:16:36:35 +0000] "GET /socket.io/?EIO=4&transport=polling&t=PfpniOA HTTP/1.1" 200 97 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:36:36.478090990Z [inf]  100.64.0.2 - - [11/Nov/2025:16:36:35 +0000] "POST /socket.io/?EIO=4&transport=polling&t=PfpniTG&sid=kYBaDJ-Lt522BhGNAAAC HTTP/1.1" 200 2 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:36:36.478096689Z [inf]  100.64.0.2 - - [11/Nov/2025:16:36:35 +0000] "GET /socket.io/?EIO=4&transport=polling&t=PfpniTH&sid=kYBaDJ-Lt522BhGNAAAC HTTP/1.1" 200 178 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:36:37.125766819Z [inf]  100.64.0.2 - - [11/Nov/2025:16:36:36 +0000] "GET /socket.io/?EIO=4&transport=polling&t=PfpniYU&sid=kYBaDJ-Lt522BhGNAAAC HTTP/1.1" 200 1 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:36:37.213836345Z [inf]  100.64.0.2 - - [11/Nov/2025:16:36:37 +0000] "GET /socket.io/?EIO=4&transport=polling&t=Pfpnits&sid=kYBaDJ-Lt522BhGNAAAC HTTP/1.1" 200 1 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:36:40.044851183Z [inf]  [NovaSonic] 🌎 Región seleccionada: us-east-1
+2025-11-11T16:36:40.044860441Z [inf]  [NovaSonic] ⏱️ Timeout de inicialización configurado en 45.0s
+2025-11-11T16:36:40.044866033Z [inf]  [NovaSonic] 🔄 Inicializando Nova Sonic...
+2025-11-11T16:36:40.044873424Z [inf]  [NovaSonic] 📡 Solicitando stream Nova Sonic...
+2025-11-11T16:36:40.044879864Z [inf]  [NovaSonic] ✅ Contexto cargado: 2 bloques
+2025-11-11T16:36:45.173940774Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:36:49.315748640Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:36:54.121579655Z [inf]  [NovaSonic] ✅ Adaptador detenido
+2025-11-11T16:37:33.671819940Z [inf]  [NovaSonic] ❌ Error en adaptador: Timeout inicializando stream Nova Sonic
+2025-11-11T16:37:33.671833832Z [inf]  [NovaSonic] ⚠️ Timeout esperando la sesión de Nova Sonic
+2025-11-11T16:37:33.671841508Z [err]  Exception in thread Thread-11 (runner):
+2025-11-11T16:37:33.671848793Z [err]  Traceback (most recent call last):
+2025-11-11T16:37:33.671855522Z [err]    File "/usr/local/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+2025-11-11T16:37:33.671863553Z [err]      return await fut
+2025-11-11T16:37:33.671869881Z [err]             ^^^^^^^^^
+2025-11-11T16:37:33.671879098Z [err]    File "/app/nova_sonic_es_sd.py", line 323, in initialize_stream
+2025-11-11T16:37:33.671885725Z [err]      self.stream_response = await client.invoke_model_with_bidirectional_stream(request)
+2025-11-11T16:37:33.671892721Z [err]                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:37:33.671899580Z [err]    File "/usr/local/lib/python3.12/site-packages/aws_sdk_bedrock_runtime/client.py", line 487, in invoke_model_with_bidirectional_stream
+2025-11-11T16:37:33.671905795Z [err]      return await pipeline.duplex_stream(
+2025-11-11T16:37:33.671913914Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:37:33.671919966Z [err]    File "/usr/local/lib/python3.12/site-packages/smithy_core/aio/client.py", line 202, in duplex_stream
+2025-11-11T16:37:33.671925592Z [err]      request_context = await request_future
+2025-11-11T16:37:33.674112359Z [err]                        ^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:37:33.674120690Z [err]  asyncio.exceptions.CancelledError
+2025-11-11T16:37:33.674126807Z [err]  
+2025-11-11T16:37:33.674133431Z [err]  The above exception was the direct cause of the following exception:
+2025-11-11T16:37:33.674139167Z [err]  
+2025-11-11T16:37:33.674148358Z [err]  Traceback (most recent call last):
+2025-11-11T16:37:33.674154274Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 983, in _bootstrap
+2025-11-11T16:37:33.674158840Z [err]      await asyncio.wait_for(self.manager.initialize_stream(), timeout=self.startup_timeout)
+2025-11-11T16:37:33.674163007Z [err]    File "/usr/local/lib/python3.12/asyncio/tasks.py", line 519, in wait_for
+2025-11-11T16:37:33.674167588Z [err]      async with timeouts.timeout(timeout):
+2025-11-11T16:37:33.674172635Z [err]                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:37:33.674177649Z [err]    File "/usr/local/lib/python3.12/asyncio/timeouts.py", line 115, in __aexit__
+2025-11-11T16:37:33.674181852Z [err]      raise TimeoutError from exc_val
+2025-11-11T16:37:33.674187290Z [err]  TimeoutError
+2025-11-11T16:37:33.674193364Z [err]  
+2025-11-11T16:37:33.674197523Z [err]  The above exception was the direct cause of the following exception:
+2025-11-11T16:37:33.674201605Z [err]  
+2025-11-11T16:37:33.674206613Z [err]  Traceback (most recent call last):
+2025-11-11T16:37:33.674210453Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 933, in runner
+2025-11-11T16:37:33.674214566Z [err]      self.loop.run_until_complete(self._bootstrap())
+2025-11-11T16:37:33.674220030Z [err]    File "/usr/local/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+2025-11-11T16:37:33.677160468Z [err]  AttributeError: 'NoneType' object has no attribute 'close'
+2025-11-11T16:37:33.677194912Z [err]      return future.result()
+2025-11-11T16:37:33.677206362Z [err]             ^^^^^^^^^^^^^^^
+2025-11-11T16:37:33.677215638Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 985, in _bootstrap
+2025-11-11T16:37:33.677226216Z [err]      raise RuntimeError("Timeout inicializando stream Nova Sonic") from exc
+2025-11-11T16:37:33.677234525Z [err]  RuntimeError: Timeout inicializando stream Nova Sonic
+2025-11-11T16:37:33.677243385Z [err]  
+2025-11-11T16:37:33.677251800Z [err]  During handling of the above exception, another exception occurred:
+2025-11-11T16:37:33.677258898Z [err]  
+2025-11-11T16:37:33.677265395Z [err]  Traceback (most recent call last):
+2025-11-11T16:37:33.677273321Z [err]    File "/usr/local/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+2025-11-11T16:37:33.677280030Z [err]      self.run()
+2025-11-11T16:37:33.677286419Z [err]    File "/usr/local/lib/python3.12/threading.py", line 1012, in run
+2025-11-11T16:37:33.677296879Z [err]      self._target(*self._args, **self._kwargs)
+2025-11-11T16:37:33.677303858Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 935, in runner
+2025-11-11T16:37:33.677311353Z [err]      self.loop.close()
+2025-11-11T16:37:33.677319901Z [err]      ^^^^^^^^^^^^^^^
+2025-11-11T16:38:53.688638597Z [inf]  100.64.0.2 - - [11/Nov/2025:16:38:50 +0000] "GET / HTTP/1.1" 200 8977 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:38:53.688646001Z [inf]  100.64.0.2 - - [11/Nov/2025:16:38:51 +0000] "GET /static/css/styles.css HTTP/1.1" 304 0 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:38:53.688653321Z [inf]  100.64.0.2 - - [11/Nov/2025:16:38:51 +0000] "GET /static/js/app.js HTTP/1.1" 304 0 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:38:53.688659937Z [inf]  100.64.0.2 - - [11/Nov/2025:16:38:52 +0000] "GET /socket.io/?EIO=4&transport=polling&t=PfpoDo2 HTTP/1.1" 200 97 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:38:53.688676313Z [inf]  100.64.0.2 - - [11/Nov/2025:16:38:52 +0000] "POST /socket.io/?EIO=4&transport=polling&t=PfpoDy6&sid=YJwDjpKfqGAHjnndAAAE HTTP/1.1" 200 2 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:38:53.995051829Z [inf]  100.64.0.2 - - [11/Nov/2025:16:38:53 +0000] "GET /socket.io/?EIO=4&transport=polling&t=PfpoDy7&sid=YJwDjpKfqGAHjnndAAAE HTTP/1.1" 200 178 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:38:56.632312141Z [inf]  100.64.0.2 - - [11/Nov/2025:16:38:56 +0000] "GET /socket.io/?EIO=4&transport=polling&t=PfpoEMI&sid=YJwDjpKfqGAHjnndAAAE HTTP/1.1" 200 1 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:38:57.544523289Z [inf]  100.64.0.2 - - [11/Nov/2025:16:38:57 +0000] "GET /socket.io/?EIO=4&transport=polling&t=PfpoE_M&sid=YJwDjpKfqGAHjnndAAAE HTTP/1.1" 200 1 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:39:47.071196488Z [inf]  [NovaSonic] 🔄 Inicializando Nova Sonic...
+2025-11-11T16:39:47.071204926Z [inf]  [NovaSonic] ✅ Contexto cargado: 2 bloques
+2025-11-11T16:39:47.071216695Z [inf]  [NovaSonic] 🌎 Región seleccionada: us-east-1
+2025-11-11T16:39:47.071223377Z [inf]  [NovaSonic] ⏱️ Timeout de inicialización configurado en 45.0s
+2025-11-11T16:39:47.071230326Z [inf]  [NovaSonic] 📡 Solicitando stream Nova Sonic...
+2025-11-11T16:39:51.829824248Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:40:31.908336338Z [err]             ^^^^^^^^^
+2025-11-11T16:40:31.908336585Z [inf]  [NovaSonic] ❌ Error en adaptador: Timeout inicializando stream Nova Sonic
+2025-11-11T16:40:31.908346521Z [inf]  [NovaSonic] ⚠️ Timeout esperando la sesión de Nova Sonic
+2025-11-11T16:40:31.908348424Z [err]    File "/app/nova_sonic_es_sd.py", line 323, in initialize_stream
+2025-11-11T16:40:31.908356227Z [err]      self.stream_response = await client.invoke_model_with_bidirectional_stream(request)
+2025-11-11T16:40:31.908357567Z [err]  Exception in thread Thread-53 (runner):
+2025-11-11T16:40:31.908368563Z [err]  Traceback (most recent call last):
+2025-11-11T16:40:31.908377559Z [err]    File "/usr/local/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+2025-11-11T16:40:31.908385601Z [err]      return await fut
+2025-11-11T16:40:31.908397626Z [err]                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:40:31.908400244Z [err]      return await pipeline.duplex_stream(
+2025-11-11T16:40:31.908412012Z [err]    File "/usr/local/lib/python3.12/site-packages/aws_sdk_bedrock_runtime/client.py", line 487, in invoke_model_with_bidirectional_stream
+2025-11-11T16:40:31.908412160Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:40:31.908421010Z [err]    File "/usr/local/lib/python3.12/site-packages/smithy_core/aio/client.py", line 202, in duplex_stream
+2025-11-11T16:40:31.908429047Z [err]      request_context = await request_future
+2025-11-11T16:40:31.912501014Z [err]                        ^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:40:31.912507841Z [err]  asyncio.exceptions.CancelledError
+2025-11-11T16:40:31.912513326Z [err]  
+2025-11-11T16:40:31.912521335Z [err]  The above exception was the direct cause of the following exception:
+2025-11-11T16:40:31.912527041Z [err]  
+2025-11-11T16:40:31.912533174Z [err]  Traceback (most recent call last):
+2025-11-11T16:40:31.912538222Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 983, in _bootstrap
+2025-11-11T16:40:31.912544108Z [err]      await asyncio.wait_for(self.manager.initialize_stream(), timeout=self.startup_timeout)
+2025-11-11T16:40:31.912549133Z [err]    File "/usr/local/lib/python3.12/asyncio/tasks.py", line 519, in wait_for
+2025-11-11T16:40:31.912555017Z [err]      async with timeouts.timeout(timeout):
+2025-11-11T16:40:31.912560491Z [err]                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:40:31.912566836Z [err]    File "/usr/local/lib/python3.12/asyncio/timeouts.py", line 115, in __aexit__
+2025-11-11T16:40:31.912572445Z [err]      raise TimeoutError from exc_val
+2025-11-11T16:40:31.912578355Z [err]  TimeoutError
+2025-11-11T16:40:31.912583979Z [err]  
+2025-11-11T16:40:31.912590151Z [err]  The above exception was the direct cause of the following exception:
+2025-11-11T16:40:31.912669294Z [err]  
+2025-11-11T16:40:31.912674529Z [err]  Traceback (most recent call last):
+2025-11-11T16:40:31.912675644Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 985, in _bootstrap
+2025-11-11T16:40:31.912679843Z [err]    File "/usr/local/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+2025-11-11T16:40:31.912685482Z [err]      self.run()
+2025-11-11T16:40:31.912687844Z [err]      raise RuntimeError("Timeout inicializando stream Nova Sonic") from exc
+2025-11-11T16:40:31.912691549Z [err]    File "/usr/local/lib/python3.12/threading.py", line 1012, in run
+2025-11-11T16:40:31.912697028Z [err]      self._target(*self._args, **self._kwargs)
+2025-11-11T16:40:31.912699222Z [err]  RuntimeError: Timeout inicializando stream Nova Sonic
+2025-11-11T16:40:31.912703200Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 933, in runner
+2025-11-11T16:40:31.912706261Z [inf]  [NovaSonic] ✅ Adaptador detenido
+2025-11-11T16:40:31.912709430Z [err]      self.loop.run_until_complete(self._bootstrap())
+2025-11-11T16:40:31.912714382Z [err]    File "/usr/local/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+2025-11-11T16:40:31.912719270Z [err]      return future.result()
+2025-11-11T16:40:31.912723444Z [err]             ^^^^^^^^^^^^^^^
+2025-11-11T16:40:32.972548051Z [err]  /usr/local/lib/python3.12/site-packages/werkzeug/routing/matcher.py:79: RuntimeWarning: coroutine 'NovaSonicWebAdapterV3._convert_and_send' was never awaited
+2025-11-11T16:40:32.972560454Z [err]    def _match(
+2025-11-11T16:40:32.972568524Z [err]  RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2025-11-11T16:40:32.972579180Z [err]  Task was destroyed but it is pending!
+2025-11-11T16:40:32.972601829Z [err]  task: <Task pending name='Task-5' coro=<NovaSonicWebAdapterV3._convert_and_send() running at /app/nova_sonic_web_adapter_v3.py:1214> cb=[_chain_future.<locals>._call_set_state() at /usr/local/lib/python3.12/asyncio/futures.py:396]>
+2025-11-11T16:40:32.972611045Z [err]  Task was destroyed but it is pending!
+2025-11-11T16:40:32.972618509Z [err]  task: <Task pending name='Task-6' coro=<NovaSonicWebAdapterV3._convert_and_send() running at /app/nova_sonic_web_adapter_v3.py:1214> cb=[_chain_future.<locals>._call_set_state() at /usr/local/lib/python3.12/asyncio/futures.py:396]>
+2025-11-11T16:40:32.972626890Z [err]  Task was destroyed but it is pending!
+2025-11-11T16:40:32.972634368Z [err]  task: <Task pending name='Task-7' coro=<NovaSonicWebAdapterV3._convert_and_send() running at /app/nova_sonic_web_adapter_v3.py:1214> cb=[_chain_future.<locals>._call_set_state() at /usr/local/lib/python3.12/asyncio/futures.py:396]>
+2025-11-11T16:40:32.972643035Z [err]  Task was destroyed but it is pending!
+2025-11-11T16:40:32.972649956Z [err]  task: <Task pending name='Task-8' coro=<NovaSonicWebAdapterV3._convert_and_send() running at /app/nova_sonic_web_adapter_v3.py:1214> cb=[_chain_future.<locals>._call_set_state() at /usr/local/lib/python3.12/asyncio/futures.py:396]>
+2025-11-11T16:40:32.972658570Z [err]  Task was destroyed but it is pending!
+2025-11-11T16:40:32.972666719Z [err]  task: <Task pending name='Task-9' coro=<NovaSonicWebAdapterV3._convert_and_send() running at /app/nova_sonic_web_adapter_v3.py:1214> cb=[_chain_future.<locals>._call_set_state() at /usr/local/lib/python3.12/asyncio/futures.py:396]>
+2025-11-11T16:40:32.976425669Z [err]  Task was destroyed but it is pending!
+2025-11-11T16:40:32.976438244Z [err]  task: <Task pending name='Task-10' coro=<NovaSonicWebAdapterV3._convert_and_send() running at /app/nova_sonic_web_adapter_v3.py:1214> cb=[_chain_future.<locals>._call_set_state() at /usr/local/lib/python3.12/asyncio/futures.py:396]>
+2025-11-11T16:40:32.976446150Z [err]  Task was destroyed but it is pending!
+2025-11-11T16:40:32.976452864Z [err]  task: <Task pending name='Task-11' coro=<NovaSonicWebAdapterV3._convert_and_send() running at /app/nova_sonic_web_adapter_v3.py:1214> cb=[_chain_future.<locals>._call_set_state() at /usr/local/lib/python3.12/asyncio/futures.py:396]>
+2025-11-11T16:40:32.976459047Z [err]  Task was destroyed but it is pending!
+2025-11-11T16:40:32.976466231Z [err]  task: <Task pending name='Task-12' coro=<NovaSonicWebAdapterV3._convert_and_send() running at /app/nova_sonic_web_adapter_v3.py:1214> cb=[_chain_future.<locals>._call_set_state() at /usr/local/lib/python3.12/asyncio/futures.py:396]>
+2025-11-11T16:40:32.976472515Z [err]  Task was destroyed but it is pending!
+2025-11-11T16:40:32.976487720Z [err]  task: <Task pending name='Task-13' coro=<NovaSonicWebAdapterV3._convert_and_send() running at /app/nova_sonic_web_adapter_v3.py:1214> cb=[_chain_future.<locals>._call_set_state() at /usr/local/lib/python3.12/asyncio/futures.py:396]>
+2025-11-11T16:40:32.976492670Z [err]  Task was destroyed but it is pending!
+2025-11-11T16:40:32.976498628Z [err]  task: <Task pending name='Task-14' coro=<NovaSonicWebAdapterV3._convert_and_send() running at /app/nova_sonic_web_adapter_v3.py:1214> cb=[_chain_future.<locals>._call_set_state() at /usr/local/lib/python3.12/asyncio/futures.py:396]>
+2025-11-11T16:40:32.976504051Z [err]  Task was destroyed but it is pending!
+2025-11-11T16:40:32.976510532Z [err]  task: <Task pending name='Task-15' coro=<NovaSonicWebAdapterV3._convert_and_send() running at /app/nova_sonic_web_adapter_v3.py:1214> cb=[_chain_future.<locals>._call_set_state() at /usr/local/lib/python3.12/asyncio/futures.py:396]>
+2025-11-11T16:40:32.977702338Z [err]  Task was destroyed but it is pending!
+2025-11-11T16:40:32.977713380Z [err]  task: <Task pending name='Task-16' coro=<NovaSonicWebAdapterV3._convert_and_send() running at /app/nova_sonic_web_adapter_v3.py:1214> cb=[_chain_future.<locals>._call_set_state() at /usr/local/lib/python3.12/asyncio/futures.py:396]>
+2025-11-11T16:40:32.977720662Z [err]  Task was destroyed but it is pending!
+2025-11-11T16:40:32.977726724Z [err]  task: <Task pending name='Task-17' coro=<NovaSonicWebAdapterV3._convert_and_send() running at /app/nova_sonic_web_adapter_v3.py:1214> cb=[_chain_future.<locals>._call_set_state() at /usr/local/lib/python3.12/asyncio/futures.py:396]>
+2025-11-11T16:40:32.977733447Z [err]  Task was destroyed but it is pending!
+2025-11-11T16:40:32.977739639Z [err]  task: <Task pending name='Task-18' coro=<NovaSonicWebAdapterV3._convert_and_send() running at /app/nova_sonic_web_adapter_v3.py:1214> cb=[_chain_future.<locals>._call_set_state() at /usr/local/lib/python3.12/asyncio/futures.py:396]>
+2025-11-11T16:40:32.977746254Z [err]  Task was destroyed but it is pending!
+2025-11-11T16:40:32.977752399Z [err]  task: <Task pending name='Task-19' coro=<NovaSonicWebAdapterV3._convert_and_send() running at /app/nova_sonic_web_adapter_v3.py:1214> cb=[_chain_future.<locals>._call_set_state() at /usr/local/lib/python3.12/asyncio/futures.py:396]>
+2025-11-11T16:40:32.977758364Z [err]  Task was destroyed but it is pending!
+2025-11-11T16:40:32.977765363Z [err]  task: <Task pending name='Task-20' coro=<NovaSonicWebAdapterV3._convert_and_send() running at /app/nova_sonic_web_adapter_v3.py:1214> cb=[_chain_future.<locals>._call_set_state() at /usr/local/lib/python3.12/asyncio/futures.py:396]>
+2025-11-11T16:40:32.977772174Z [err]  Task was destroyed but it is pending!
+2025-11-11T16:40:32.977778004Z [err]  task: <Task pending name='Task-21' coro=<NovaSonicWebAdapterV3._convert_and_send() running at /app/nova_sonic_web_adapter_v3.py:1214> cb=[_chain_future.<locals>._call_set_state() at /usr/local/lib/python3.12/asyncio/futures.py:396]>
+2025-11-11T16:40:52.975910469Z [err]  future: <Task finished name='Task-4' coro=<RequestPipeline._execute_request() done, defined at /usr/local/lib/python3.12/site-packages/smithy_core/aio/client.py:242> exception=SmithyIdentityError('AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY are required')>
+2025-11-11T16:40:52.975911074Z [err]  Task exception was never retrieved
+2025-11-11T16:40:52.975921601Z [err]  future: <Task finished name='Task-2' coro=<RequestPipeline._execute_request() done, defined at /usr/local/lib/python3.12/site-packages/smithy_core/aio/client.py:242> exception=SmithyIdentityError('AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY are required')>
+2025-11-11T16:40:52.975926506Z [err]  Traceback (most recent call last):
+2025-11-11T16:40:52.975929469Z [err]  Traceback (most recent call last):
+2025-11-11T16:40:52.975936389Z [err]    File "/usr/local/lib/python3.12/site-packages/smithy_core/aio/client.py", line 259, in _execute_request
+2025-11-11T16:40:52.975938498Z [err]    File "/usr/local/lib/python3.12/site-packages/smithy_core/aio/client.py", line 259, in _execute_request
+2025-11-11T16:40:52.975945433Z [err]      raise e
+2025-11-11T16:40:52.975947812Z [err]      raise e
+2025-11-11T16:40:52.975954980Z [err]    File "/usr/local/lib/python3.12/site-packages/smithy_core/aio/client.py", line 421, in _handle_attempt
+2025-11-11T16:40:52.975961363Z [err]      identity = await identity_resolver.get_identity(
+2025-11-11T16:40:52.975967944Z [err]                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:40:52.975973876Z [err]    File "/usr/local/lib/python3.12/site-packages/smithy_aws_core/identity/environment.py", line 31, in get_identity
+2025-11-11T16:40:52.975982889Z [err]      raise SmithyIdentityError(
+2025-11-11T16:40:52.975988724Z [err]  smithy_core.exceptions.SmithyIdentityError: AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY are required
+2025-11-11T16:40:52.975994666Z [err]  Task exception was never retrieved
+2025-11-11T16:40:52.978956807Z [err]    File "/usr/local/lib/python3.12/site-packages/smithy_core/aio/client.py", line 421, in _handle_attempt
+2025-11-11T16:40:52.978964827Z [err]      identity = await identity_resolver.get_identity(
+2025-11-11T16:40:52.978971520Z [err]                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:40:52.978977435Z [err]    File "/usr/local/lib/python3.12/site-packages/smithy_aws_core/identity/environment.py", line 31, in get_identity
+2025-11-11T16:40:52.978983387Z [err]      raise SmithyIdentityError(
+2025-11-11T16:40:52.978990873Z [err]  smithy_core.exceptions.SmithyIdentityError: AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY are required
