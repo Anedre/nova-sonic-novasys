@@ -1,1001 +1,139 @@
-2025-11-11T16:12:21.734463164Z [inf]        Successfully uninstalled pip-25.0.1
-2025-11-11T16:12:23.757274569Z [inf]  Successfully installed pip-25.3
-2025-11-11T16:12:23.757281202Z [err]  WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-2025-11-11T16:12:23.799381576Z [inf]  Requirement already satisfied: aws_sdk_bedrock_runtime==0.1.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:23.800958848Z [inf]  Requirement already satisfied: reactivex==4.0.4 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 2)) (4.0.4)
-2025-11-11T16:12:23.800965698Z [inf]  Requirement already satisfied: flask==3.0.3 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 3)) (3.0.3)
-2025-11-11T16:12:23.800971570Z [inf]  Requirement already satisfied: flask-socketio==5.3.6 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 4)) (5.3.6)
-2025-11-11T16:12:23.800976437Z [inf]  Requirement already satisfied: python-engineio==4.9.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 5)) (4.9.0)
-2025-11-11T16:12:23.800980616Z [inf]  Requirement already satisfied: python-socketio==5.11.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 6)) (5.11.1)
-2025-11-11T16:12:23.802582398Z [inf]  Requirement already satisfied: PyYAML==6.0.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 7)) (6.0.1)
-2025-11-11T16:12:23.802592185Z [inf]  Requirement already satisfied: python-dotenv==1.0.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 8)) (1.0.1)
-2025-11-11T16:12:23.802598665Z [inf]  Requirement already satisfied: gunicorn==21.2.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 9)) (21.2.0)
-2025-11-11T16:12:23.802603827Z [inf]  Requirement already satisfied: eventlet==0.35.2 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 10)) (0.35.2)
-2025-11-11T16:12:23.804047666Z [inf]  Requirement already satisfied: smithy-aws-core~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:23.806120150Z [inf]  Requirement already satisfied: smithy-core~=0.1.0 in /usr/local/lib/python3.12/site-packages (from aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.1)
-2025-11-11T16:12:23.806128011Z [inf]  Requirement already satisfied: smithy-http~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-http[awscrt]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:23.809924023Z [inf]  Requirement already satisfied: typing-extensions<5.0.0,>=4.1.1 in /usr/local/lib/python3.12/site-packages (from reactivex==4.0.4->-r requirements.txt (line 2)) (4.15.0)
-2025-11-11T16:12:23.809930800Z [inf]  Requirement already satisfied: Werkzeug>=3.0.0 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (3.1.3)
-2025-11-11T16:12:23.811367793Z [inf]  Requirement already satisfied: Jinja2>=3.1.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (3.1.6)
-2025-11-11T16:12:23.811374511Z [inf]  Requirement already satisfied: itsdangerous>=2.1.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (2.2.0)
-2025-11-11T16:12:23.811378790Z [inf]  Requirement already satisfied: click>=8.1.3 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (8.3.0)
-2025-11-11T16:12:23.813014185Z [inf]  Requirement already satisfied: blinker>=1.6.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (1.9.0)
-2025-11-11T16:12:23.815799715Z [inf]  Requirement already satisfied: simple-websocket>=0.10.0 in /usr/local/lib/python3.12/site-packages (from python-engineio==4.9.0->-r requirements.txt (line 5)) (1.1.0)
-2025-11-11T16:12:23.817810759Z [inf]  Requirement already satisfied: bidict>=0.21.0 in /usr/local/lib/python3.12/site-packages (from python-socketio==5.11.1->-r requirements.txt (line 6)) (0.23.1)
-2025-11-11T16:12:23.820930275Z [inf]  Requirement already satisfied: packaging in /usr/local/lib/python3.12/site-packages (from gunicorn==21.2.0->-r requirements.txt (line 9)) (25.0)
-2025-11-11T16:12:23.823966844Z [inf]  Requirement already satisfied: dnspython>=1.15.0 in /usr/local/lib/python3.12/site-packages (from eventlet==0.35.2->-r requirements.txt (line 10)) (2.8.0)
-2025-11-11T16:12:23.823974673Z [inf]  Requirement already satisfied: greenlet>=1.0 in /usr/local/lib/python3.12/site-packages (from eventlet==0.35.2->-r requirements.txt (line 10)) (3.2.4)
-2025-11-11T16:12:23.826628844Z [inf]  Requirement already satisfied: aws-sdk-signers~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core~=0.1.0->smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:23.828995151Z [inf]  Requirement already satisfied: smithy-aws-event-stream~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:23.829004186Z [inf]  Requirement already satisfied: smithy-json~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:23.834788505Z [inf]  Requirement already satisfied: awscrt>=0.23.10 in /usr/local/lib/python3.12/site-packages (from smithy-http[awscrt]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.28.4)
-2025-11-11T16:12:23.836008525Z [inf]  Requirement already satisfied: ijson>=3.3.0 in /usr/local/lib/python3.12/site-packages (from smithy-json~=0.1.0->smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (3.4.0.post0)
-2025-11-11T16:12:23.852428766Z [inf]  Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.12/site-packages (from Jinja2>=3.1.2->flask==3.0.3->-r requirements.txt (line 3)) (3.0.3)
-2025-11-11T16:12:23.854778024Z [inf]  Requirement already satisfied: wsproto in /usr/local/lib/python3.12/site-packages (from simple-websocket>=0.10.0->python-engineio==4.9.0->-r requirements.txt (line 5)) (1.2.0)
-2025-11-11T16:12:23.860777051Z [inf]  Requirement already satisfied: h11<1,>=0.9.0 in /usr/local/lib/python3.12/site-packages (from wsproto->simple-websocket>=0.10.0->python-engineio==4.9.0->-r requirements.txt (line 5)) (0.16.0)
-2025-11-11T16:12:23.877897550Z [err]  WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-2025-11-11T16:12:24.586473562Z [err]  [2025-11-11 16:12:24 +0000] [1] [INFO] Starting gunicorn 21.2.0
-2025-11-11T16:12:24.586479917Z [err]  [2025-11-11 16:12:24 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
-2025-11-11T16:12:24.586486140Z [err]  [2025-11-11 16:12:24 +0000] [1] [INFO] Using worker: eventlet
-2025-11-11T16:12:24.586492118Z [err]  [2025-11-11 16:12:24 +0000] [10] [INFO] Booting worker with pid: 10
-2025-11-11T16:12:24.674086543Z [err]  [2025-11-11 16:12:24 +0000] [10] [ERROR] Exception in worker process
-2025-11-11T16:12:24.674098718Z [err]  Traceback (most recent call last):
-2025-11-11T16:12:24.674107505Z [err]    File "/app/nova_sonic_es_sd.py", line 16, in <module>
-2025-11-11T16:12:24.674116525Z [err]      from rx.subject import Subject
-2025-11-11T16:12:24.674123672Z [err]  ModuleNotFoundError: No module named 'rx'
-2025-11-11T16:12:24.674131012Z [err]  
-2025-11-11T16:12:24.674137493Z [err]  During handling of the above exception, another exception occurred:
-2025-11-11T16:12:24.674143607Z [err]  
-2025-11-11T16:12:24.674151346Z [err]  Traceback (most recent call last):
-2025-11-11T16:12:24.674159271Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
-2025-11-11T16:12:24.674166367Z [err]      worker.init_process()
-2025-11-11T16:12:24.674173366Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 143, in init_process
-2025-11-11T16:12:24.674180208Z [err]      super().init_process()
-2025-11-11T16:12:24.674186827Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 134, in init_process
-2025-11-11T16:12:24.674193396Z [err]      self.load_wsgi()
-2025-11-11T16:12:24.674199821Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
-2025-11-11T16:12:24.674206396Z [err]      self.wsgi = self.app.wsgi()
-2025-11-11T16:12:24.674212790Z [err]                  ^^^^^^^^^^^^^^^
-2025-11-11T16:12:24.674220110Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 67, in wsgi
-2025-11-11T16:12:24.674227076Z [err]      self.callable = self.load()
-2025-11-11T16:12:24.674233473Z [err]                      ^^^^^^^^^^^
-2025-11-11T16:12:24.674240703Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
-2025-11-11T16:12:24.675284639Z [err]      return self.load_wsgiapp()
-2025-11-11T16:12:24.675299758Z [err]             ^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:24.675309023Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
-2025-11-11T16:12:24.675317229Z [err]      return util.import_app(self.app_uri)
-2025-11-11T16:12:24.675326753Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:24.675334631Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 371, in import_app
-2025-11-11T16:12:24.675342585Z [err]      mod = importlib.import_module(module)
-2025-11-11T16:12:24.675350037Z [err]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:24.675356875Z [err]    File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
-2025-11-11T16:12:24.675364243Z [err]      return _bootstrap._gcd_import(name[level:], package, level)
-2025-11-11T16:12:24.675522040Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:24.675529052Z [err]    File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
-2025-11-11T16:12:24.675535749Z [err]    File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
-2025-11-11T16:12:24.675543616Z [err]    File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
-2025-11-11T16:12:24.675549669Z [err]    File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
-2025-11-11T16:12:24.675556135Z [err]    File "<frozen importlib._bootstrap_external>", line 999, in exec_module
-2025-11-11T16:12:24.675738123Z [err]    File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
-2025-11-11T16:12:24.675748464Z [err]    File "/app/app.py", line 15, in <module>
-2025-11-11T16:12:24.675755014Z [err]      from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
-2025-11-11T16:12:24.675761963Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
-2025-11-11T16:12:24.677291437Z [err]      from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
-2025-11-11T16:12:24.677303859Z [err]    File "/app/nova_sonic_es_sd.py", line 18, in <module>
-2025-11-11T16:12:24.677313009Z [err]      raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
-2025-11-11T16:12:24.677321986Z [err]  ImportError: reactivex not installed: No module named 'rx'. Run: pip install reactivex>=4.0.0
-2025-11-11T16:12:24.677330917Z [err]  [2025-11-11 16:12:24 +0000] [10] [INFO] Worker exiting (pid: 10)
-2025-11-11T16:12:24.774802874Z [err]  [2025-11-11 16:12:24 +0000] [1] [ERROR] Worker (pid:10) exited with code 3
-2025-11-11T16:12:24.776440136Z [err]  [2025-11-11 16:12:24 +0000] [1] [ERROR] Shutting down: Master
-2025-11-11T16:12:24.776448369Z [err]  [2025-11-11 16:12:24 +0000] [1] [ERROR] Reason: Worker failed to boot.
-2025-11-11T16:12:26.101712675Z [inf]  [start.sh] Using PORT=8080
-2025-11-11T16:12:26.129385869Z [inf]  [start.sh] Installing Python dependencies
-2025-11-11T16:12:26.569189016Z [inf]  Requirement already satisfied: pip in /usr/local/lib/python3.12/site-packages (25.3)
-2025-11-11T16:12:26.569194979Z [err]  WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-2025-11-11T16:12:27.082883231Z [inf]  Requirement already satisfied: aws_sdk_bedrock_runtime==0.1.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:27.082887748Z [inf]  Requirement already satisfied: reactivex==4.0.4 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 2)) (4.0.4)
-2025-11-11T16:12:27.084783264Z [inf]  Requirement already satisfied: flask==3.0.3 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 3)) (3.0.3)
-2025-11-11T16:12:27.084795699Z [inf]  Requirement already satisfied: flask-socketio==5.3.6 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 4)) (5.3.6)
-2025-11-11T16:12:27.087282135Z [inf]  Requirement already satisfied: python-engineio==4.9.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 5)) (4.9.0)
-2025-11-11T16:12:27.087293136Z [inf]  Requirement already satisfied: python-socketio==5.11.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 6)) (5.11.1)
-2025-11-11T16:12:27.087300999Z [inf]  Requirement already satisfied: PyYAML==6.0.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 7)) (6.0.1)
-2025-11-11T16:12:27.090903580Z [inf]  Requirement already satisfied: python-dotenv==1.0.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 8)) (1.0.1)
-2025-11-11T16:12:27.090914232Z [inf]  Requirement already satisfied: gunicorn==21.2.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 9)) (21.2.0)
-2025-11-11T16:12:27.090923121Z [inf]  Requirement already satisfied: eventlet==0.35.2 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 10)) (0.35.2)
-2025-11-11T16:12:27.093376805Z [inf]  Requirement already satisfied: smithy-aws-core~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:27.093386922Z [inf]  Requirement already satisfied: smithy-core~=0.1.0 in /usr/local/lib/python3.12/site-packages (from aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.1)
-2025-11-11T16:12:27.095545417Z [inf]  Requirement already satisfied: smithy-http~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-http[awscrt]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:27.097668460Z [inf]  Requirement already satisfied: typing-extensions<5.0.0,>=4.1.1 in /usr/local/lib/python3.12/site-packages (from reactivex==4.0.4->-r requirements.txt (line 2)) (4.15.0)
-2025-11-11T16:12:27.097678940Z [inf]  Requirement already satisfied: Werkzeug>=3.0.0 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (3.1.3)
-2025-11-11T16:12:27.100192542Z [inf]  Requirement already satisfied: Jinja2>=3.1.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (3.1.6)
-2025-11-11T16:12:27.100203798Z [inf]  Requirement already satisfied: itsdangerous>=2.1.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (2.2.0)
-2025-11-11T16:12:27.101391869Z [inf]  Requirement already satisfied: click>=8.1.3 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (8.3.0)
-2025-11-11T16:12:27.101402198Z [inf]  Requirement already satisfied: blinker>=1.6.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (1.9.0)
-2025-11-11T16:12:27.108326538Z [inf]  Requirement already satisfied: simple-websocket>=0.10.0 in /usr/local/lib/python3.12/site-packages (from python-engineio==4.9.0->-r requirements.txt (line 5)) (1.1.0)
-2025-11-11T16:12:27.108345639Z [inf]  Requirement already satisfied: bidict>=0.21.0 in /usr/local/lib/python3.12/site-packages (from python-socketio==5.11.1->-r requirements.txt (line 6)) (0.23.1)
-2025-11-11T16:12:27.113101171Z [inf]  Requirement already satisfied: packaging in /usr/local/lib/python3.12/site-packages (from gunicorn==21.2.0->-r requirements.txt (line 9)) (25.0)
-2025-11-11T16:12:27.116156636Z [inf]  Requirement already satisfied: dnspython>=1.15.0 in /usr/local/lib/python3.12/site-packages (from eventlet==0.35.2->-r requirements.txt (line 10)) (2.8.0)
-2025-11-11T16:12:27.116168008Z [inf]  Requirement already satisfied: greenlet>=1.0 in /usr/local/lib/python3.12/site-packages (from eventlet==0.35.2->-r requirements.txt (line 10)) (3.2.4)
-2025-11-11T16:12:27.118740936Z [inf]  Requirement already satisfied: aws-sdk-signers~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core~=0.1.0->smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:27.125502792Z [inf]  Requirement already satisfied: smithy-aws-event-stream~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:27.127959377Z [inf]  Requirement already satisfied: smithy-json~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:27.136136356Z [inf]  Requirement already satisfied: awscrt>=0.23.10 in /usr/local/lib/python3.12/site-packages (from smithy-http[awscrt]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.28.4)
-2025-11-11T16:12:27.137165941Z [inf]  Requirement already satisfied: ijson>=3.3.0 in /usr/local/lib/python3.12/site-packages (from smithy-json~=0.1.0->smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (3.4.0.post0)
-2025-11-11T16:12:27.634681612Z [inf]  Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.12/site-packages (from Jinja2>=3.1.2->flask==3.0.3->-r requirements.txt (line 3)) (3.0.3)
-2025-11-11T16:12:27.634687809Z [inf]  Requirement already satisfied: wsproto in /usr/local/lib/python3.12/site-packages (from simple-websocket>=0.10.0->python-engineio==4.9.0->-r requirements.txt (line 5)) (1.2.0)
-2025-11-11T16:12:27.634693602Z [inf]  Requirement already satisfied: h11<1,>=0.9.0 in /usr/local/lib/python3.12/site-packages (from wsproto->simple-websocket>=0.10.0->python-engineio==4.9.0->-r requirements.txt (line 5)) (0.16.0)
-2025-11-11T16:12:27.634700416Z [err]  WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-2025-11-11T16:12:27.634706770Z [err]  [2025-11-11 16:12:27 +0000] [1] [INFO] Starting gunicorn 21.2.0
-2025-11-11T16:12:27.634713592Z [err]  [2025-11-11 16:12:27 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
-2025-11-11T16:12:27.634720111Z [err]  [2025-11-11 16:12:27 +0000] [1] [INFO] Using worker: eventlet
-2025-11-11T16:12:27.634725885Z [err]  [2025-11-11 16:12:27 +0000] [9] [INFO] Booting worker with pid: 9
-2025-11-11T16:12:27.835584252Z [err]  [2025-11-11 16:12:27 +0000] [9] [ERROR] Exception in worker process
-2025-11-11T16:12:27.835592695Z [err]  Traceback (most recent call last):
-2025-11-11T16:12:27.835598541Z [err]    File "/app/nova_sonic_es_sd.py", line 16, in <module>
-2025-11-11T16:12:27.835604198Z [err]      from rx.subject import Subject
-2025-11-11T16:12:27.835613294Z [err]  ModuleNotFoundError: No module named 'rx'
-2025-11-11T16:12:27.835620161Z [err]  
-2025-11-11T16:12:27.835624763Z [err]  During handling of the above exception, another exception occurred:
-2025-11-11T16:12:27.835629457Z [err]  
-2025-11-11T16:12:27.835634393Z [err]  Traceback (most recent call last):
-2025-11-11T16:12:27.835810159Z [err]      self.load_wsgi()
-2025-11-11T16:12:27.835818865Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
-2025-11-11T16:12:27.835824761Z [err]      self.wsgi = self.app.wsgi()
-2025-11-11T16:12:27.835829437Z [err]                  ^^^^^^^^^^^^^^^
-2025-11-11T16:12:27.835834615Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 67, in wsgi
-2025-11-11T16:12:27.835838674Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
-2025-11-11T16:12:27.835841102Z [err]      self.callable = self.load()
-2025-11-11T16:12:27.835848071Z [err]                      ^^^^^^^^^^^
-2025-11-11T16:12:27.835853523Z [err]      worker.init_process()
-2025-11-11T16:12:27.835853596Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
-2025-11-11T16:12:27.835863214Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 143, in init_process
-2025-11-11T16:12:27.835873956Z [err]      super().init_process()
-2025-11-11T16:12:27.835882325Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 134, in init_process
-2025-11-11T16:12:27.838091209Z [err]      return self.load_wsgiapp()
-2025-11-11T16:12:27.838103225Z [err]             ^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:27.838111899Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
-2025-11-11T16:12:27.838119309Z [err]      return util.import_app(self.app_uri)
-2025-11-11T16:12:27.838126947Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:27.838134245Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 371, in import_app
-2025-11-11T16:12:27.838143448Z [err]      mod = importlib.import_module(module)
-2025-11-11T16:12:27.838149962Z [err]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:27.838156380Z [err]    File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
-2025-11-11T16:12:27.838163102Z [err]      return _bootstrap._gcd_import(name[level:], package, level)
-2025-11-11T16:12:27.838172790Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:27.838180331Z [err]    File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
-2025-11-11T16:12:27.838186177Z [err]    File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
-2025-11-11T16:12:27.838192583Z [err]    File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
-2025-11-11T16:12:27.838200312Z [err]    File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
-2025-11-11T16:12:27.838207406Z [err]    File "<frozen importlib._bootstrap_external>", line 999, in exec_module
-2025-11-11T16:12:27.838214673Z [err]    File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
-2025-11-11T16:12:27.838221268Z [err]    File "/app/app.py", line 15, in <module>
-2025-11-11T16:12:27.838227680Z [err]      from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
-2025-11-11T16:12:27.838233923Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
-2025-11-11T16:12:27.838834594Z [err]      from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
-2025-11-11T16:12:27.838843400Z [err]    File "/app/nova_sonic_es_sd.py", line 18, in <module>
-2025-11-11T16:12:27.838953246Z [err]      raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
-2025-11-11T16:12:27.838962313Z [err]  ImportError: reactivex not installed: No module named 'rx'. Run: pip install reactivex>=4.0.0
-2025-11-11T16:12:27.838967672Z [err]  [2025-11-11 16:12:27 +0000] [9] [INFO] Worker exiting (pid: 9)
-2025-11-11T16:12:27.965881947Z [err]  [2025-11-11 16:12:27 +0000] [1] [ERROR] Worker (pid:9) exited with code 3
-2025-11-11T16:12:27.965888308Z [err]  [2025-11-11 16:12:27 +0000] [1] [ERROR] Shutting down: Master
-2025-11-11T16:12:27.966520246Z [err]  [2025-11-11 16:12:27 +0000] [1] [ERROR] Reason: Worker failed to boot.
-2025-11-11T16:12:29.127225080Z [inf]  [start.sh] Using PORT=8080
-2025-11-11T16:12:29.655305363Z [inf]  [start.sh] Installing Python dependencies
-2025-11-11T16:12:29.655353194Z [inf]  Requirement already satisfied: pip in /usr/local/lib/python3.12/site-packages (25.3)
-2025-11-11T16:12:29.655359984Z [err]  WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-2025-11-11T16:12:30.617211330Z [inf]  Requirement already satisfied: aws_sdk_bedrock_runtime==0.1.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:30.617220539Z [inf]  Requirement already satisfied: reactivex==4.0.4 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 2)) (4.0.4)
-2025-11-11T16:12:30.617229071Z [inf]  Requirement already satisfied: flask==3.0.3 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 3)) (3.0.3)
-2025-11-11T16:12:30.617235635Z [inf]  Requirement already satisfied: flask-socketio==5.3.6 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 4)) (5.3.6)
-2025-11-11T16:12:30.617241361Z [inf]  Requirement already satisfied: python-engineio==4.9.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 5)) (4.9.0)
-2025-11-11T16:12:30.617249664Z [inf]  Requirement already satisfied: python-socketio==5.11.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 6)) (5.11.1)
-2025-11-11T16:12:30.617257605Z [inf]  Requirement already satisfied: PyYAML==6.0.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 7)) (6.0.1)
-2025-11-11T16:12:30.617268775Z [inf]  Requirement already satisfied: python-dotenv==1.0.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 8)) (1.0.1)
-2025-11-11T16:12:30.617278706Z [inf]  Requirement already satisfied: gunicorn==21.2.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 9)) (21.2.0)
-2025-11-11T16:12:30.617286156Z [inf]  Requirement already satisfied: eventlet==0.35.2 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 10)) (0.35.2)
-2025-11-11T16:12:30.617293500Z [inf]  Requirement already satisfied: smithy-aws-core~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:30.621852038Z [inf]  Requirement already satisfied: smithy-core~=0.1.0 in /usr/local/lib/python3.12/site-packages (from aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.1)
-2025-11-11T16:12:30.621858538Z [inf]  Requirement already satisfied: smithy-http~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-http[awscrt]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:30.621864594Z [inf]  Requirement already satisfied: typing-extensions<5.0.0,>=4.1.1 in /usr/local/lib/python3.12/site-packages (from reactivex==4.0.4->-r requirements.txt (line 2)) (4.15.0)
-2025-11-11T16:12:30.621871808Z [inf]  Requirement already satisfied: Werkzeug>=3.0.0 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (3.1.3)
-2025-11-11T16:12:30.621879330Z [inf]  Requirement already satisfied: Jinja2>=3.1.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (3.1.6)
-2025-11-11T16:12:30.621885818Z [inf]  Requirement already satisfied: itsdangerous>=2.1.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (2.2.0)
-2025-11-11T16:12:30.621892521Z [inf]  Requirement already satisfied: click>=8.1.3 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (8.3.0)
-2025-11-11T16:12:30.621899794Z [inf]  Requirement already satisfied: blinker>=1.6.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (1.9.0)
-2025-11-11T16:12:30.621906692Z [inf]  Requirement already satisfied: simple-websocket>=0.10.0 in /usr/local/lib/python3.12/site-packages (from python-engineio==4.9.0->-r requirements.txt (line 5)) (1.1.0)
-2025-11-11T16:12:30.621913966Z [inf]  Requirement already satisfied: bidict>=0.21.0 in /usr/local/lib/python3.12/site-packages (from python-socketio==5.11.1->-r requirements.txt (line 6)) (0.23.1)
-2025-11-11T16:12:30.621920549Z [inf]  Requirement already satisfied: packaging in /usr/local/lib/python3.12/site-packages (from gunicorn==21.2.0->-r requirements.txt (line 9)) (25.0)
-2025-11-11T16:12:30.622001625Z [inf]  Requirement already satisfied: dnspython>=1.15.0 in /usr/local/lib/python3.12/site-packages (from eventlet==0.35.2->-r requirements.txt (line 10)) (2.8.0)
-2025-11-11T16:12:30.622009832Z [inf]  Requirement already satisfied: greenlet>=1.0 in /usr/local/lib/python3.12/site-packages (from eventlet==0.35.2->-r requirements.txt (line 10)) (3.2.4)
-2025-11-11T16:12:30.622015272Z [inf]  Requirement already satisfied: aws-sdk-signers~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core~=0.1.0->smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:30.622023873Z [inf]  Requirement already satisfied: smithy-aws-event-stream~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:30.622029245Z [inf]  Requirement already satisfied: smithy-json~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:30.622034374Z [inf]  Requirement already satisfied: awscrt>=0.23.10 in /usr/local/lib/python3.12/site-packages (from smithy-http[awscrt]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.28.4)
-2025-11-11T16:12:30.622039677Z [inf]  Requirement already satisfied: ijson>=3.3.0 in /usr/local/lib/python3.12/site-packages (from smithy-json~=0.1.0->smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (3.4.0.post0)
-2025-11-11T16:12:30.622044676Z [inf]  Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.12/site-packages (from Jinja2>=3.1.2->flask==3.0.3->-r requirements.txt (line 3)) (3.0.3)
-2025-11-11T16:12:30.622049003Z [inf]  Requirement already satisfied: wsproto in /usr/local/lib/python3.12/site-packages (from simple-websocket>=0.10.0->python-engineio==4.9.0->-r requirements.txt (line 5)) (1.2.0)
-2025-11-11T16:12:30.623934225Z [inf]  Requirement already satisfied: h11<1,>=0.9.0 in /usr/local/lib/python3.12/site-packages (from wsproto->simple-websocket>=0.10.0->python-engineio==4.9.0->-r requirements.txt (line 5)) (0.16.0)
-2025-11-11T16:12:30.623943109Z [err]  WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-2025-11-11T16:12:30.668580554Z [err]  [2025-11-11 16:12:30 +0000] [1] [INFO] Starting gunicorn 21.2.0
-2025-11-11T16:12:30.668588370Z [err]  [2025-11-11 16:12:30 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
-2025-11-11T16:12:30.668595349Z [err]  [2025-11-11 16:12:30 +0000] [1] [INFO] Using worker: eventlet
-2025-11-11T16:12:30.674765137Z [err]  [2025-11-11 16:12:30 +0000] [9] [INFO] Booting worker with pid: 9
-2025-11-11T16:12:30.935361005Z [err]  [2025-11-11 16:12:30 +0000] [9] [ERROR] Exception in worker process
-2025-11-11T16:12:30.935373551Z [err]  Traceback (most recent call last):
-2025-11-11T16:12:30.935381213Z [err]    File "/app/nova_sonic_es_sd.py", line 16, in <module>
-2025-11-11T16:12:30.935388565Z [err]      from rx.subject import Subject
-2025-11-11T16:12:30.935397216Z [err]  ModuleNotFoundError: No module named 'rx'
-2025-11-11T16:12:30.935406347Z [err]  
-2025-11-11T16:12:30.935414320Z [err]  During handling of the above exception, another exception occurred:
-2025-11-11T16:12:30.935420338Z [err]  
-2025-11-11T16:12:30.935426909Z [err]  Traceback (most recent call last):
-2025-11-11T16:12:30.935434497Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
-2025-11-11T16:12:30.935441812Z [err]      worker.init_process()
-2025-11-11T16:12:30.935448489Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 143, in init_process
-2025-11-11T16:12:30.935455739Z [err]      super().init_process()
-2025-11-11T16:12:30.935464309Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 134, in init_process
-2025-11-11T16:12:30.935471383Z [err]      self.load_wsgi()
-2025-11-11T16:12:30.935479332Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
-2025-11-11T16:12:30.935527933Z [err]      self.wsgi = self.app.wsgi()
-2025-11-11T16:12:30.935534910Z [err]                  ^^^^^^^^^^^^^^^
-2025-11-11T16:12:30.935542008Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 67, in wsgi
-2025-11-11T16:12:30.935549502Z [err]      self.callable = self.load()
-2025-11-11T16:12:30.935556507Z [err]                      ^^^^^^^^^^^
-2025-11-11T16:12:30.935565179Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
-2025-11-11T16:12:30.937113830Z [err]      return self.load_wsgiapp()
-2025-11-11T16:12:30.937123997Z [err]             ^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:30.937132378Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
-2025-11-11T16:12:30.937139265Z [err]      return util.import_app(self.app_uri)
-2025-11-11T16:12:30.937151567Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:30.937158852Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 371, in import_app
-2025-11-11T16:12:30.937166259Z [err]      mod = importlib.import_module(module)
-2025-11-11T16:12:30.937173728Z [err]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:30.937181018Z [err]    File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
-2025-11-11T16:12:30.937188344Z [err]      return _bootstrap._gcd_import(name[level:], package, level)
-2025-11-11T16:12:30.937195278Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:30.937202465Z [err]    File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
-2025-11-11T16:12:30.937209585Z [err]    File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
-2025-11-11T16:12:30.937216257Z [err]    File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
-2025-11-11T16:12:30.937221970Z [err]    File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
-2025-11-11T16:12:30.937227947Z [err]    File "<frozen importlib._bootstrap_external>", line 999, in exec_module
-2025-11-11T16:12:30.937233556Z [err]    File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
-2025-11-11T16:12:30.937238687Z [err]    File "/app/app.py", line 15, in <module>
-2025-11-11T16:12:30.937243850Z [err]      from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
-2025-11-11T16:12:30.937249148Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
-2025-11-11T16:12:30.937804741Z [err]  ImportError: reactivex not installed: No module named 'rx'. Run: pip install reactivex>=4.0.0
-2025-11-11T16:12:30.937817550Z [err]  [2025-11-11 16:12:30 +0000] [9] [INFO] Worker exiting (pid: 9)
-2025-11-11T16:12:30.937818510Z [err]      from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
-2025-11-11T16:12:30.937830424Z [err]    File "/app/nova_sonic_es_sd.py", line 18, in <module>
-2025-11-11T16:12:30.937837507Z [err]      raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
-2025-11-11T16:12:31.051556818Z [err]  [2025-11-11 16:12:31 +0000] [1] [ERROR] Worker (pid:9) exited with code 3
-2025-11-11T16:12:31.051566834Z [err]  [2025-11-11 16:12:31 +0000] [1] [ERROR] Shutting down: Master
-2025-11-11T16:12:31.051575104Z [err]  [2025-11-11 16:12:31 +0000] [1] [ERROR] Reason: Worker failed to boot.
-2025-11-11T16:12:32.676413962Z [inf]  [start.sh] Using PORT=8080
-2025-11-11T16:12:32.676419889Z [inf]  [start.sh] Installing Python dependencies
-2025-11-11T16:12:32.804926123Z [inf]  Requirement already satisfied: pip in /usr/local/lib/python3.12/site-packages (25.3)
-2025-11-11T16:12:32.888400271Z [err]  WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-2025-11-11T16:12:33.592033692Z [inf]  Requirement already satisfied: PyYAML==6.0.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 7)) (6.0.1)
-2025-11-11T16:12:33.592063474Z [inf]  Requirement already satisfied: gunicorn==21.2.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 9)) (21.2.0)
-2025-11-11T16:12:33.592071366Z [inf]  Requirement already satisfied: eventlet==0.35.2 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 10)) (0.35.2)
-2025-11-11T16:12:33.592077749Z [inf]  Requirement already satisfied: smithy-aws-core~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:33.592437585Z [inf]  Requirement already satisfied: python-dotenv==1.0.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 8)) (1.0.1)
-2025-11-11T16:12:33.592683104Z [inf]  Requirement already satisfied: aws_sdk_bedrock_runtime==0.1.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:33.592689099Z [inf]  Requirement already satisfied: reactivex==4.0.4 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 2)) (4.0.4)
-2025-11-11T16:12:33.592695402Z [inf]  Requirement already satisfied: flask==3.0.3 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 3)) (3.0.3)
-2025-11-11T16:12:33.592701815Z [inf]  Requirement already satisfied: flask-socketio==5.3.6 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 4)) (5.3.6)
-2025-11-11T16:12:33.592713975Z [inf]  Requirement already satisfied: python-engineio==4.9.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 5)) (4.9.0)
-2025-11-11T16:12:33.592720517Z [inf]  Requirement already satisfied: python-socketio==5.11.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 6)) (5.11.1)
-2025-11-11T16:12:33.595995302Z [inf]  Requirement already satisfied: simple-websocket>=0.10.0 in /usr/local/lib/python3.12/site-packages (from python-engineio==4.9.0->-r requirements.txt (line 5)) (1.1.0)
-2025-11-11T16:12:33.595996873Z [inf]  Requirement already satisfied: click>=8.1.3 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (8.3.0)
-2025-11-11T16:12:33.596002433Z [inf]  Requirement already satisfied: bidict>=0.21.0 in /usr/local/lib/python3.12/site-packages (from python-socketio==5.11.1->-r requirements.txt (line 6)) (0.23.1)
-2025-11-11T16:12:33.596005685Z [inf]  Requirement already satisfied: blinker>=1.6.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (1.9.0)
-2025-11-11T16:12:33.596018511Z [inf]  Requirement already satisfied: packaging in /usr/local/lib/python3.12/site-packages (from gunicorn==21.2.0->-r requirements.txt (line 9)) (25.0)
-2025-11-11T16:12:33.596020685Z [inf]  Requirement already satisfied: Jinja2>=3.1.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (3.1.6)
-2025-11-11T16:12:33.596035563Z [inf]  Requirement already satisfied: itsdangerous>=2.1.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (2.2.0)
-2025-11-11T16:12:33.596097942Z [inf]  Requirement already satisfied: smithy-http~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-http[awscrt]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:33.596105621Z [inf]  Requirement already satisfied: smithy-core~=0.1.0 in /usr/local/lib/python3.12/site-packages (from aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.1)
-2025-11-11T16:12:33.596107934Z [inf]  Requirement already satisfied: typing-extensions<5.0.0,>=4.1.1 in /usr/local/lib/python3.12/site-packages (from reactivex==4.0.4->-r requirements.txt (line 2)) (4.15.0)
-2025-11-11T16:12:33.596114932Z [inf]  Requirement already satisfied: Werkzeug>=3.0.0 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (3.1.3)
-2025-11-11T16:12:33.598286985Z [inf]  Requirement already satisfied: h11<1,>=0.9.0 in /usr/local/lib/python3.12/site-packages (from wsproto->simple-websocket>=0.10.0->python-engineio==4.9.0->-r requirements.txt (line 5)) (0.16.0)
-2025-11-11T16:12:33.598293784Z [err]  WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-2025-11-11T16:12:33.598317705Z [inf]  Requirement already satisfied: dnspython>=1.15.0 in /usr/local/lib/python3.12/site-packages (from eventlet==0.35.2->-r requirements.txt (line 10)) (2.8.0)
-2025-11-11T16:12:33.598324407Z [inf]  Requirement already satisfied: greenlet>=1.0 in /usr/local/lib/python3.12/site-packages (from eventlet==0.35.2->-r requirements.txt (line 10)) (3.2.4)
-2025-11-11T16:12:33.598331056Z [inf]  Requirement already satisfied: aws-sdk-signers~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core~=0.1.0->smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:33.598336896Z [inf]  Requirement already satisfied: smithy-aws-event-stream~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:33.598342768Z [inf]  Requirement already satisfied: smithy-json~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:33.598349550Z [inf]  Requirement already satisfied: awscrt>=0.23.10 in /usr/local/lib/python3.12/site-packages (from smithy-http[awscrt]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.28.4)
-2025-11-11T16:12:33.598356289Z [inf]  Requirement already satisfied: ijson>=3.3.0 in /usr/local/lib/python3.12/site-packages (from smithy-json~=0.1.0->smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (3.4.0.post0)
-2025-11-11T16:12:33.598362446Z [inf]  Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.12/site-packages (from Jinja2>=3.1.2->flask==3.0.3->-r requirements.txt (line 3)) (3.0.3)
-2025-11-11T16:12:33.598368621Z [inf]  Requirement already satisfied: wsproto in /usr/local/lib/python3.12/site-packages (from simple-websocket>=0.10.0->python-engineio==4.9.0->-r requirements.txt (line 5)) (1.2.0)
-2025-11-11T16:12:33.735134718Z [err]  [2025-11-11 16:12:33 +0000] [1] [INFO] Starting gunicorn 21.2.0
-2025-11-11T16:12:33.735142619Z [err]  [2025-11-11 16:12:33 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
-2025-11-11T16:12:33.735148272Z [err]  [2025-11-11 16:12:33 +0000] [1] [INFO] Using worker: eventlet
-2025-11-11T16:12:33.738722866Z [err]  [2025-11-11 16:12:33 +0000] [9] [INFO] Booting worker with pid: 9
-2025-11-11T16:12:33.957925639Z [err]  [2025-11-11 16:12:33 +0000] [9] [ERROR] Exception in worker process
-2025-11-11T16:12:33.957936040Z [err]  Traceback (most recent call last):
-2025-11-11T16:12:33.957943917Z [err]    File "/app/nova_sonic_es_sd.py", line 16, in <module>
-2025-11-11T16:12:33.957950854Z [err]      from rx.subject import Subject
-2025-11-11T16:12:33.957957758Z [err]  ModuleNotFoundError: No module named 'rx'
-2025-11-11T16:12:33.957964947Z [err]  
-2025-11-11T16:12:33.957973451Z [err]  During handling of the above exception, another exception occurred:
-2025-11-11T16:12:33.957979687Z [err]  
-2025-11-11T16:12:33.957986339Z [err]  Traceback (most recent call last):
-2025-11-11T16:12:33.957996067Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
-2025-11-11T16:12:33.958004833Z [err]      worker.init_process()
-2025-11-11T16:12:33.958010828Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 143, in init_process
-2025-11-11T16:12:33.958016900Z [err]      super().init_process()
-2025-11-11T16:12:33.958025904Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 134, in init_process
-2025-11-11T16:12:33.958033171Z [err]      self.load_wsgi()
-2025-11-11T16:12:33.958039887Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
-2025-11-11T16:12:33.958045730Z [err]      self.wsgi = self.app.wsgi()
-2025-11-11T16:12:33.958052509Z [err]                  ^^^^^^^^^^^^^^^
-2025-11-11T16:12:33.958058503Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 67, in wsgi
-2025-11-11T16:12:33.958066280Z [err]      self.callable = self.load()
-2025-11-11T16:12:33.958075236Z [err]                      ^^^^^^^^^^^
-2025-11-11T16:12:33.958081874Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
-2025-11-11T16:12:33.958635122Z [err]      return self.load_wsgiapp()
-2025-11-11T16:12:33.958640252Z [err]             ^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:33.958645008Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
-2025-11-11T16:12:33.958649887Z [err]      return util.import_app(self.app_uri)
-2025-11-11T16:12:33.958654887Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:33.958659296Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 371, in import_app
-2025-11-11T16:12:33.958664750Z [err]      mod = importlib.import_module(module)
-2025-11-11T16:12:33.958669139Z [err]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:33.958673766Z [err]    File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
-2025-11-11T16:12:33.958678511Z [err]      return _bootstrap._gcd_import(name[level:], package, level)
-2025-11-11T16:12:33.958682789Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:33.958687760Z [err]    File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
-2025-11-11T16:12:33.958693526Z [err]    File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
-2025-11-11T16:12:33.958698233Z [err]    File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
-2025-11-11T16:12:33.958703297Z [err]    File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
-2025-11-11T16:12:33.958707847Z [err]    File "<frozen importlib._bootstrap_external>", line 999, in exec_module
-2025-11-11T16:12:33.958712907Z [err]    File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
-2025-11-11T16:12:33.958718173Z [err]    File "/app/app.py", line 15, in <module>
-2025-11-11T16:12:33.958722878Z [err]      from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
-2025-11-11T16:12:33.958727068Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
-2025-11-11T16:12:33.961023617Z [err]      from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
-2025-11-11T16:12:33.961032715Z [err]    File "/app/nova_sonic_es_sd.py", line 18, in <module>
-2025-11-11T16:12:33.961039510Z [err]      raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
-2025-11-11T16:12:33.961046089Z [err]  ImportError: reactivex not installed: No module named 'rx'. Run: pip install reactivex>=4.0.0
-2025-11-11T16:12:33.961051747Z [err]  [2025-11-11 16:12:33 +0000] [9] [INFO] Worker exiting (pid: 9)
-2025-11-11T16:12:34.082068681Z [err]  [2025-11-11 16:12:34 +0000] [1] [ERROR] Worker (pid:9) exited with code 3
-2025-11-11T16:12:34.082078778Z [err]  [2025-11-11 16:12:34 +0000] [1] [ERROR] Shutting down: Master
-2025-11-11T16:12:34.082086633Z [err]  [2025-11-11 16:12:34 +0000] [1] [ERROR] Reason: Worker failed to boot.
-2025-11-11T16:12:35.654799146Z [inf]  [start.sh] Using PORT=8080
-2025-11-11T16:12:35.654805800Z [inf]  Requirement already satisfied: pip in /usr/local/lib/python3.12/site-packages (25.3)
-2025-11-11T16:12:35.654808948Z [inf]  [start.sh] Installing Python dependencies
-2025-11-11T16:12:35.654814487Z [err]  WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-2025-11-11T16:12:36.089133252Z [inf]  Requirement already satisfied: aws_sdk_bedrock_runtime==0.1.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:36.089147579Z [inf]  Requirement already satisfied: reactivex==4.0.4 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 2)) (4.0.4)
-2025-11-11T16:12:36.089155858Z [inf]  Requirement already satisfied: flask==3.0.3 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 3)) (3.0.3)
-2025-11-11T16:12:36.089164632Z [inf]  Requirement already satisfied: flask-socketio==5.3.6 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 4)) (5.3.6)
-2025-11-11T16:12:36.089173715Z [inf]  Requirement already satisfied: python-engineio==4.9.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 5)) (4.9.0)
-2025-11-11T16:12:36.093247042Z [inf]  Requirement already satisfied: python-socketio==5.11.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 6)) (5.11.1)
-2025-11-11T16:12:36.093259079Z [inf]  Requirement already satisfied: PyYAML==6.0.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 7)) (6.0.1)
-2025-11-11T16:12:36.093265433Z [inf]  Requirement already satisfied: python-dotenv==1.0.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 8)) (1.0.1)
-2025-11-11T16:12:36.093270565Z [inf]  Requirement already satisfied: gunicorn==21.2.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 9)) (21.2.0)
-2025-11-11T16:12:36.093275176Z [inf]  Requirement already satisfied: eventlet==0.35.2 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 10)) (0.35.2)
-2025-11-11T16:12:36.093280718Z [inf]  Requirement already satisfied: smithy-aws-core~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:36.095351767Z [inf]  Requirement already satisfied: smithy-core~=0.1.0 in /usr/local/lib/python3.12/site-packages (from aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.1)
-2025-11-11T16:12:36.095358591Z [inf]  Requirement already satisfied: smithy-http~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-http[awscrt]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:36.097454670Z [inf]  Requirement already satisfied: typing-extensions<5.0.0,>=4.1.1 in /usr/local/lib/python3.12/site-packages (from reactivex==4.0.4->-r requirements.txt (line 2)) (4.15.0)
-2025-11-11T16:12:36.102911924Z [inf]  Requirement already satisfied: Werkzeug>=3.0.0 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (3.1.3)
-2025-11-11T16:12:36.102919834Z [inf]  Requirement already satisfied: Jinja2>=3.1.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (3.1.6)
-2025-11-11T16:12:36.102927970Z [inf]  Requirement already satisfied: itsdangerous>=2.1.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (2.2.0)
-2025-11-11T16:12:36.102936621Z [inf]  Requirement already satisfied: click>=8.1.3 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (8.3.0)
-2025-11-11T16:12:36.106344857Z [inf]  Requirement already satisfied: blinker>=1.6.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (1.9.0)
-2025-11-11T16:12:36.106376721Z [inf]  Requirement already satisfied: simple-websocket>=0.10.0 in /usr/local/lib/python3.12/site-packages (from python-engineio==4.9.0->-r requirements.txt (line 5)) (1.1.0)
-2025-11-11T16:12:36.106387083Z [inf]  Requirement already satisfied: bidict>=0.21.0 in /usr/local/lib/python3.12/site-packages (from python-socketio==5.11.1->-r requirements.txt (line 6)) (0.23.1)
-2025-11-11T16:12:36.111785340Z [inf]  Requirement already satisfied: packaging in /usr/local/lib/python3.12/site-packages (from gunicorn==21.2.0->-r requirements.txt (line 9)) (25.0)
-2025-11-11T16:12:36.115203464Z [inf]  Requirement already satisfied: dnspython>=1.15.0 in /usr/local/lib/python3.12/site-packages (from eventlet==0.35.2->-r requirements.txt (line 10)) (2.8.0)
-2025-11-11T16:12:36.115217499Z [inf]  Requirement already satisfied: greenlet>=1.0 in /usr/local/lib/python3.12/site-packages (from eventlet==0.35.2->-r requirements.txt (line 10)) (3.2.4)
-2025-11-11T16:12:36.119725227Z [inf]  Requirement already satisfied: aws-sdk-signers~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core~=0.1.0->smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:36.119739593Z [inf]  Requirement already satisfied: smithy-aws-event-stream~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:36.121961699Z [inf]  Requirement already satisfied: smithy-json~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:36.128498008Z [inf]  Requirement already satisfied: awscrt>=0.23.10 in /usr/local/lib/python3.12/site-packages (from smithy-http[awscrt]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.28.4)
-2025-11-11T16:12:36.130146025Z [inf]  Requirement already satisfied: ijson>=3.3.0 in /usr/local/lib/python3.12/site-packages (from smithy-json~=0.1.0->smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (3.4.0.post0)
-2025-11-11T16:12:36.622410483Z [err]  WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-2025-11-11T16:12:36.622418273Z [err]  [2025-11-11 16:12:36 +0000] [1] [INFO] Starting gunicorn 21.2.0
-2025-11-11T16:12:36.622424101Z [err]  [2025-11-11 16:12:36 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
-2025-11-11T16:12:36.622429935Z [err]  [2025-11-11 16:12:36 +0000] [1] [INFO] Using worker: eventlet
-2025-11-11T16:12:36.622442777Z [err]  [2025-11-11 16:12:36 +0000] [9] [INFO] Booting worker with pid: 9
-2025-11-11T16:12:36.622464049Z [inf]  Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.12/site-packages (from Jinja2>=3.1.2->flask==3.0.3->-r requirements.txt (line 3)) (3.0.3)
-2025-11-11T16:12:36.622484063Z [inf]  Requirement already satisfied: wsproto in /usr/local/lib/python3.12/site-packages (from simple-websocket>=0.10.0->python-engineio==4.9.0->-r requirements.txt (line 5)) (1.2.0)
-2025-11-11T16:12:36.622498788Z [inf]  Requirement already satisfied: h11<1,>=0.9.0 in /usr/local/lib/python3.12/site-packages (from wsproto->simple-websocket>=0.10.0->python-engineio==4.9.0->-r requirements.txt (line 5)) (0.16.0)
-2025-11-11T16:12:36.853953106Z [err]  [2025-11-11 16:12:36 +0000] [9] [ERROR] Exception in worker process
-2025-11-11T16:12:36.853960962Z [err]      self.wsgi = self.app.wsgi()
-2025-11-11T16:12:36.853972825Z [err]  Traceback (most recent call last):
-2025-11-11T16:12:36.853973055Z [err]  Traceback (most recent call last):
-2025-11-11T16:12:36.853976705Z [err]                  ^^^^^^^^^^^^^^^
-2025-11-11T16:12:36.853984811Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 67, in wsgi
-2025-11-11T16:12:36.853990391Z [err]    File "/app/nova_sonic_es_sd.py", line 16, in <module>
-2025-11-11T16:12:36.853993921Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
-2025-11-11T16:12:36.853995199Z [err]      self.callable = self.load()
-2025-11-11T16:12:36.854001561Z [err]      from rx.subject import Subject
-2025-11-11T16:12:36.854004988Z [err]      worker.init_process()
-2025-11-11T16:12:36.854006668Z [err]                      ^^^^^^^^^^^
-2025-11-11T16:12:36.854012297Z [err]  ModuleNotFoundError: No module named 'rx'
-2025-11-11T16:12:36.854017540Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 143, in init_process
-2025-11-11T16:12:36.854018107Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
-2025-11-11T16:12:36.854025371Z [err]  
-2025-11-11T16:12:36.854030392Z [err]      super().init_process()
-2025-11-11T16:12:36.854033477Z [err]  During handling of the above exception, another exception occurred:
-2025-11-11T16:12:36.854036798Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 134, in init_process
-2025-11-11T16:12:36.854040723Z [err]  
-2025-11-11T16:12:36.854042958Z [err]      self.load_wsgi()
-2025-11-11T16:12:36.854049142Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
-2025-11-11T16:12:36.856129378Z [err]      return self.load_wsgiapp()
-2025-11-11T16:12:36.856143365Z [err]             ^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:36.856150051Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
-2025-11-11T16:12:36.856160029Z [err]      return util.import_app(self.app_uri)
-2025-11-11T16:12:36.856167803Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:36.856174169Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 371, in import_app
-2025-11-11T16:12:36.856180442Z [err]      mod = importlib.import_module(module)
-2025-11-11T16:12:36.856186823Z [err]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:36.856193216Z [err]    File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
-2025-11-11T16:12:36.856199266Z [err]      return _bootstrap._gcd_import(name[level:], package, level)
-2025-11-11T16:12:36.856206505Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:36.856212393Z [err]    File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
-2025-11-11T16:12:36.856216988Z [err]    File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
-2025-11-11T16:12:36.856223629Z [err]    File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
-2025-11-11T16:12:36.856229603Z [err]    File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
-2025-11-11T16:12:36.856238018Z [err]    File "<frozen importlib._bootstrap_external>", line 999, in exec_module
-2025-11-11T16:12:36.856246745Z [err]    File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
-2025-11-11T16:12:36.856254542Z [err]    File "/app/app.py", line 15, in <module>
-2025-11-11T16:12:36.856262860Z [err]      from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
-2025-11-11T16:12:36.856270551Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
-2025-11-11T16:12:36.857928896Z [err]      from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
-2025-11-11T16:12:36.857935601Z [err]    File "/app/nova_sonic_es_sd.py", line 18, in <module>
-2025-11-11T16:12:36.857944785Z [err]      raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
-2025-11-11T16:12:36.857951344Z [err]  ImportError: reactivex not installed: No module named 'rx'. Run: pip install reactivex>=4.0.0
-2025-11-11T16:12:36.857956541Z [err]  [2025-11-11 16:12:36 +0000] [9] [INFO] Worker exiting (pid: 9)
-2025-11-11T16:12:36.969705207Z [err]  [2025-11-11 16:12:36 +0000] [1] [ERROR] Reason: Worker failed to boot.
-2025-11-11T16:12:36.969735966Z [err]  [2025-11-11 16:12:36 +0000] [1] [ERROR] Worker (pid:9) exited with code 3
-2025-11-11T16:12:36.969746555Z [err]  [2025-11-11 16:12:36 +0000] [1] [ERROR] Shutting down: Master
-2025-11-11T16:12:38.598853660Z [inf]  [start.sh] Using PORT=8080
-2025-11-11T16:12:38.598859155Z [inf]  [start.sh] Installing Python dependencies
-2025-11-11T16:12:38.659489703Z [inf]  Requirement already satisfied: pip in /usr/local/lib/python3.12/site-packages (25.3)
-2025-11-11T16:12:38.766415043Z [err]  WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-2025-11-11T16:12:39.588806718Z [inf]  Requirement already satisfied: aws_sdk_bedrock_runtime==0.1.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:39.588818806Z [inf]  Requirement already satisfied: reactivex==4.0.4 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 2)) (4.0.4)
-2025-11-11T16:12:39.588827752Z [inf]  Requirement already satisfied: flask==3.0.3 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 3)) (3.0.3)
-2025-11-11T16:12:39.588837312Z [inf]  Requirement already satisfied: flask-socketio==5.3.6 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 4)) (5.3.6)
-2025-11-11T16:12:39.588845225Z [inf]  Requirement already satisfied: python-engineio==4.9.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 5)) (4.9.0)
-2025-11-11T16:12:39.588854920Z [inf]  Requirement already satisfied: python-socketio==5.11.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 6)) (5.11.1)
-2025-11-11T16:12:39.588862580Z [inf]  Requirement already satisfied: PyYAML==6.0.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 7)) (6.0.1)
-2025-11-11T16:12:39.588870831Z [inf]  Requirement already satisfied: python-dotenv==1.0.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 8)) (1.0.1)
-2025-11-11T16:12:39.588878552Z [inf]  Requirement already satisfied: gunicorn==21.2.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 9)) (21.2.0)
-2025-11-11T16:12:39.588891729Z [inf]  Requirement already satisfied: eventlet==0.35.2 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 10)) (0.35.2)
-2025-11-11T16:12:39.588899410Z [inf]  Requirement already satisfied: smithy-aws-core~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:39.590900115Z [inf]  Requirement already satisfied: smithy-core~=0.1.0 in /usr/local/lib/python3.12/site-packages (from aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.1)
-2025-11-11T16:12:39.590907415Z [inf]  Requirement already satisfied: smithy-http~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-http[awscrt]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:39.590914879Z [inf]  Requirement already satisfied: typing-extensions<5.0.0,>=4.1.1 in /usr/local/lib/python3.12/site-packages (from reactivex==4.0.4->-r requirements.txt (line 2)) (4.15.0)
-2025-11-11T16:12:39.590922111Z [inf]  Requirement already satisfied: Werkzeug>=3.0.0 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (3.1.3)
-2025-11-11T16:12:39.590928994Z [inf]  Requirement already satisfied: Jinja2>=3.1.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (3.1.6)
-2025-11-11T16:12:39.590936476Z [inf]  Requirement already satisfied: itsdangerous>=2.1.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (2.2.0)
-2025-11-11T16:12:39.591016267Z [inf]  Requirement already satisfied: click>=8.1.3 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (8.3.0)
-2025-11-11T16:12:39.591027332Z [inf]  Requirement already satisfied: blinker>=1.6.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (1.9.0)
-2025-11-11T16:12:39.591035285Z [inf]  Requirement already satisfied: simple-websocket>=0.10.0 in /usr/local/lib/python3.12/site-packages (from python-engineio==4.9.0->-r requirements.txt (line 5)) (1.1.0)
-2025-11-11T16:12:39.591043167Z [inf]  Requirement already satisfied: bidict>=0.21.0 in /usr/local/lib/python3.12/site-packages (from python-socketio==5.11.1->-r requirements.txt (line 6)) (0.23.1)
-2025-11-11T16:12:39.591053872Z [inf]  Requirement already satisfied: packaging in /usr/local/lib/python3.12/site-packages (from gunicorn==21.2.0->-r requirements.txt (line 9)) (25.0)
-2025-11-11T16:12:39.594040219Z [inf]  Requirement already satisfied: dnspython>=1.15.0 in /usr/local/lib/python3.12/site-packages (from eventlet==0.35.2->-r requirements.txt (line 10)) (2.8.0)
-2025-11-11T16:12:39.594048371Z [inf]  Requirement already satisfied: greenlet>=1.0 in /usr/local/lib/python3.12/site-packages (from eventlet==0.35.2->-r requirements.txt (line 10)) (3.2.4)
-2025-11-11T16:12:39.594056088Z [inf]  Requirement already satisfied: aws-sdk-signers~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core~=0.1.0->smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:39.594064287Z [inf]  Requirement already satisfied: smithy-aws-event-stream~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:39.594072024Z [inf]  Requirement already satisfied: smithy-json~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:39.594079353Z [inf]  Requirement already satisfied: awscrt>=0.23.10 in /usr/local/lib/python3.12/site-packages (from smithy-http[awscrt]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.28.4)
-2025-11-11T16:12:39.594087764Z [inf]  Requirement already satisfied: ijson>=3.3.0 in /usr/local/lib/python3.12/site-packages (from smithy-json~=0.1.0->smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (3.4.0.post0)
-2025-11-11T16:12:39.594101176Z [inf]  Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.12/site-packages (from Jinja2>=3.1.2->flask==3.0.3->-r requirements.txt (line 3)) (3.0.3)
-2025-11-11T16:12:39.594108714Z [inf]  Requirement already satisfied: wsproto in /usr/local/lib/python3.12/site-packages (from simple-websocket>=0.10.0->python-engineio==4.9.0->-r requirements.txt (line 5)) (1.2.0)
-2025-11-11T16:12:39.594618780Z [inf]  Requirement already satisfied: h11<1,>=0.9.0 in /usr/local/lib/python3.12/site-packages (from wsproto->simple-websocket>=0.10.0->python-engineio==4.9.0->-r requirements.txt (line 5)) (0.16.0)
-2025-11-11T16:12:39.594625057Z [err]  WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-2025-11-11T16:12:39.751483516Z [err]  [2025-11-11 16:12:39 +0000] [1] [INFO] Starting gunicorn 21.2.0
-2025-11-11T16:12:39.751493012Z [err]  [2025-11-11 16:12:39 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
-2025-11-11T16:12:39.751499490Z [err]  [2025-11-11 16:12:39 +0000] [1] [INFO] Using worker: eventlet
-2025-11-11T16:12:39.757662103Z [err]  [2025-11-11 16:12:39 +0000] [9] [INFO] Booting worker with pid: 9
-2025-11-11T16:12:40.019606426Z [err]  [2025-11-11 16:12:40 +0000] [9] [ERROR] Exception in worker process
-2025-11-11T16:12:40.019618990Z [err]  Traceback (most recent call last):
-2025-11-11T16:12:40.019621247Z [err]  Traceback (most recent call last):
-2025-11-11T16:12:40.019626270Z [err]      self.load_wsgi()
-2025-11-11T16:12:40.019630136Z [err]    File "/app/nova_sonic_es_sd.py", line 16, in <module>
-2025-11-11T16:12:40.019633569Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
-2025-11-11T16:12:40.019639083Z [err]      from rx.subject import Subject
-2025-11-11T16:12:40.019644454Z [err]      worker.init_process()
-2025-11-11T16:12:40.019649265Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
-2025-11-11T16:12:40.019649716Z [err]  ModuleNotFoundError: No module named 'rx'
-2025-11-11T16:12:40.019655179Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 143, in init_process
-2025-11-11T16:12:40.019663249Z [err]  
-2025-11-11T16:12:40.019664553Z [err]      self.callable = self.load()
-2025-11-11T16:12:40.019668415Z [err]      super().init_process()
-2025-11-11T16:12:40.019673266Z [err]  During handling of the above exception, another exception occurred:
-2025-11-11T16:12:40.019674960Z [err]                      ^^^^^^^^^^^
-2025-11-11T16:12:40.019675722Z [err]      self.wsgi = self.app.wsgi()
-2025-11-11T16:12:40.019682058Z [err]  
-2025-11-11T16:12:40.019682484Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 134, in init_process
-2025-11-11T16:12:40.019685532Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
-2025-11-11T16:12:40.019689365Z [err]                  ^^^^^^^^^^^^^^^
-2025-11-11T16:12:40.019697199Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 67, in wsgi
-2025-11-11T16:12:40.021940296Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 371, in import_app
-2025-11-11T16:12:40.021948246Z [err]      return self.load_wsgiapp()
-2025-11-11T16:12:40.021950362Z [err]      mod = importlib.import_module(module)
-2025-11-11T16:12:40.021951350Z [err]    File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
-2025-11-11T16:12:40.021957786Z [err]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:40.021959845Z [err]    File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
-2025-11-11T16:12:40.021961852Z [err]             ^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:40.021965957Z [err]    File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
-2025-11-11T16:12:40.021966942Z [err]    File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
-2025-11-11T16:12:40.021972500Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
-2025-11-11T16:12:40.021976088Z [err]    File "<frozen importlib._bootstrap_external>", line 999, in exec_module
-2025-11-11T16:12:40.021976384Z [err]      return _bootstrap._gcd_import(name[level:], package, level)
-2025-11-11T16:12:40.021980613Z [err]      return util.import_app(self.app_uri)
-2025-11-11T16:12:40.021986142Z [err]    File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
-2025-11-11T16:12:40.021987833Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:40.021989533Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:40.021995014Z [err]    File "/app/app.py", line 15, in <module>
-2025-11-11T16:12:40.021995223Z [err]    File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
-2025-11-11T16:12:40.022001169Z [err]      from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
-2025-11-11T16:12:40.022007547Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
-2025-11-11T16:12:40.023853671Z [err]      from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
-2025-11-11T16:12:40.023868751Z [err]    File "/app/nova_sonic_es_sd.py", line 18, in <module>
-2025-11-11T16:12:40.023877135Z [err]      raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
-2025-11-11T16:12:40.023883707Z [err]  ImportError: reactivex not installed: No module named 'rx'. Run: pip install reactivex>=4.0.0
-2025-11-11T16:12:40.023890072Z [err]  [2025-11-11 16:12:40 +0000] [9] [INFO] Worker exiting (pid: 9)
-2025-11-11T16:12:40.679866674Z [err]  [2025-11-11 16:12:40 +0000] [1] [ERROR] Worker (pid:9) exited with code 3
-2025-11-11T16:12:40.680870675Z [err]  [2025-11-11 16:12:40 +0000] [1] [ERROR] Shutting down: Master
-2025-11-11T16:12:40.680881635Z [err]  [2025-11-11 16:12:40 +0000] [1] [ERROR] Reason: Worker failed to boot.
-2025-11-11T16:12:41.631250244Z [inf]  [start.sh] Using PORT=8080
-2025-11-11T16:12:41.631256108Z [inf]  [start.sh] Installing Python dependencies
-2025-11-11T16:12:41.679333507Z [inf]  Requirement already satisfied: pip in /usr/local/lib/python3.12/site-packages (25.3)
-2025-11-11T16:12:41.770841786Z [err]  WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-2025-11-11T16:12:42.669144480Z [inf]  Requirement already satisfied: smithy-aws-core~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:42.669183447Z [inf]  Requirement already satisfied: python-socketio==5.11.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 6)) (5.11.1)
-2025-11-11T16:12:42.669197900Z [inf]  Requirement already satisfied: PyYAML==6.0.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 7)) (6.0.1)
-2025-11-11T16:12:42.669206549Z [inf]  Requirement already satisfied: python-dotenv==1.0.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 8)) (1.0.1)
-2025-11-11T16:12:42.669217656Z [inf]  Requirement already satisfied: gunicorn==21.2.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 9)) (21.2.0)
-2025-11-11T16:12:42.669232512Z [inf]  Requirement already satisfied: eventlet==0.35.2 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 10)) (0.35.2)
-2025-11-11T16:12:42.669291987Z [inf]  Requirement already satisfied: reactivex==4.0.4 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 2)) (4.0.4)
-2025-11-11T16:12:42.669302846Z [inf]  Requirement already satisfied: flask==3.0.3 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 3)) (3.0.3)
-2025-11-11T16:12:42.669312323Z [inf]  Requirement already satisfied: flask-socketio==5.3.6 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 4)) (5.3.6)
-2025-11-11T16:12:42.669320579Z [inf]  Requirement already satisfied: python-engineio==4.9.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 5)) (4.9.0)
-2025-11-11T16:12:42.669360945Z [inf]  Requirement already satisfied: aws_sdk_bedrock_runtime==0.1.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:42.678274995Z [inf]  Requirement already satisfied: dnspython>=1.15.0 in /usr/local/lib/python3.12/site-packages (from eventlet==0.35.2->-r requirements.txt (line 10)) (2.8.0)
-2025-11-11T16:12:42.678275507Z [inf]  Requirement already satisfied: greenlet>=1.0 in /usr/local/lib/python3.12/site-packages (from eventlet==0.35.2->-r requirements.txt (line 10)) (3.2.4)
-2025-11-11T16:12:42.678285982Z [inf]  Requirement already satisfied: aws-sdk-signers~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core~=0.1.0->smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:42.678313713Z [inf]  Requirement already satisfied: smithy-aws-event-stream~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:42.678318143Z [inf]  Requirement already satisfied: awscrt>=0.23.10 in /usr/local/lib/python3.12/site-packages (from smithy-http[awscrt]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.28.4)
-2025-11-11T16:12:42.678325324Z [inf]  Requirement already satisfied: smithy-json~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:42.678328561Z [inf]  Requirement already satisfied: ijson>=3.3.0 in /usr/local/lib/python3.12/site-packages (from smithy-json~=0.1.0->smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (3.4.0.post0)
-2025-11-11T16:12:42.678344785Z [inf]  Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.12/site-packages (from Jinja2>=3.1.2->flask==3.0.3->-r requirements.txt (line 3)) (3.0.3)
-2025-11-11T16:12:42.678363373Z [inf]  Requirement already satisfied: wsproto in /usr/local/lib/python3.12/site-packages (from simple-websocket>=0.10.0->python-engineio==4.9.0->-r requirements.txt (line 5)) (1.2.0)
-2025-11-11T16:12:42.678398698Z [inf]  Requirement already satisfied: smithy-core~=0.1.0 in /usr/local/lib/python3.12/site-packages (from aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.1)
-2025-11-11T16:12:42.678421443Z [inf]  Requirement already satisfied: smithy-http~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-http[awscrt]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:42.678429953Z [inf]  Requirement already satisfied: typing-extensions<5.0.0,>=4.1.1 in /usr/local/lib/python3.12/site-packages (from reactivex==4.0.4->-r requirements.txt (line 2)) (4.15.0)
-2025-11-11T16:12:42.678437580Z [inf]  Requirement already satisfied: Werkzeug>=3.0.0 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (3.1.3)
-2025-11-11T16:12:42.678446756Z [inf]  Requirement already satisfied: Jinja2>=3.1.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (3.1.6)
-2025-11-11T16:12:42.678453239Z [inf]  Requirement already satisfied: itsdangerous>=2.1.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (2.2.0)
-2025-11-11T16:12:42.678460650Z [inf]  Requirement already satisfied: click>=8.1.3 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (8.3.0)
-2025-11-11T16:12:42.678467981Z [inf]  Requirement already satisfied: blinker>=1.6.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (1.9.0)
-2025-11-11T16:12:42.678475337Z [inf]  Requirement already satisfied: simple-websocket>=0.10.0 in /usr/local/lib/python3.12/site-packages (from python-engineio==4.9.0->-r requirements.txt (line 5)) (1.1.0)
-2025-11-11T16:12:42.678483240Z [inf]  Requirement already satisfied: bidict>=0.21.0 in /usr/local/lib/python3.12/site-packages (from python-socketio==5.11.1->-r requirements.txt (line 6)) (0.23.1)
-2025-11-11T16:12:42.678489872Z [inf]  Requirement already satisfied: packaging in /usr/local/lib/python3.12/site-packages (from gunicorn==21.2.0->-r requirements.txt (line 9)) (25.0)
-2025-11-11T16:12:42.682728928Z [inf]  Requirement already satisfied: h11<1,>=0.9.0 in /usr/local/lib/python3.12/site-packages (from wsproto->simple-websocket>=0.10.0->python-engineio==4.9.0->-r requirements.txt (line 5)) (0.16.0)
-2025-11-11T16:12:42.682736128Z [err]  WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-2025-11-11T16:12:42.703842152Z [err]  [2025-11-11 16:12:42 +0000] [1] [INFO] Starting gunicorn 21.2.0
-2025-11-11T16:12:42.703851171Z [err]  [2025-11-11 16:12:42 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
-2025-11-11T16:12:42.703859056Z [err]  [2025-11-11 16:12:42 +0000] [1] [INFO] Using worker: eventlet
-2025-11-11T16:12:42.710458347Z [err]  [2025-11-11 16:12:42 +0000] [9] [INFO] Booting worker with pid: 9
-2025-11-11T16:12:42.984209115Z [err]  [2025-11-11 16:12:42 +0000] [9] [ERROR] Exception in worker process
-2025-11-11T16:12:42.984222090Z [err]  Traceback (most recent call last):
-2025-11-11T16:12:42.984230411Z [err]    File "/app/nova_sonic_es_sd.py", line 16, in <module>
-2025-11-11T16:12:42.984239340Z [err]      from rx.subject import Subject
-2025-11-11T16:12:42.984323210Z [err]  ModuleNotFoundError: No module named 'rx'
-2025-11-11T16:12:42.984334505Z [err]  
-2025-11-11T16:12:42.984340562Z [err]  During handling of the above exception, another exception occurred:
-2025-11-11T16:12:42.984346376Z [err]  
-2025-11-11T16:12:42.984352840Z [err]  Traceback (most recent call last):
-2025-11-11T16:12:42.984360017Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
-2025-11-11T16:12:42.984396289Z [err]      worker.init_process()
-2025-11-11T16:12:42.984412731Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 143, in init_process
-2025-11-11T16:12:42.984423105Z [err]      super().init_process()
-2025-11-11T16:12:42.984429457Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 134, in init_process
-2025-11-11T16:12:42.984434971Z [err]      self.load_wsgi()
-2025-11-11T16:12:42.984440647Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
-2025-11-11T16:12:42.984447139Z [err]      self.wsgi = self.app.wsgi()
-2025-11-11T16:12:42.984454028Z [err]                  ^^^^^^^^^^^^^^^
-2025-11-11T16:12:42.984460429Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 67, in wsgi
-2025-11-11T16:12:42.984466851Z [err]      self.callable = self.load()
-2025-11-11T16:12:42.984473477Z [err]                      ^^^^^^^^^^^
-2025-11-11T16:12:42.984480336Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
-2025-11-11T16:12:42.989022574Z [err]      return self.load_wsgiapp()
-2025-11-11T16:12:42.989030803Z [err]             ^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:42.989037508Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
-2025-11-11T16:12:42.989045215Z [err]      return util.import_app(self.app_uri)
-2025-11-11T16:12:42.989052121Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:42.989058278Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 371, in import_app
-2025-11-11T16:12:42.989064869Z [err]      mod = importlib.import_module(module)
-2025-11-11T16:12:42.989072367Z [err]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:42.989078393Z [err]    File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
-2025-11-11T16:12:42.989084656Z [err]      return _bootstrap._gcd_import(name[level:], package, level)
-2025-11-11T16:12:42.989093384Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:42.989099682Z [err]    File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
-2025-11-11T16:12:42.989326902Z [err]    File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
-2025-11-11T16:12:42.989339124Z [err]    File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
-2025-11-11T16:12:42.989428256Z [err]    File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
-2025-11-11T16:12:42.989433549Z [err]    File "<frozen importlib._bootstrap_external>", line 999, in exec_module
-2025-11-11T16:12:42.989445045Z [err]    File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
-2025-11-11T16:12:42.989449904Z [err]    File "/app/app.py", line 15, in <module>
-2025-11-11T16:12:42.989454039Z [err]      from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
-2025-11-11T16:12:42.989466943Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
-2025-11-11T16:12:42.990839286Z [err]      from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
-2025-11-11T16:12:42.990843904Z [err]    File "/app/nova_sonic_es_sd.py", line 18, in <module>
-2025-11-11T16:12:42.990848406Z [err]      raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
-2025-11-11T16:12:42.990853363Z [err]  ImportError: reactivex not installed: No module named 'rx'. Run: pip install reactivex>=4.0.0
-2025-11-11T16:12:42.990857686Z [err]  [2025-11-11 16:12:42 +0000] [9] [INFO] Worker exiting (pid: 9)
-2025-11-11T16:12:43.130657735Z [err]  [2025-11-11 16:12:43 +0000] [1] [ERROR] Worker (pid:9) exited with code 3
-2025-11-11T16:12:43.130662825Z [err]  [2025-11-11 16:12:43 +0000] [1] [ERROR] Shutting down: Master
-2025-11-11T16:12:43.130667199Z [err]  [2025-11-11 16:12:43 +0000] [1] [ERROR] Reason: Worker failed to boot.
-2025-11-11T16:12:44.705102256Z [inf]  [start.sh] Using PORT=8080
-2025-11-11T16:12:44.705109912Z [inf]  [start.sh] Installing Python dependencies
-2025-11-11T16:12:44.705119969Z [inf]  Requirement already satisfied: pip in /usr/local/lib/python3.12/site-packages (25.3)
-2025-11-11T16:12:44.756943763Z [err]  WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-2025-11-11T16:12:45.660145639Z [inf]  Requirement already satisfied: aws_sdk_bedrock_runtime==0.1.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:45.660152282Z [inf]  Requirement already satisfied: reactivex==4.0.4 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 2)) (4.0.4)
-2025-11-11T16:12:45.660159413Z [inf]  Requirement already satisfied: flask==3.0.3 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 3)) (3.0.3)
-2025-11-11T16:12:45.660166624Z [inf]  Requirement already satisfied: flask-socketio==5.3.6 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 4)) (5.3.6)
-2025-11-11T16:12:45.660173644Z [inf]  Requirement already satisfied: python-engineio==4.9.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 5)) (4.9.0)
-2025-11-11T16:12:45.660180287Z [inf]  Requirement already satisfied: python-socketio==5.11.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 6)) (5.11.1)
-2025-11-11T16:12:45.660187270Z [inf]  Requirement already satisfied: PyYAML==6.0.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 7)) (6.0.1)
-2025-11-11T16:12:45.660194078Z [inf]  Requirement already satisfied: python-dotenv==1.0.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 8)) (1.0.1)
-2025-11-11T16:12:45.660202225Z [inf]  Requirement already satisfied: gunicorn==21.2.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 9)) (21.2.0)
-2025-11-11T16:12:45.660202739Z [inf]  Requirement already satisfied: itsdangerous>=2.1.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (2.2.0)
-2025-11-11T16:12:45.660209361Z [inf]  Requirement already satisfied: eventlet==0.35.2 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 10)) (0.35.2)
-2025-11-11T16:12:45.660216109Z [inf]  Requirement already satisfied: click>=8.1.3 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (8.3.0)
-2025-11-11T16:12:45.660216755Z [inf]  Requirement already satisfied: smithy-aws-core~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:45.660223863Z [inf]  Requirement already satisfied: blinker>=1.6.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (1.9.0)
-2025-11-11T16:12:45.660231021Z [inf]  Requirement already satisfied: simple-websocket>=0.10.0 in /usr/local/lib/python3.12/site-packages (from python-engineio==4.9.0->-r requirements.txt (line 5)) (1.1.0)
-2025-11-11T16:12:45.660241576Z [inf]  Requirement already satisfied: bidict>=0.21.0 in /usr/local/lib/python3.12/site-packages (from python-socketio==5.11.1->-r requirements.txt (line 6)) (0.23.1)
-2025-11-11T16:12:45.660251048Z [inf]  Requirement already satisfied: packaging in /usr/local/lib/python3.12/site-packages (from gunicorn==21.2.0->-r requirements.txt (line 9)) (25.0)
-2025-11-11T16:12:45.660549442Z [inf]  Requirement already satisfied: smithy-core~=0.1.0 in /usr/local/lib/python3.12/site-packages (from aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.1)
-2025-11-11T16:12:45.660555445Z [inf]  Requirement already satisfied: smithy-http~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-http[awscrt]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:45.660561515Z [inf]  Requirement already satisfied: typing-extensions<5.0.0,>=4.1.1 in /usr/local/lib/python3.12/site-packages (from reactivex==4.0.4->-r requirements.txt (line 2)) (4.15.0)
-2025-11-11T16:12:45.660616548Z [inf]  Requirement already satisfied: Werkzeug>=3.0.0 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (3.1.3)
-2025-11-11T16:12:45.660623109Z [inf]  Requirement already satisfied: Jinja2>=3.1.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (3.1.6)
-2025-11-11T16:12:45.663460586Z [inf]  Requirement already satisfied: h11<1,>=0.9.0 in /usr/local/lib/python3.12/site-packages (from wsproto->simple-websocket>=0.10.0->python-engineio==4.9.0->-r requirements.txt (line 5)) (0.16.0)
-2025-11-11T16:12:45.663472739Z [err]  WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-2025-11-11T16:12:45.663579703Z [inf]  Requirement already satisfied: dnspython>=1.15.0 in /usr/local/lib/python3.12/site-packages (from eventlet==0.35.2->-r requirements.txt (line 10)) (2.8.0)
-2025-11-11T16:12:45.663586624Z [inf]  Requirement already satisfied: greenlet>=1.0 in /usr/local/lib/python3.12/site-packages (from eventlet==0.35.2->-r requirements.txt (line 10)) (3.2.4)
-2025-11-11T16:12:45.663592233Z [inf]  Requirement already satisfied: aws-sdk-signers~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core~=0.1.0->smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:45.663598184Z [inf]  Requirement already satisfied: smithy-aws-event-stream~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:45.663604210Z [inf]  Requirement already satisfied: smithy-json~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:45.663611204Z [inf]  Requirement already satisfied: awscrt>=0.23.10 in /usr/local/lib/python3.12/site-packages (from smithy-http[awscrt]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.28.4)
-2025-11-11T16:12:45.663673134Z [inf]  Requirement already satisfied: ijson>=3.3.0 in /usr/local/lib/python3.12/site-packages (from smithy-json~=0.1.0->smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (3.4.0.post0)
-2025-11-11T16:12:45.663706641Z [inf]  Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.12/site-packages (from Jinja2>=3.1.2->flask==3.0.3->-r requirements.txt (line 3)) (3.0.3)
-2025-11-11T16:12:45.663711901Z [inf]  Requirement already satisfied: wsproto in /usr/local/lib/python3.12/site-packages (from simple-websocket>=0.10.0->python-engineio==4.9.0->-r requirements.txt (line 5)) (1.2.0)
-2025-11-11T16:12:45.740006448Z [err]  [2025-11-11 16:12:45 +0000] [1] [INFO] Starting gunicorn 21.2.0
-2025-11-11T16:12:45.742520124Z [err]  [2025-11-11 16:12:45 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
-2025-11-11T16:12:45.742530284Z [err]  [2025-11-11 16:12:45 +0000] [1] [INFO] Using worker: eventlet
-2025-11-11T16:12:45.747077664Z [err]  [2025-11-11 16:12:45 +0000] [9] [INFO] Booting worker with pid: 9
-2025-11-11T16:12:45.992780842Z [err]  [2025-11-11 16:12:45 +0000] [9] [ERROR] Exception in worker process
-2025-11-11T16:12:45.992789274Z [err]  Traceback (most recent call last):
-2025-11-11T16:12:45.992795665Z [err]    File "/app/nova_sonic_es_sd.py", line 16, in <module>
-2025-11-11T16:12:45.992801920Z [err]      from rx.subject import Subject
-2025-11-11T16:12:45.992809700Z [err]  ModuleNotFoundError: No module named 'rx'
-2025-11-11T16:12:45.992817028Z [err]  
-2025-11-11T16:12:45.992823694Z [err]  During handling of the above exception, another exception occurred:
-2025-11-11T16:12:45.992829375Z [err]  
-2025-11-11T16:12:45.992835911Z [err]  Traceback (most recent call last):
-2025-11-11T16:12:45.992842196Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
-2025-11-11T16:12:45.992848140Z [err]      worker.init_process()
-2025-11-11T16:12:45.992854965Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 143, in init_process
-2025-11-11T16:12:45.992861581Z [err]      super().init_process()
-2025-11-11T16:12:45.992867364Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 134, in init_process
-2025-11-11T16:12:45.992874226Z [err]      self.load_wsgi()
-2025-11-11T16:12:45.992881311Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
-2025-11-11T16:12:45.992887348Z [err]      self.wsgi = self.app.wsgi()
-2025-11-11T16:12:45.992894112Z [err]                  ^^^^^^^^^^^^^^^
-2025-11-11T16:12:45.992901881Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 67, in wsgi
-2025-11-11T16:12:45.992908092Z [err]      self.callable = self.load()
-2025-11-11T16:12:45.992914488Z [err]                      ^^^^^^^^^^^
-2025-11-11T16:12:45.992920586Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
-2025-11-11T16:12:45.995027149Z [err]      return self.load_wsgiapp()
-2025-11-11T16:12:45.995038398Z [err]             ^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:45.995043743Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
-2025-11-11T16:12:45.995050526Z [err]      return util.import_app(self.app_uri)
-2025-11-11T16:12:45.995056477Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:45.995062362Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 371, in import_app
-2025-11-11T16:12:45.995067668Z [err]      mod = importlib.import_module(module)
-2025-11-11T16:12:45.995073775Z [err]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:45.995079283Z [err]    File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
-2025-11-11T16:12:45.995083968Z [err]      return _bootstrap._gcd_import(name[level:], package, level)
-2025-11-11T16:12:45.995088969Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:45.995101997Z [err]    File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
-2025-11-11T16:12:45.995107577Z [err]    File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
-2025-11-11T16:12:45.995112874Z [err]    File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
-2025-11-11T16:12:45.995122055Z [err]    File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
-2025-11-11T16:12:45.995128341Z [err]    File "<frozen importlib._bootstrap_external>", line 999, in exec_module
-2025-11-11T16:12:45.995133110Z [err]    File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
-2025-11-11T16:12:45.995138754Z [err]    File "/app/app.py", line 15, in <module>
-2025-11-11T16:12:45.995145233Z [err]      from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
-2025-11-11T16:12:45.995151759Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
-2025-11-11T16:12:45.996078555Z [err]      from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
-2025-11-11T16:12:45.996085854Z [err]    File "/app/nova_sonic_es_sd.py", line 18, in <module>
-2025-11-11T16:12:45.996091294Z [err]      raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
-2025-11-11T16:12:45.996096143Z [err]  ImportError: reactivex not installed: No module named 'rx'. Run: pip install reactivex>=4.0.0
-2025-11-11T16:12:45.996101832Z [err]  [2025-11-11 16:12:45 +0000] [9] [INFO] Worker exiting (pid: 9)
-2025-11-11T16:12:46.127400823Z [err]  [2025-11-11 16:12:46 +0000] [1] [ERROR] Worker (pid:9) exited with code 3
-2025-11-11T16:12:46.127409318Z [err]  [2025-11-11 16:12:46 +0000] [1] [ERROR] Shutting down: Master
-2025-11-11T16:12:46.127415490Z [err]  [2025-11-11 16:12:46 +0000] [1] [ERROR] Reason: Worker failed to boot.
-2025-11-11T16:12:47.649498646Z [inf]  Requirement already satisfied: pip in /usr/local/lib/python3.12/site-packages (25.3)
-2025-11-11T16:12:47.649517830Z [inf]  [start.sh] Using PORT=8080
-2025-11-11T16:12:47.649527977Z [inf]  [start.sh] Installing Python dependencies
-2025-11-11T16:12:47.763987001Z [err]  WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-2025-11-11T16:12:48.600968201Z [inf]  Requirement already satisfied: aws_sdk_bedrock_runtime==0.1.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:48.600973571Z [inf]  Requirement already satisfied: reactivex==4.0.4 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 2)) (4.0.4)
-2025-11-11T16:12:48.600978142Z [inf]  Requirement already satisfied: flask==3.0.3 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 3)) (3.0.3)
-2025-11-11T16:12:48.600982996Z [inf]  Requirement already satisfied: flask-socketio==5.3.6 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 4)) (5.3.6)
-2025-11-11T16:12:48.600988415Z [inf]  Requirement already satisfied: python-engineio==4.9.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 5)) (4.9.0)
-2025-11-11T16:12:48.600995658Z [inf]  Requirement already satisfied: python-socketio==5.11.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 6)) (5.11.1)
-2025-11-11T16:12:48.601003569Z [inf]  Requirement already satisfied: PyYAML==6.0.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 7)) (6.0.1)
-2025-11-11T16:12:48.601011001Z [inf]  Requirement already satisfied: python-dotenv==1.0.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 8)) (1.0.1)
-2025-11-11T16:12:48.601016645Z [inf]  Requirement already satisfied: gunicorn==21.2.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 9)) (21.2.0)
-2025-11-11T16:12:48.601021876Z [inf]  Requirement already satisfied: eventlet==0.35.2 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 10)) (0.35.2)
-2025-11-11T16:12:48.601027281Z [inf]  Requirement already satisfied: smithy-aws-core~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:48.601260671Z [inf]  Requirement already satisfied: smithy-http~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-http[awscrt]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:48.601268748Z [inf]  Requirement already satisfied: typing-extensions<5.0.0,>=4.1.1 in /usr/local/lib/python3.12/site-packages (from reactivex==4.0.4->-r requirements.txt (line 2)) (4.15.0)
-2025-11-11T16:12:48.601276109Z [inf]  Requirement already satisfied: Werkzeug>=3.0.0 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (3.1.3)
-2025-11-11T16:12:48.601283427Z [inf]  Requirement already satisfied: Jinja2>=3.1.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (3.1.6)
-2025-11-11T16:12:48.601290485Z [inf]  Requirement already satisfied: itsdangerous>=2.1.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (2.2.0)
-2025-11-11T16:12:48.601297931Z [inf]  Requirement already satisfied: click>=8.1.3 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (8.3.0)
-2025-11-11T16:12:48.601338463Z [inf]  Requirement already satisfied: blinker>=1.6.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (1.9.0)
-2025-11-11T16:12:48.601346566Z [inf]  Requirement already satisfied: simple-websocket>=0.10.0 in /usr/local/lib/python3.12/site-packages (from python-engineio==4.9.0->-r requirements.txt (line 5)) (1.1.0)
-2025-11-11T16:12:48.601348565Z [inf]  Requirement already satisfied: smithy-core~=0.1.0 in /usr/local/lib/python3.12/site-packages (from aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.1)
-2025-11-11T16:12:48.601353528Z [inf]  Requirement already satisfied: bidict>=0.21.0 in /usr/local/lib/python3.12/site-packages (from python-socketio==5.11.1->-r requirements.txt (line 6)) (0.23.1)
-2025-11-11T16:12:48.601359269Z [inf]  Requirement already satisfied: packaging in /usr/local/lib/python3.12/site-packages (from gunicorn==21.2.0->-r requirements.txt (line 9)) (25.0)
-2025-11-11T16:12:48.604183277Z [inf]  Requirement already satisfied: ijson>=3.3.0 in /usr/local/lib/python3.12/site-packages (from smithy-json~=0.1.0->smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (3.4.0.post0)
-2025-11-11T16:12:48.604191947Z [inf]  Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.12/site-packages (from Jinja2>=3.1.2->flask==3.0.3->-r requirements.txt (line 3)) (3.0.3)
-2025-11-11T16:12:48.604198230Z [inf]  Requirement already satisfied: wsproto in /usr/local/lib/python3.12/site-packages (from simple-websocket>=0.10.0->python-engineio==4.9.0->-r requirements.txt (line 5)) (1.2.0)
-2025-11-11T16:12:48.604768559Z [inf]  Requirement already satisfied: dnspython>=1.15.0 in /usr/local/lib/python3.12/site-packages (from eventlet==0.35.2->-r requirements.txt (line 10)) (2.8.0)
-2025-11-11T16:12:48.604773364Z [inf]  Requirement already satisfied: greenlet>=1.0 in /usr/local/lib/python3.12/site-packages (from eventlet==0.35.2->-r requirements.txt (line 10)) (3.2.4)
-2025-11-11T16:12:48.604778181Z [inf]  Requirement already satisfied: aws-sdk-signers~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core~=0.1.0->smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:48.604783651Z [inf]  Requirement already satisfied: smithy-aws-event-stream~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:48.604788317Z [inf]  Requirement already satisfied: smithy-json~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:48.604793834Z [inf]  Requirement already satisfied: awscrt>=0.23.10 in /usr/local/lib/python3.12/site-packages (from smithy-http[awscrt]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.28.4)
-2025-11-11T16:12:48.607754652Z [inf]  Requirement already satisfied: h11<1,>=0.9.0 in /usr/local/lib/python3.12/site-packages (from wsproto->simple-websocket>=0.10.0->python-engineio==4.9.0->-r requirements.txt (line 5)) (0.16.0)
-2025-11-11T16:12:48.607761516Z [err]  WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-2025-11-11T16:12:48.660657362Z [err]  [2025-11-11 16:12:48 +0000] [1] [INFO] Starting gunicorn 21.2.0
-2025-11-11T16:12:48.660668182Z [err]  [2025-11-11 16:12:48 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
-2025-11-11T16:12:48.660678861Z [err]  [2025-11-11 16:12:48 +0000] [1] [INFO] Using worker: eventlet
-2025-11-11T16:12:48.665378136Z [err]  [2025-11-11 16:12:48 +0000] [9] [INFO] Booting worker with pid: 9
-2025-11-11T16:12:48.939387523Z [err]  [2025-11-11 16:12:48 +0000] [9] [ERROR] Exception in worker process
-2025-11-11T16:12:48.939393911Z [err]                  ^^^^^^^^^^^^^^^
-2025-11-11T16:12:48.939399950Z [err]  Traceback (most recent call last):
-2025-11-11T16:12:48.939402247Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 67, in wsgi
-2025-11-11T16:12:48.939409276Z [err]      self.callable = self.load()
-2025-11-11T16:12:48.939409453Z [err]    File "/app/nova_sonic_es_sd.py", line 16, in <module>
-2025-11-11T16:12:48.939416121Z [err]                      ^^^^^^^^^^^
-2025-11-11T16:12:48.939422856Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
-2025-11-11T16:12:48.939427895Z [err]      from rx.subject import Subject
-2025-11-11T16:12:48.939438104Z [err]  ModuleNotFoundError: No module named 'rx'
-2025-11-11T16:12:48.939444445Z [err]  
-2025-11-11T16:12:48.939452231Z [err]  During handling of the above exception, another exception occurred:
-2025-11-11T16:12:48.939459757Z [err]  
-2025-11-11T16:12:48.939467014Z [err]  Traceback (most recent call last):
-2025-11-11T16:12:48.939473633Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
-2025-11-11T16:12:48.939479952Z [err]      worker.init_process()
-2025-11-11T16:12:48.939486641Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 143, in init_process
-2025-11-11T16:12:48.939494902Z [err]      super().init_process()
-2025-11-11T16:12:48.939501635Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 134, in init_process
-2025-11-11T16:12:48.939508265Z [err]      self.load_wsgi()
-2025-11-11T16:12:48.939515095Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
-2025-11-11T16:12:48.939522544Z [err]      self.wsgi = self.app.wsgi()
-2025-11-11T16:12:48.940766520Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
-2025-11-11T16:12:48.940784746Z [err]      return self.load_wsgiapp()
-2025-11-11T16:12:48.940793488Z [err]             ^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:48.940800266Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
-2025-11-11T16:12:48.940807423Z [err]      return util.import_app(self.app_uri)
-2025-11-11T16:12:48.940813571Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:48.940844338Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 371, in import_app
-2025-11-11T16:12:48.940853567Z [err]      mod = importlib.import_module(module)
-2025-11-11T16:12:48.940863337Z [err]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:48.940873631Z [err]    File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
-2025-11-11T16:12:48.940881652Z [err]    File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
-2025-11-11T16:12:48.940884669Z [err]      return _bootstrap._gcd_import(name[level:], package, level)
-2025-11-11T16:12:48.940897365Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:48.940897619Z [err]    File "/app/app.py", line 15, in <module>
-2025-11-11T16:12:48.940909893Z [err]    File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
-2025-11-11T16:12:48.940914237Z [err]      from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
-2025-11-11T16:12:48.940919855Z [err]    File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
-2025-11-11T16:12:48.940927582Z [err]    File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
-2025-11-11T16:12:48.940933503Z [err]    File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
-2025-11-11T16:12:48.940940028Z [err]    File "<frozen importlib._bootstrap_external>", line 999, in exec_module
-2025-11-11T16:12:48.943137305Z [err]      from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
-2025-11-11T16:12:48.943150486Z [err]    File "/app/nova_sonic_es_sd.py", line 18, in <module>
-2025-11-11T16:12:48.943161399Z [err]      raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
-2025-11-11T16:12:48.943181579Z [err]  ImportError: reactivex not installed: No module named 'rx'. Run: pip install reactivex>=4.0.0
-2025-11-11T16:12:48.943191526Z [err]  [2025-11-11 16:12:48 +0000] [9] [INFO] Worker exiting (pid: 9)
-2025-11-11T16:12:49.059225539Z [err]  [2025-11-11 16:12:49 +0000] [1] [ERROR] Worker (pid:9) exited with code 3
-2025-11-11T16:12:49.059237349Z [err]  [2025-11-11 16:12:49 +0000] [1] [ERROR] Shutting down: Master
-2025-11-11T16:12:49.059247810Z [err]  [2025-11-11 16:12:49 +0000] [1] [ERROR] Reason: Worker failed to boot.
-2025-11-11T16:12:50.128274722Z [inf]  [start.sh] Using PORT=8080
-2025-11-11T16:12:50.144049213Z [inf]  [start.sh] Installing Python dependencies
-2025-11-11T16:12:50.653004413Z [inf]  Requirement already satisfied: pip in /usr/local/lib/python3.12/site-packages (25.3)
-2025-11-11T16:12:50.653010605Z [err]  WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-2025-11-11T16:12:51.030683898Z [inf]  Requirement already satisfied: aws_sdk_bedrock_runtime==0.1.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:51.030690110Z [inf]  Requirement already satisfied: reactivex==4.0.4 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 2)) (4.0.4)
-2025-11-11T16:12:51.030695949Z [inf]  Requirement already satisfied: flask==3.0.3 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 3)) (3.0.3)
-2025-11-11T16:12:51.030701533Z [inf]  Requirement already satisfied: flask-socketio==5.3.6 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 4)) (5.3.6)
-2025-11-11T16:12:51.030707496Z [inf]  Requirement already satisfied: python-engineio==4.9.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 5)) (4.9.0)
-2025-11-11T16:12:51.032708049Z [inf]  Requirement already satisfied: python-socketio==5.11.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 6)) (5.11.1)
-2025-11-11T16:12:51.032719214Z [inf]  Requirement already satisfied: PyYAML==6.0.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 7)) (6.0.1)
-2025-11-11T16:12:51.032727605Z [inf]  Requirement already satisfied: python-dotenv==1.0.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 8)) (1.0.1)
-2025-11-11T16:12:51.032742026Z [inf]  Requirement already satisfied: gunicorn==21.2.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 9)) (21.2.0)
-2025-11-11T16:12:51.032749384Z [inf]  Requirement already satisfied: eventlet==0.35.2 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 10)) (0.35.2)
-2025-11-11T16:12:51.035092424Z [inf]  Requirement already satisfied: smithy-aws-core~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:51.035113650Z [inf]  Requirement already satisfied: smithy-core~=0.1.0 in /usr/local/lib/python3.12/site-packages (from aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.1)
-2025-11-11T16:12:51.037740141Z [inf]  Requirement already satisfied: smithy-http~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-http[awscrt]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:51.041436051Z [inf]  Requirement already satisfied: typing-extensions<5.0.0,>=4.1.1 in /usr/local/lib/python3.12/site-packages (from reactivex==4.0.4->-r requirements.txt (line 2)) (4.15.0)
-2025-11-11T16:12:51.041445570Z [inf]  Requirement already satisfied: Werkzeug>=3.0.0 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (3.1.3)
-2025-11-11T16:12:51.041452509Z [inf]  Requirement already satisfied: Jinja2>=3.1.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (3.1.6)
-2025-11-11T16:12:51.041457932Z [inf]  Requirement already satisfied: itsdangerous>=2.1.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (2.2.0)
-2025-11-11T16:12:51.043789792Z [inf]  Requirement already satisfied: click>=8.1.3 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (8.3.0)
-2025-11-11T16:12:51.043797384Z [inf]  Requirement already satisfied: blinker>=1.6.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (1.9.0)
-2025-11-11T16:12:51.045235411Z [inf]  Requirement already satisfied: simple-websocket>=0.10.0 in /usr/local/lib/python3.12/site-packages (from python-engineio==4.9.0->-r requirements.txt (line 5)) (1.1.0)
-2025-11-11T16:12:51.047470143Z [inf]  Requirement already satisfied: bidict>=0.21.0 in /usr/local/lib/python3.12/site-packages (from python-socketio==5.11.1->-r requirements.txt (line 6)) (0.23.1)
-2025-11-11T16:12:51.051704888Z [inf]  Requirement already satisfied: packaging in /usr/local/lib/python3.12/site-packages (from gunicorn==21.2.0->-r requirements.txt (line 9)) (25.0)
-2025-11-11T16:12:51.051715465Z [inf]  Requirement already satisfied: dnspython>=1.15.0 in /usr/local/lib/python3.12/site-packages (from eventlet==0.35.2->-r requirements.txt (line 10)) (2.8.0)
-2025-11-11T16:12:51.053767687Z [inf]  Requirement already satisfied: greenlet>=1.0 in /usr/local/lib/python3.12/site-packages (from eventlet==0.35.2->-r requirements.txt (line 10)) (3.2.4)
-2025-11-11T16:12:51.055487639Z [inf]  Requirement already satisfied: aws-sdk-signers~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core~=0.1.0->smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:51.059214595Z [inf]  Requirement already satisfied: smithy-aws-event-stream~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:51.059222015Z [inf]  Requirement already satisfied: smithy-json~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:51.068956450Z [inf]  Requirement already satisfied: awscrt>=0.23.10 in /usr/local/lib/python3.12/site-packages (from smithy-http[awscrt]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.28.4)
-2025-11-11T16:12:51.070708317Z [inf]  Requirement already satisfied: ijson>=3.3.0 in /usr/local/lib/python3.12/site-packages (from smithy-json~=0.1.0->smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (3.4.0.post0)
-2025-11-11T16:12:51.083763954Z [inf]  Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.12/site-packages (from Jinja2>=3.1.2->flask==3.0.3->-r requirements.txt (line 3)) (3.0.3)
-2025-11-11T16:12:51.086549735Z [inf]  Requirement already satisfied: wsproto in /usr/local/lib/python3.12/site-packages (from simple-websocket>=0.10.0->python-engineio==4.9.0->-r requirements.txt (line 5)) (1.2.0)
-2025-11-11T16:12:51.090099410Z [inf]  Requirement already satisfied: h11<1,>=0.9.0 in /usr/local/lib/python3.12/site-packages (from wsproto->simple-websocket>=0.10.0->python-engineio==4.9.0->-r requirements.txt (line 5)) (0.16.0)
-2025-11-11T16:12:51.109139617Z [err]  WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-2025-11-11T16:12:51.674081341Z [err]  [2025-11-11 16:12:51 +0000] [1] [INFO] Starting gunicorn 21.2.0
-2025-11-11T16:12:51.674086463Z [err]  [2025-11-11 16:12:51 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
-2025-11-11T16:12:51.674092315Z [err]  [2025-11-11 16:12:51 +0000] [1] [INFO] Using worker: eventlet
-2025-11-11T16:12:51.674098531Z [err]  [2025-11-11 16:12:51 +0000] [9] [INFO] Booting worker with pid: 9
-2025-11-11T16:12:51.787702848Z [err]      self.callable = self.load()
-2025-11-11T16:12:51.787714484Z [err]                      ^^^^^^^^^^^
-2025-11-11T16:12:51.787717156Z [err]      from rx.subject import Subject
-2025-11-11T16:12:51.787717332Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 143, in init_process
-2025-11-11T16:12:51.787723524Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
-2025-11-11T16:12:51.787728544Z [err]      super().init_process()
-2025-11-11T16:12:51.787730012Z [err]  ModuleNotFoundError: No module named 'rx'
-2025-11-11T16:12:51.787738637Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 134, in init_process
-2025-11-11T16:12:51.787738869Z [err]  
-2025-11-11T16:12:51.787749006Z [err]  [2025-11-11 16:12:51 +0000] [9] [ERROR] Exception in worker process
-2025-11-11T16:12:51.787749239Z [err]      self.load_wsgi()
-2025-11-11T16:12:51.787749548Z [err]  During handling of the above exception, another exception occurred:
-2025-11-11T16:12:51.787757426Z [err]  
-2025-11-11T16:12:51.787758142Z [err]  Traceback (most recent call last):
-2025-11-11T16:12:51.787759195Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
-2025-11-11T16:12:51.787765967Z [err]    File "/app/nova_sonic_es_sd.py", line 16, in <module>
-2025-11-11T16:12:51.787768571Z [err]      self.wsgi = self.app.wsgi()
-2025-11-11T16:12:51.787771177Z [err]  Traceback (most recent call last):
-2025-11-11T16:12:51.787778286Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
-2025-11-11T16:12:51.787781309Z [err]                  ^^^^^^^^^^^^^^^
-2025-11-11T16:12:51.787785213Z [err]      worker.init_process()
-2025-11-11T16:12:51.787789618Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 67, in wsgi
-2025-11-11T16:12:51.791446096Z [err]      return self.load_wsgiapp()
-2025-11-11T16:12:51.791978057Z [err]             ^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:51.791996878Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
-2025-11-11T16:12:51.792008122Z [err]      return util.import_app(self.app_uri)
-2025-11-11T16:12:51.792019511Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:51.792027056Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 371, in import_app
-2025-11-11T16:12:51.792033579Z [err]      mod = importlib.import_module(module)
-2025-11-11T16:12:51.792042348Z [err]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:51.792049548Z [err]    File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
-2025-11-11T16:12:51.792057406Z [err]      return _bootstrap._gcd_import(name[level:], package, level)
-2025-11-11T16:12:51.792064325Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:51.792072823Z [err]    File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
-2025-11-11T16:12:51.792078771Z [err]    File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
-2025-11-11T16:12:51.792086694Z [err]    File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
-2025-11-11T16:12:51.792094190Z [err]    File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
-2025-11-11T16:12:51.792100613Z [err]    File "<frozen importlib._bootstrap_external>", line 999, in exec_module
-2025-11-11T16:12:51.792107073Z [err]    File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
-2025-11-11T16:12:51.792113820Z [err]    File "/app/app.py", line 15, in <module>
-2025-11-11T16:12:51.792120752Z [err]      from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
-2025-11-11T16:12:51.792126857Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
-2025-11-11T16:12:51.793691254Z [err]      from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
-2025-11-11T16:12:51.793698601Z [err]    File "/app/nova_sonic_es_sd.py", line 18, in <module>
-2025-11-11T16:12:51.793705846Z [err]      raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
-2025-11-11T16:12:51.793711870Z [err]  ImportError: reactivex not installed: No module named 'rx'. Run: pip install reactivex>=4.0.0
-2025-11-11T16:12:51.793718455Z [err]  [2025-11-11 16:12:51 +0000] [9] [INFO] Worker exiting (pid: 9)
-2025-11-11T16:12:51.899795404Z [err]  [2025-11-11 16:12:51 +0000] [1] [ERROR] Worker (pid:9) exited with code 3
-2025-11-11T16:12:51.899802527Z [err]  [2025-11-11 16:12:51 +0000] [1] [ERROR] Shutting down: Master
-2025-11-11T16:12:51.899809577Z [err]  [2025-11-11 16:12:51 +0000] [1] [ERROR] Reason: Worker failed to boot.
-2025-11-11T16:12:53.664211143Z [inf]  [start.sh] Using PORT=8080
-2025-11-11T16:12:53.664218286Z [inf]  [start.sh] Installing Python dependencies
-2025-11-11T16:12:53.792264153Z [inf]  Requirement already satisfied: pip in /usr/local/lib/python3.12/site-packages (25.3)
-2025-11-11T16:12:53.877112199Z [err]  WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-2025-11-11T16:12:54.616100820Z [inf]  Requirement already satisfied: aws_sdk_bedrock_runtime==0.1.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:54.616106160Z [inf]  Requirement already satisfied: reactivex==4.0.4 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 2)) (4.0.4)
-2025-11-11T16:12:54.616110502Z [inf]  Requirement already satisfied: flask==3.0.3 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 3)) (3.0.3)
-2025-11-11T16:12:54.616115387Z [inf]  Requirement already satisfied: flask-socketio==5.3.6 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 4)) (5.3.6)
-2025-11-11T16:12:54.616119772Z [inf]  Requirement already satisfied: python-engineio==4.9.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 5)) (4.9.0)
-2025-11-11T16:12:54.616125613Z [inf]  Requirement already satisfied: python-socketio==5.11.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 6)) (5.11.1)
-2025-11-11T16:12:54.616130639Z [inf]  Requirement already satisfied: PyYAML==6.0.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 7)) (6.0.1)
-2025-11-11T16:12:54.616136468Z [inf]  Requirement already satisfied: python-dotenv==1.0.1 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 8)) (1.0.1)
-2025-11-11T16:12:54.616141459Z [inf]  Requirement already satisfied: gunicorn==21.2.0 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 9)) (21.2.0)
-2025-11-11T16:12:54.616146325Z [inf]  Requirement already satisfied: eventlet==0.35.2 in /usr/local/lib/python3.12/site-packages (from -r requirements.txt (line 10)) (0.35.2)
-2025-11-11T16:12:54.616152064Z [inf]  Requirement already satisfied: smithy-aws-core~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:54.616201898Z [inf]  Requirement already satisfied: Werkzeug>=3.0.0 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (3.1.3)
-2025-11-11T16:12:54.616217741Z [inf]  Requirement already satisfied: Jinja2>=3.1.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (3.1.6)
-2025-11-11T16:12:54.616230411Z [inf]  Requirement already satisfied: itsdangerous>=2.1.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (2.2.0)
-2025-11-11T16:12:54.616238482Z [inf]  Requirement already satisfied: bidict>=0.21.0 in /usr/local/lib/python3.12/site-packages (from python-socketio==5.11.1->-r requirements.txt (line 6)) (0.23.1)
-2025-11-11T16:12:54.616244540Z [inf]  Requirement already satisfied: click>=8.1.3 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (8.3.0)
-2025-11-11T16:12:54.616255121Z [inf]  Requirement already satisfied: packaging in /usr/local/lib/python3.12/site-packages (from gunicorn==21.2.0->-r requirements.txt (line 9)) (25.0)
-2025-11-11T16:12:54.616259132Z [inf]  Requirement already satisfied: blinker>=1.6.2 in /usr/local/lib/python3.12/site-packages (from flask==3.0.3->-r requirements.txt (line 3)) (1.9.0)
-2025-11-11T16:12:54.616282426Z [inf]  Requirement already satisfied: simple-websocket>=0.10.0 in /usr/local/lib/python3.12/site-packages (from python-engineio==4.9.0->-r requirements.txt (line 5)) (1.1.0)
-2025-11-11T16:12:54.616383415Z [inf]  Requirement already satisfied: smithy-core~=0.1.0 in /usr/local/lib/python3.12/site-packages (from aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.1)
-2025-11-11T16:12:54.616390032Z [inf]  Requirement already satisfied: smithy-http~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-http[awscrt]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:54.616396230Z [inf]  Requirement already satisfied: typing-extensions<5.0.0,>=4.1.1 in /usr/local/lib/python3.12/site-packages (from reactivex==4.0.4->-r requirements.txt (line 2)) (4.15.0)
-2025-11-11T16:12:54.619202222Z [inf]  Requirement already satisfied: h11<1,>=0.9.0 in /usr/local/lib/python3.12/site-packages (from wsproto->simple-websocket>=0.10.0->python-engineio==4.9.0->-r requirements.txt (line 5)) (0.16.0)
-2025-11-11T16:12:54.619213388Z [err]  WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-2025-11-11T16:12:54.619269274Z [inf]  Requirement already satisfied: dnspython>=1.15.0 in /usr/local/lib/python3.12/site-packages (from eventlet==0.35.2->-r requirements.txt (line 10)) (2.8.0)
-2025-11-11T16:12:54.619276416Z [inf]  Requirement already satisfied: greenlet>=1.0 in /usr/local/lib/python3.12/site-packages (from eventlet==0.35.2->-r requirements.txt (line 10)) (3.2.4)
-2025-11-11T16:12:54.619282873Z [inf]  Requirement already satisfied: aws-sdk-signers~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core~=0.1.0->smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:54.619289066Z [inf]  Requirement already satisfied: smithy-aws-event-stream~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:54.619295422Z [inf]  Requirement already satisfied: smithy-json~=0.1.0 in /usr/local/lib/python3.12/site-packages (from smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.1.0)
-2025-11-11T16:12:54.619301263Z [inf]  Requirement already satisfied: awscrt>=0.23.10 in /usr/local/lib/python3.12/site-packages (from smithy-http[awscrt]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (0.28.4)
-2025-11-11T16:12:54.619309495Z [inf]  Requirement already satisfied: ijson>=3.3.0 in /usr/local/lib/python3.12/site-packages (from smithy-json~=0.1.0->smithy-aws-core[eventstream,json]~=0.1.0->aws_sdk_bedrock_runtime==0.1.0->-r requirements.txt (line 1)) (3.4.0.post0)
-2025-11-11T16:12:54.619315304Z [inf]  Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.12/site-packages (from Jinja2>=3.1.2->flask==3.0.3->-r requirements.txt (line 3)) (3.0.3)
-2025-11-11T16:12:54.619320554Z [inf]  Requirement already satisfied: wsproto in /usr/local/lib/python3.12/site-packages (from simple-websocket>=0.10.0->python-engineio==4.9.0->-r requirements.txt (line 5)) (1.2.0)
-2025-11-11T16:12:54.756964783Z [err]  [2025-11-11 16:12:54 +0000] [1] [INFO] Starting gunicorn 21.2.0
-2025-11-11T16:12:54.756977056Z [err]  [2025-11-11 16:12:54 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
-2025-11-11T16:12:54.756985107Z [err]  [2025-11-11 16:12:54 +0000] [1] [INFO] Using worker: eventlet
-2025-11-11T16:12:54.759332689Z [err]  [2025-11-11 16:12:54 +0000] [9] [INFO] Booting worker with pid: 9
-2025-11-11T16:12:55.031802414Z [err]  [2025-11-11 16:12:55 +0000] [9] [ERROR] Exception in worker process
-2025-11-11T16:12:55.031812084Z [err]  Traceback (most recent call last):
-2025-11-11T16:12:55.031820165Z [err]    File "/app/nova_sonic_es_sd.py", line 16, in <module>
-2025-11-11T16:12:55.031826598Z [err]      from rx.subject import Subject
-2025-11-11T16:12:55.031834435Z [err]  ModuleNotFoundError: No module named 'rx'
-2025-11-11T16:12:55.031841147Z [err]  
-2025-11-11T16:12:55.031847446Z [err]  During handling of the above exception, another exception occurred:
-2025-11-11T16:12:55.031854101Z [err]  
-2025-11-11T16:12:55.031860935Z [err]  Traceback (most recent call last):
-2025-11-11T16:12:55.031868279Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
-2025-11-11T16:12:55.031874490Z [err]      worker.init_process()
-2025-11-11T16:12:55.031880538Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 143, in init_process
-2025-11-11T16:12:55.031886654Z [err]      super().init_process()
-2025-11-11T16:12:55.031894306Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 134, in init_process
-2025-11-11T16:12:55.031899714Z [err]      self.load_wsgi()
-2025-11-11T16:12:55.031906514Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
-2025-11-11T16:12:55.031914178Z [err]      self.wsgi = self.app.wsgi()
-2025-11-11T16:12:55.031921437Z [err]                  ^^^^^^^^^^^^^^^
-2025-11-11T16:12:55.031928502Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 67, in wsgi
-2025-11-11T16:12:55.031934887Z [err]      self.callable = self.load()
-2025-11-11T16:12:55.031941592Z [err]                      ^^^^^^^^^^^
-2025-11-11T16:12:55.031952979Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
-2025-11-11T16:12:55.034679312Z [err]      return self.load_wsgiapp()
-2025-11-11T16:12:55.034688710Z [err]             ^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:55.034696113Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
-2025-11-11T16:12:55.034702899Z [err]      return util.import_app(self.app_uri)
-2025-11-11T16:12:55.034708245Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:55.034714361Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 371, in import_app
-2025-11-11T16:12:55.034720822Z [err]      mod = importlib.import_module(module)
-2025-11-11T16:12:55.034727168Z [err]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:55.034733769Z [err]    File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
-2025-11-11T16:12:55.034740030Z [err]      return _bootstrap._gcd_import(name[level:], package, level)
-2025-11-11T16:12:55.034745613Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2025-11-11T16:12:55.034752904Z [err]    File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
-2025-11-11T16:12:55.034758371Z [err]    File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
-2025-11-11T16:12:55.034763890Z [err]    File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
-2025-11-11T16:12:55.034770331Z [err]    File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
-2025-11-11T16:12:55.034775795Z [err]    File "<frozen importlib._bootstrap_external>", line 999, in exec_module
-2025-11-11T16:12:55.034781360Z [err]    File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
-2025-11-11T16:12:55.034786094Z [err]    File "/app/app.py", line 15, in <module>
-2025-11-11T16:12:55.034793208Z [err]      from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
-2025-11-11T16:12:55.034799748Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
-2025-11-11T16:12:55.035693553Z [err]      from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
-2025-11-11T16:12:55.035706766Z [err]    File "/app/nova_sonic_es_sd.py", line 18, in <module>
-2025-11-11T16:12:55.035715389Z [err]      raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
-2025-11-11T16:12:55.035723165Z [err]  ImportError: reactivex not installed: No module named 'rx'. Run: pip install reactivex>=4.0.0
-2025-11-11T16:12:55.035730777Z [err]  [2025-11-11 16:12:55 +0000] [9] [INFO] Worker exiting (pid: 9)
-2025-11-11T16:12:55.143257247Z [err]  [2025-11-11 16:12:55 +0000] [1] [ERROR] Worker (pid:9) exited with code 3
-2025-11-11T16:12:55.143266023Z [err]  [2025-11-11 16:12:55 +0000] [1] [ERROR] Shutting down: Master
-2025-11-11T16:12:55.143273821Z [err]  [2025-11-11 16:12:55 +0000] [1] [ERROR] Reason: Worker failed to boot.
-2025-11-11T16:21:18.000000000Z [inf]  Stopping Container
+2025-11-11T16:25:05.000000000Z [inf]  Starting Container
+2025-11-11T16:25:06.557854127Z [inf]  [start.sh] Using PORT=8080
+2025-11-11T16:25:06.557862072Z [err]  [2025-11-11 16:25:05 +0000] [1] [INFO] Starting gunicorn 21.2.0
+2025-11-11T16:25:06.557869967Z [err]  [2025-11-11 16:25:05 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
+2025-11-11T16:25:06.557878279Z [err]  [2025-11-11 16:25:05 +0000] [1] [INFO] Using worker: eventlet
+2025-11-11T16:25:06.557886242Z [err]  [2025-11-11 16:25:05 +0000] [3] [INFO] Booting worker with pid: 3
+2025-11-11T16:25:56.636483162Z [inf]  100.64.0.2 - - [11/Nov/2025:16:25:49 +0000] "GET / HTTP/1.1" 200 8977 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:25:56.636490010Z [inf]  100.64.0.2 - - [11/Nov/2025:16:25:49 +0000] "GET /static/css/styles.css HTTP/1.1" 200 0 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:25:56.636496498Z [inf]  100.64.0.2 - - [11/Nov/2025:16:25:50 +0000] "GET /static/js/app.js HTTP/1.1" 200 0 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:25:56.636504034Z [inf]  100.64.0.2 - - [11/Nov/2025:16:25:50 +0000] "GET /socket.io/?EIO=4&transport=polling&t=PfplF6b HTTP/1.1" 200 97 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:25:56.636513052Z [inf]  100.64.0.2 - - [11/Nov/2025:16:25:51 +0000] "GET /favicon.ico HTTP/1.1" 404 207 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:25:56.636520625Z [inf]  100.64.0.2 - - [11/Nov/2025:16:25:51 +0000] "POST /socket.io/?EIO=4&transport=polling&t=PfplFBv&sid=I_xEeDkONi_u_9ZeAAAA HTTP/1.1" 200 2 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:25:56.636527464Z [inf]  100.64.0.2 - - [11/Nov/2025:16:25:51 +0000] "GET /socket.io/?EIO=4&transport=polling&t=PfplFBw&sid=I_xEeDkONi_u_9ZeAAAA HTTP/1.1" 200 178 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:25:56.639127169Z [inf]  100.64.0.2 - - [11/Nov/2025:16:25:52 +0000] "GET /socket.io/?EIO=4&transport=polling&t=PfplFHJ&sid=I_xEeDkONi_u_9ZeAAAA HTTP/1.1" 200 1 "https://web-production-16cdb.up.railway.app/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"
+2025-11-11T16:26:01.883859065Z [inf]  [NovaSonic] 🔄 Inicializando Nova Sonic...
+2025-11-11T16:26:01.883875378Z [inf]  [NovaSonic] ✅ Contexto cargado: 2 bloques
+2025-11-11T16:26:01.883886197Z [inf]  [NovaSonic] 🌎 Región seleccionada: us-east-1
+2025-11-11T16:26:01.883894932Z [inf]  [NovaSonic] 📡 Solicitando stream Nova Sonic...
+2025-11-11T16:26:06.994133781Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:07.883679205Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:07.883684115Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:07.883688906Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:08.864737083Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:08.864744532Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:08.864752491Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:08.940123436Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:09.810457416Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:09.810464265Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:09.834494688Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:10.942093507Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:10.942268235Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:10.942274809Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:11.892211044Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:11.892215539Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:11.892220644Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:11.947709139Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:12.668883932Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:12.668894229Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:12.764741999Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:13.887131792Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:13.887138012Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:13.887143641Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:13.887149115Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:14.818679730Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:14.818684855Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:14.818689403Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:15.011936504Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:15.826494703Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:15.826501441Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:15.911865633Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:17.014669901Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:17.014675870Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:17.014683379Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:17.750072606Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:17.750078472Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:17.750085113Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:18.011924804Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:18.823140742Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:18.823147389Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:18.909085800Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:19.794741177Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:19.794749875Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:19.840017925Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:20.726432338Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:20.726438598Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:20.726445085Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:21.011781067Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:22.044084716Z [err]                             ^^^^^^^^^^^^^^^^^
+2025-11-11T16:26:22.044099284Z [err]  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:26:22.044114687Z [inf]  [NovaSonic] ⚠️ Sesión no lista para audio
+2025-11-11T16:26:22.044131596Z [inf]  [NovaSonic] ⚠️ Timeout esperando la sesión de Nova Sonic
+2025-11-11T16:26:22.044144469Z [inf]  [NovaSonic] ❌ Error en adaptador: Timeout inicializando stream Nova Sonic
+2025-11-11T16:26:22.044144599Z [err]  Traceback (most recent call last):
+2025-11-11T16:26:22.044154373Z [err]  Exception in thread Thread-6 (runner):
+2025-11-11T16:26:22.044161668Z [err]    File "/usr/local/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+2025-11-11T16:26:22.044169510Z [err]      return await fut
+2025-11-11T16:26:22.044177842Z [err]             ^^^^^^^^^
+2025-11-11T16:26:22.044186533Z [err]    File "/app/nova_sonic_es_sd.py", line 323, in initialize_stream
+2025-11-11T16:26:22.044195077Z [err]      self.stream_response = await client.invoke_model_with_bidirectional_stream(request)
+2025-11-11T16:26:23.015529639Z [err]  ^
+2025-11-11T16:26:23.015536335Z [err]    File "/usr/local/lib/python3.12/site-packages/aws_sdk_bedrock_runtime/client.py", line 487, in invoke_model_with_bidirectional_stream
+2025-11-11T16:26:23.015542259Z [err]      return await pipeline.duplex_stream(
+2025-11-11T16:26:23.015549246Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:26:23.015556009Z [err]    File "/usr/local/lib/python3.12/site-packages/smithy_core/aio/client.py", line 202, in duplex_stream
+2025-11-11T16:26:23.015564369Z [err]      request_context = await request_future
+2025-11-11T16:26:23.015570788Z [err]                        ^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:26:23.015577819Z [err]  asyncio.exceptions.CancelledError
+2025-11-11T16:26:23.015585131Z [err]  
+2025-11-11T16:26:23.015591822Z [err]  The above exception was the direct cause of the following exception:
+2025-11-11T16:26:23.015598751Z [err]  
+2025-11-11T16:26:23.015605923Z [err]  Traceback (most recent call last):
+2025-11-11T16:26:23.015612596Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 974, in _bootstrap
+2025-11-11T16:26:23.015620287Z [err]      await asyncio.wait_for(self.manager.initialize_stream(), timeout=20)
+2025-11-11T16:26:23.015627918Z [err]    File "/usr/local/lib/python3.12/asyncio/tasks.py", line 519, in wait_for
+2025-11-11T16:26:23.016003985Z [err]      async with timeouts.timeout(timeout):
+2025-11-11T16:26:23.016011466Z [err]                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:26:23.016018182Z [err]    File "/usr/local/lib/python3.12/asyncio/timeouts.py", line 115, in __aexit__
+2025-11-11T16:26:23.016025386Z [err]      raise TimeoutError from exc_val
+2025-11-11T16:26:23.016030990Z [err]  TimeoutError
+2025-11-11T16:26:23.016037223Z [err]  
+2025-11-11T16:26:23.016044032Z [err]  The above exception was the direct cause of the following exception:
+2025-11-11T16:26:23.016051719Z [err]  
+2025-11-11T16:26:23.016058442Z [err]  Traceback (most recent call last):
+2025-11-11T16:26:23.016084016Z [err]    File "/usr/local/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+2025-11-11T16:26:23.016090725Z [err]      self.run()
+2025-11-11T16:26:23.016097322Z [err]    File "/usr/local/lib/python3.12/threading.py", line 1012, in run
+2025-11-11T16:26:23.016106029Z [err]      self._target(*self._args, **self._kwargs)
+2025-11-11T16:26:23.016112756Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 925, in runner
+2025-11-11T16:26:23.016123543Z [err]      self.loop.run_until_complete(self._bootstrap())
+2025-11-11T16:26:23.016129120Z [err]    File "/usr/local/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+2025-11-11T16:26:23.016135443Z [err]      return future.result()
+2025-11-11T16:26:23.016142001Z [err]             ^^^^^^^^^^^^^^^
+2025-11-11T16:26:23.016148623Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 976, in _bootstrap
+2025-11-11T16:26:23.016156117Z [err]      raise RuntimeError("Timeout inicializando stream Nova Sonic") from exc
+2025-11-11T16:26:23.016164777Z [err]  RuntimeError: Timeout inicializando stream Nova Sonic
+2025-11-11T16:26:23.018447999Z [inf]  [NovaSonic] ✅ Adaptador detenido
+2025-11-11T16:26:23.018452781Z [err]  Exception in thread Thread-64 (_handle_event_internal):
+2025-11-11T16:26:23.018457776Z [err]  Traceback (most recent call last):
+2025-11-11T16:26:23.018462388Z [err]    File "/usr/local/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+2025-11-11T16:26:23.018466878Z [err]      self.run()
+2025-11-11T16:26:23.018471610Z [err]    File "/usr/local/lib/python3.12/threading.py", line 1012, in run
+2025-11-11T16:26:23.018476009Z [err]      self._target(*self._args, **self._kwargs)
+2025-11-11T16:26:23.018481185Z [err]    File "/usr/local/lib/python3.12/site-packages/socketio/server.py", line 586, in _handle_event_internal
+2025-11-11T16:26:23.018486041Z [err]      r = server._trigger_event(data[0], namespace, sid, *data[1:])
+2025-11-11T16:26:23.018490816Z [err]          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:26:23.018495047Z [err]    File "/usr/local/lib/python3.12/site-packages/socketio/server.py", line 611, in _trigger_event
+2025-11-11T16:26:23.018500684Z [err]      return handler(*args)
+2025-11-11T16:26:23.018505174Z [err]             ^^^^^^^^^^^^^^
+2025-11-11T16:26:23.018509689Z [err]    File "/usr/local/lib/python3.12/site-packages/flask_socketio/__init__.py", line 282, in _handler
+2025-11-11T16:26:23.018514426Z [err]      return self._handle_event(handler, message, namespace, sid,
+2025-11-11T16:26:23.018519211Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:26:23.019475977Z [err]  KeyError: 'kSWnMkVyNJWN-WlaAAAB'
+2025-11-11T16:26:23.019497562Z [err]    File "/usr/local/lib/python3.12/site-packages/flask_socketio/__init__.py", line 827, in _handle_event
+2025-11-11T16:26:23.019505291Z [err]      ret = handler(*args)
+2025-11-11T16:26:23.019521423Z [err]            ^^^^^^^^^^^^^^
+2025-11-11T16:26:23.019534313Z [err]    File "/app/app.py", line 283, in handle_call_ended
+2025-11-11T16:26:23.019549532Z [err]      del nova_adapters[session_id]
+2025-11-11T16:26:23.019559029Z [err]          ~~~~~~~~~~~~~^^^^^^^^^^^^
+2025-11-11T16:26:23.019567099Z [err]  

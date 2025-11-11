@@ -824,6 +824,14 @@ class NovaSonicWebAdapterV3:
         self._silence_drop_active = False
         self._silence_last_keepalive = time.monotonic()
         self._silence_keepalive_interval = float(os.getenv("NOVA_SONIC_SILENCE_KEEPALIVE_S", "5.0"))  # 5s entre keepalives
+        timeout_env = (os.getenv("NOVA_SONIC_STARTUP_TIMEOUT_SEC") or "").strip()
+        try:
+            self.startup_timeout = float(timeout_env) if timeout_env else 45.0
+        except ValueError:
+            self.startup_timeout = 45.0
+        if self.startup_timeout < 10.0:
+            self.startup_timeout = 10.0
+        self._warned_not_ready = False
 
     # ---------------------------------------------------------------- helpers
     def _log(self, message: str) -> None:
@@ -928,7 +936,7 @@ class NovaSonicWebAdapterV3:
 
         self.thread = threading.Thread(target=runner, daemon=True)
         self.thread.start()
-        started = self._ready.wait(timeout=20)
+        started = self._ready.wait(timeout=self.startup_timeout + 5.0)
         if not started or not self.is_ready:
             self._log("⚠️ Timeout esperando la sesión de Nova Sonic")
             self.stop()
@@ -954,6 +962,7 @@ class NovaSonicWebAdapterV3:
             )
 
             self._log(f"🌎 Región seleccionada: {self.region}")
+            self._log(f"⏱️ Timeout de inicialización configurado en {self.startup_timeout:.1f}s")
 
             self.manager = BedrockStreamManager(
                 context_sources=sources,
@@ -971,7 +980,7 @@ class NovaSonicWebAdapterV3:
 
             self._log("📡 Solicitando stream Nova Sonic...")
             try:
-                await asyncio.wait_for(self.manager.initialize_stream(), timeout=20)
+                await asyncio.wait_for(self.manager.initialize_stream(), timeout=self.startup_timeout)
             except asyncio.TimeoutError as exc:
                 raise RuntimeError("Timeout inicializando stream Nova Sonic") from exc
             self._log("✅ Stream inicializado, esperando confirmación del modelo...")
@@ -980,6 +989,7 @@ class NovaSonicWebAdapterV3:
             await self.manager.send_audio_content_start_event()
             
             self._ready.set()
+            self._warned_not_ready = False
             self._log("🎬 Sesión lista: enviando audio continuo")
 
             self._subscription = self.manager.output_subject.subscribe(
@@ -1190,8 +1200,11 @@ class NovaSonicWebAdapterV3:
         if not self.is_running or not self.loop or not self.manager:
             return
         if not self._ready.wait(timeout=5):
-            self._log("⚠️ Sesión no lista para audio")
+            if not self._warned_not_ready:
+                self._log("⚠️ Sesión no lista para audio")
+                self._warned_not_ready = True
             return
+        self._warned_not_ready = False
 
         asyncio.run_coroutine_threadsafe(
             self._convert_and_send(audio_bytes, mime_type),
@@ -1265,6 +1278,7 @@ class NovaSonicWebAdapterV3:
             return
 
         self.is_running = False
+        self._warned_not_ready = False
         if self.thread:
             self.thread.join(timeout=5)
             self.thread = None

@@ -95,10 +95,9 @@ def handle_connect():
 @socketio.on('disconnect')
 def handle_disconnect():
     session_id = request.sid
-    if session_id in nova_adapters:
-        adapter = nova_adapters[session_id]
+    adapter = nova_adapters.pop(session_id, None)
+    if adapter:
         adapter.stop()
-        del nova_adapters[session_id]
         print(f"Sesión {session_id} terminada")
 
 @socketio.on('audio_stream')
@@ -276,11 +275,13 @@ def handle_call_started(data):
 @socketio.on('call_ended')
 def handle_call_ended(data):
     session_id = request.sid
-    
-    if session_id in nova_adapters:
-        adapter = nova_adapters[session_id]
+    adapter = nova_adapters.pop(session_id, None)
+    if adapter:
         adapter.stop()
-        del nova_adapters[session_id]
+    else:
+        emit('debug', {
+            'message': '⚠️ Sesión ya había sido terminada en el servidor'
+        })
     
     emit('debug', {
         'message': '📴 Llamada finalizada',
