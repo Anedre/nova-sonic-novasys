@@ -1,122 +1,606 @@
-Starting Container
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 147, in load_wsgi
-    self.wsgi = self.app.wsgi()
-                ^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 66, in wsgi
-    self.callable = self.load()
-                    ^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 57, in load
-    return self.load_wsgiapp()
-[2025-11-11 15:34:36 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
-[2025-11-11 15:34:36 +0000] [1] [INFO] Using worker: eventlet
-[2025-11-11 15:34:36 +0000] [2] [INFO] Booting worker with pid: 2
-[2025-11-11 15:34:36 +0000] [2] [ERROR] Exception in worker process
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 608, in spawn_worker
-    worker.init_process()
-[2025-11-11 15:34:36 +0000] [1] [INFO] Starting gunicorn 23.0.0
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 142, in init_process
-    super().init_process()
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 135, in init_process
-    self.load_wsgi()
-           ^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
-    return util.import_app(self.app_uri)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 370, in import_app
-    mod = importlib.import_module(module)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
-  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
-  File "/app/app.py", line 15, in <module>
-    from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
-  File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
-    from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
-ModuleNotFoundError: No module named 'rx'
-[2025-11-11 15:34:36 +0000] [2] [INFO] Worker exiting (pid: 2)
-  File "/app/nova_sonic_es_sd.py", line 15, in <module>
-    from rx.subject import Subject
-[2025-11-11 15:34:37 +0000] [1] [ERROR] Worker (pid:2) exited with code 3
-[2025-11-11 15:34:37 +0000] [1] [ERROR] Shutting down: Master
-[2025-11-11 15:34:37 +0000] [1] [ERROR] Reason: Worker failed to boot.
-[2025-11-11 15:34:38 +0000] [1] [INFO] Starting gunicorn 23.0.0
-[2025-11-11 15:34:38 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
-[2025-11-11 15:34:38 +0000] [1] [INFO] Using worker: eventlet
-[2025-11-11 15:34:38 +0000] [2] [INFO] Booting worker with pid: 2
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[2025-11-11 15:34:38 +0000] [2] [ERROR] Exception in worker process
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 370, in import_app
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 608, in spawn_worker
-    worker.init_process()
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 142, in init_process
-    super().init_process()
-                ^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 135, in init_process
-    self.load_wsgi()
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 66, in wsgi
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 147, in load_wsgi
-    self.callable = self.load()
-    self.wsgi = self.app.wsgi()
-                    ^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 57, in load
-    return self.load_wsgiapp()
-           ^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
-    return util.import_app(self.app_uri)
-    mod = importlib.import_module(module)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
-  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
-  File "/app/app.py", line 15, in <module>
-    from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
-  File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
-    from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
-  File "/app/nova_sonic_es_sd.py", line 15, in <module>
-    from rx.subject import Subject
-ModuleNotFoundError: No module named 'rx'
-[2025-11-11 15:34:38 +0000] [2] [INFO] Worker exiting (pid: 2)
-[2025-11-11 15:34:38 +0000] [1] [ERROR] Worker (pid:2) exited with code 3
-[2025-11-11 15:34:38 +0000] [1] [ERROR] Shutting down: Master
-[2025-11-11 15:34:38 +0000] [1] [ERROR] Reason: Worker failed to boot.
-[2025-11-11 15:34:40 +0000] [1] [INFO] Starting gunicorn 23.0.0
-[2025-11-11 15:34:40 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
-[2025-11-11 15:34:40 +0000] [1] [INFO] Using worker: eventlet
-[2025-11-11 15:34:40 +0000] [2] [INFO] Booting worker with pid: 2
-                    ^^^^^^^^^^^
-[2025-11-11 15:34:40 +0000] [2] [ERROR] Exception in worker process
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 57, in load
-    return self.load_wsgiapp()
-Traceback (most recent call last):
-           ^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 608, in spawn_worker
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
-    worker.init_process()
-    return util.import_app(self.app_uri)
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 142, in init_process
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    super().init_process()
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 370, in import_app
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 135, in init_process
-    self.load_wsgi()
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 147, in load_wsgi
-    self.wsgi = self.app.wsgi()
-                ^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 66, in wsgi
-    self.callable = self.load()
-ModuleNotFoundError: No module named 'rx'
-[2025-11-11 15:34:40 +0000] [2] [INFO] Worker exiting (pid: 2)
+2025-11-11T16:03:56.000000000Z [inf]  Starting Container
+2025-11-11T16:03:56.568997885Z [err]  [2025-11-11 16:03:56 +0000] [1] [INFO] Using worker: eventlet
+2025-11-11T16:03:56.569009606Z [err]  [2025-11-11 16:03:56 +0000] [2] [INFO] Booting worker with pid: 2
+2025-11-11T16:03:56.569103988Z [inf]  [start.sh] Using PORT=8080
+2025-11-11T16:03:56.569110469Z [err]  [2025-11-11 16:03:56 +0000] [1] [INFO] Starting gunicorn 21.2.0
+2025-11-11T16:03:56.569116035Z [err]  [2025-11-11 16:03:56 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
+2025-11-11T16:03:56.959546590Z [err]                  ^^^^^^^^^^^^^^^
+2025-11-11T16:03:56.959560125Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 67, in wsgi
+2025-11-11T16:03:56.959583086Z [err]      self.callable = self.load()
+2025-11-11T16:03:56.959584151Z [err]  [2025-11-11 16:03:56 +0000] [2] [ERROR] Exception in worker process
+2025-11-11T16:03:56.959591640Z [err]  Traceback (most recent call last):
+2025-11-11T16:03:56.959592391Z [err]                      ^^^^^^^^^^^
+2025-11-11T16:03:56.959599024Z [err]    File "/app/nova_sonic_es_sd.py", line 16, in <module>
+2025-11-11T16:03:56.959601004Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+2025-11-11T16:03:56.959605524Z [err]      from rx.subject import Subject
+2025-11-11T16:03:56.959611760Z [err]  ModuleNotFoundError: No module named 'rx'
+2025-11-11T16:03:56.959617061Z [err]  
+2025-11-11T16:03:56.959622179Z [err]  During handling of the above exception, another exception occurred:
+2025-11-11T16:03:56.959641444Z [err]  
+2025-11-11T16:03:56.959647771Z [err]  Traceback (most recent call last):
+2025-11-11T16:03:56.959656710Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
+2025-11-11T16:03:56.959668024Z [err]      worker.init_process()
+2025-11-11T16:03:56.959675008Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 143, in init_process
+2025-11-11T16:03:56.959682792Z [err]      super().init_process()
+2025-11-11T16:03:56.959687996Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 134, in init_process
+2025-11-11T16:03:56.959696974Z [err]      self.load_wsgi()
+2025-11-11T16:03:56.959702701Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+2025-11-11T16:03:56.959711057Z [err]      self.wsgi = self.app.wsgi()
+2025-11-11T16:03:56.961585643Z [err]      return self.load_wsgiapp()
+2025-11-11T16:03:56.961592305Z [err]             ^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:03:56.961600095Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+2025-11-11T16:03:56.961606326Z [err]      return util.import_app(self.app_uri)
+2025-11-11T16:03:56.961611343Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:03:56.961616353Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 371, in import_app
+2025-11-11T16:03:56.961621912Z [err]      mod = importlib.import_module(module)
+2025-11-11T16:03:56.961626392Z [err]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:03:56.961630720Z [err]    File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+2025-11-11T16:03:56.961634665Z [err]      return _bootstrap._gcd_import(name[level:], package, level)
+2025-11-11T16:03:56.961639993Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:03:56.961646690Z [err]    File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+2025-11-11T16:03:56.961652320Z [err]    File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+2025-11-11T16:03:56.961730071Z [err]    File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+2025-11-11T16:03:56.961734993Z [err]    File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+2025-11-11T16:03:56.961739605Z [err]    File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+2025-11-11T16:03:56.961744420Z [err]    File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+2025-11-11T16:03:56.961749579Z [err]    File "/app/app.py", line 15, in <module>
+2025-11-11T16:03:56.961753900Z [err]      from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
+2025-11-11T16:03:56.961757978Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
+2025-11-11T16:03:56.963250857Z [err]      from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
+2025-11-11T16:03:56.963259525Z [err]    File "/app/nova_sonic_es_sd.py", line 18, in <module>
+2025-11-11T16:03:56.963265709Z [err]      raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
+2025-11-11T16:03:56.963271548Z [err]  ImportError: reactivex not installed: No module named 'rx'. Run: pip install reactivex>=4.0.0
+2025-11-11T16:03:56.963384749Z [err]  [2025-11-11 16:03:56 +0000] [2] [INFO] Worker exiting (pid: 2)
+2025-11-11T16:03:57.645478576Z [err]  [2025-11-11 16:03:57 +0000] [1] [ERROR] Worker (pid:2) exited with code 3
+2025-11-11T16:03:57.645487329Z [err]  [2025-11-11 16:03:57 +0000] [1] [ERROR] Shutting down: Master
+2025-11-11T16:03:57.645495645Z [err]  [2025-11-11 16:03:57 +0000] [1] [ERROR] Reason: Worker failed to boot.
+2025-11-11T16:04:17.850849832Z [inf]  [start.sh] Using PORT=8080
+2025-11-11T16:04:17.850863476Z [err]  [2025-11-11 16:04:10 +0000] [1] [INFO] Starting gunicorn 21.2.0
+2025-11-11T16:04:17.850870131Z [err]  [2025-11-11 16:04:10 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
+2025-11-11T16:04:17.850875793Z [err]  [2025-11-11 16:04:10 +0000] [1] [INFO] Using worker: eventlet
+2025-11-11T16:04:17.850880823Z [err]  [2025-11-11 16:04:10 +0000] [2] [INFO] Booting worker with pid: 2
+2025-11-11T16:04:17.850887272Z [err]  [2025-11-11 16:04:10 +0000] [2] [ERROR] Exception in worker process
+2025-11-11T16:04:17.850893270Z [err]  Traceback (most recent call last):
+2025-11-11T16:04:17.850899182Z [err]    File "/app/nova_sonic_es_sd.py", line 16, in <module>
+2025-11-11T16:04:17.850905081Z [err]      from rx.subject import Subject
+2025-11-11T16:04:17.850911030Z [err]  ModuleNotFoundError: No module named 'rx'
+2025-11-11T16:04:17.850916048Z [err]  
+2025-11-11T16:04:17.850921884Z [err]  During handling of the above exception, another exception occurred:
+2025-11-11T16:04:17.850927290Z [err]  
+2025-11-11T16:04:17.850932918Z [err]  Traceback (most recent call last):
+2025-11-11T16:04:17.850939479Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
+2025-11-11T16:04:17.850945951Z [err]      worker.init_process()
+2025-11-11T16:04:17.850953307Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 143, in init_process
+2025-11-11T16:04:17.850960892Z [err]      super().init_process()
+2025-11-11T16:04:17.850967316Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 134, in init_process
+2025-11-11T16:04:17.850973876Z [err]      self.load_wsgi()
+2025-11-11T16:04:17.850980675Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+2025-11-11T16:04:17.850988652Z [err]      self.wsgi = self.app.wsgi()
+2025-11-11T16:04:17.854470757Z [err]                  ^^^^^^^^^^^^^^^
+2025-11-11T16:04:17.854476752Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 67, in wsgi
+2025-11-11T16:04:17.854482560Z [err]      self.callable = self.load()
+2025-11-11T16:04:17.854488127Z [err]                      ^^^^^^^^^^^
+2025-11-11T16:04:17.854495643Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+2025-11-11T16:04:17.854502799Z [err]      return self.load_wsgiapp()
+2025-11-11T16:04:17.854508738Z [err]             ^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:17.854514936Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+2025-11-11T16:04:17.854520315Z [err]      return util.import_app(self.app_uri)
+2025-11-11T16:04:17.854526069Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:17.854532167Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 371, in import_app
+2025-11-11T16:04:17.854540415Z [err]      mod = importlib.import_module(module)
+2025-11-11T16:04:17.854546258Z [err]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:17.854554412Z [err]    File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+2025-11-11T16:04:17.854560820Z [err]      return _bootstrap._gcd_import(name[level:], package, level)
+2025-11-11T16:04:17.854567247Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:17.854573622Z [err]    File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+2025-11-11T16:04:17.854579813Z [err]    File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+2025-11-11T16:04:17.854585540Z [err]    File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+2025-11-11T16:04:17.854594225Z [err]    File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+2025-11-11T16:04:17.859979661Z [err]    File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+2025-11-11T16:04:17.859988366Z [err]    File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+2025-11-11T16:04:17.859994424Z [err]    File "/app/app.py", line 15, in <module>
+2025-11-11T16:04:17.860000443Z [err]      from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
+2025-11-11T16:04:17.860006598Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
+2025-11-11T16:04:17.860012867Z [err]      from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
+2025-11-11T16:04:17.860018855Z [err]    File "/app/nova_sonic_es_sd.py", line 18, in <module>
+2025-11-11T16:04:17.860024925Z [err]      raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
+2025-11-11T16:04:17.860030259Z [err]  ImportError: reactivex not installed: No module named 'rx'. Run: pip install reactivex>=4.0.0
+2025-11-11T16:04:17.860036276Z [err]  [2025-11-11 16:04:10 +0000] [2] [INFO] Worker exiting (pid: 2)
+2025-11-11T16:04:17.860042460Z [err]  [2025-11-11 16:04:10 +0000] [1] [ERROR] Worker (pid:2) exited with code 3
+2025-11-11T16:04:17.860048792Z [err]  [2025-11-11 16:04:10 +0000] [1] [ERROR] Shutting down: Master
+2025-11-11T16:04:17.860054539Z [err]  [2025-11-11 16:04:10 +0000] [1] [ERROR] Reason: Worker failed to boot.
+2025-11-11T16:04:17.860060807Z [inf]  [start.sh] Using PORT=8080
+2025-11-11T16:04:17.860067050Z [err]  [2025-11-11 16:04:13 +0000] [1] [INFO] Starting gunicorn 21.2.0
+2025-11-11T16:04:17.860073928Z [err]  [2025-11-11 16:04:13 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
+2025-11-11T16:04:17.860080390Z [err]  [2025-11-11 16:04:13 +0000] [1] [INFO] Using worker: eventlet
+2025-11-11T16:04:17.860086514Z [err]  [2025-11-11 16:04:13 +0000] [2] [INFO] Booting worker with pid: 2
+2025-11-11T16:04:17.860092215Z [err]  [2025-11-11 16:04:14 +0000] [2] [ERROR] Exception in worker process
+2025-11-11T16:04:17.865059874Z [err]  Traceback (most recent call last):
+2025-11-11T16:04:17.865066648Z [err]    File "/app/nova_sonic_es_sd.py", line 16, in <module>
+2025-11-11T16:04:17.865073272Z [err]      from rx.subject import Subject
+2025-11-11T16:04:17.865079419Z [err]  ModuleNotFoundError: No module named 'rx'
+2025-11-11T16:04:17.865087075Z [err]  
+2025-11-11T16:04:17.865093477Z [err]  During handling of the above exception, another exception occurred:
+2025-11-11T16:04:17.865100639Z [err]  
+2025-11-11T16:04:17.865106912Z [err]  Traceback (most recent call last):
+2025-11-11T16:04:17.865113595Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
+2025-11-11T16:04:17.865123798Z [err]      worker.init_process()
+2025-11-11T16:04:17.865129922Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 143, in init_process
+2025-11-11T16:04:17.865136272Z [err]      super().init_process()
+2025-11-11T16:04:17.865142647Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 134, in init_process
+2025-11-11T16:04:17.865148856Z [err]      self.load_wsgi()
+2025-11-11T16:04:17.865155614Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+2025-11-11T16:04:17.865162483Z [err]      self.wsgi = self.app.wsgi()
+2025-11-11T16:04:17.865168976Z [err]                  ^^^^^^^^^^^^^^^
+2025-11-11T16:04:17.865176122Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 67, in wsgi
+2025-11-11T16:04:17.865183737Z [err]      self.callable = self.load()
+2025-11-11T16:04:17.865195316Z [err]                      ^^^^^^^^^^^
+2025-11-11T16:04:17.865201885Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+2025-11-11T16:04:17.865208116Z [err]      return self.load_wsgiapp()
+2025-11-11T16:04:17.866863321Z [err]      from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
+2025-11-11T16:04:17.866882503Z [err]    File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+2025-11-11T16:04:17.866891923Z [err]      return _bootstrap._gcd_import(name[level:], package, level)
+2025-11-11T16:04:17.866894743Z [err]    File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+2025-11-11T16:04:17.866900259Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:17.866903087Z [err]    File "/app/app.py", line 15, in <module>
+2025-11-11T16:04:17.866909379Z [err]    File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+2025-11-11T16:04:17.866910639Z [err]      from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
+2025-11-11T16:04:17.866918359Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
+2025-11-11T16:04:17.866918823Z [err]    File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+2025-11-11T16:04:17.866925962Z [err]    File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+2025-11-11T16:04:17.866931316Z [err]    File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+2025-11-11T16:04:17.866937410Z [err]    File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+2025-11-11T16:04:17.867089131Z [err]             ^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:17.867096586Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+2025-11-11T16:04:17.867108942Z [err]      return util.import_app(self.app_uri)
+2025-11-11T16:04:17.867115728Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:17.867120820Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 371, in import_app
+2025-11-11T16:04:17.867126751Z [err]      mod = importlib.import_module(module)
+2025-11-11T16:04:17.867132889Z [err]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:17.869591509Z [err]    File "/app/nova_sonic_es_sd.py", line 18, in <module>
+2025-11-11T16:04:17.869598969Z [err]      raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
+2025-11-11T16:04:17.869607595Z [err]  ImportError: reactivex not installed: No module named 'rx'. Run: pip install reactivex>=4.0.0
+2025-11-11T16:04:17.869614068Z [err]  [2025-11-11 16:04:14 +0000] [2] [INFO] Worker exiting (pid: 2)
+2025-11-11T16:04:17.869619856Z [err]  [2025-11-11 16:04:14 +0000] [1] [ERROR] Worker (pid:2) exited with code 3
+2025-11-11T16:04:17.869625388Z [err]  [2025-11-11 16:04:14 +0000] [1] [ERROR] Shutting down: Master
+2025-11-11T16:04:17.869631506Z [err]  [2025-11-11 16:04:14 +0000] [1] [ERROR] Reason: Worker failed to boot.
+2025-11-11T16:04:17.869637561Z [inf]  [start.sh] Using PORT=8080
+2025-11-11T16:04:17.869643498Z [err]  [2025-11-11 16:04:15 +0000] [1] [INFO] Starting gunicorn 21.2.0
+2025-11-11T16:04:17.869649787Z [err]  [2025-11-11 16:04:15 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
+2025-11-11T16:04:17.869656413Z [err]  [2025-11-11 16:04:15 +0000] [1] [INFO] Using worker: eventlet
+2025-11-11T16:04:17.869663522Z [err]  [2025-11-11 16:04:15 +0000] [2] [INFO] Booting worker with pid: 2
+2025-11-11T16:04:17.869670361Z [err]  [2025-11-11 16:04:16 +0000] [2] [ERROR] Exception in worker process
+2025-11-11T16:04:17.869677355Z [err]  Traceback (most recent call last):
+2025-11-11T16:04:17.869683150Z [err]    File "/app/nova_sonic_es_sd.py", line 16, in <module>
+2025-11-11T16:04:17.869689222Z [err]      from rx.subject import Subject
+2025-11-11T16:04:17.869696155Z [err]  ModuleNotFoundError: No module named 'rx'
+2025-11-11T16:04:17.869707113Z [err]  
+2025-11-11T16:04:17.869712862Z [err]  During handling of the above exception, another exception occurred:
+2025-11-11T16:04:17.869719301Z [err]  
+2025-11-11T16:04:17.869725991Z [err]  Traceback (most recent call last):
+2025-11-11T16:04:17.870262442Z [err]      super().init_process()
+2025-11-11T16:04:17.870268998Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 371, in import_app
+2025-11-11T16:04:17.870275283Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 134, in init_process
+2025-11-11T16:04:17.870283195Z [err]      self.load_wsgi()
+2025-11-11T16:04:17.870292282Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+2025-11-11T16:04:17.870293427Z [err]             ^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:17.870302010Z [err]      self.wsgi = self.app.wsgi()
+2025-11-11T16:04:17.870302276Z [err]                      ^^^^^^^^^^^
+2025-11-11T16:04:17.870310176Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+2025-11-11T16:04:17.870315447Z [err]                  ^^^^^^^^^^^^^^^
+2025-11-11T16:04:17.870319619Z [err]      return util.import_app(self.app_uri)
+2025-11-11T16:04:17.870321391Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+2025-11-11T16:04:17.870326509Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 67, in wsgi
+2025-11-11T16:04:17.870330134Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:17.870335026Z [err]      return self.load_wsgiapp()
+2025-11-11T16:04:17.870337651Z [err]      self.callable = self.load()
+2025-11-11T16:04:17.870386609Z [err]      mod = importlib.import_module(module)
+2025-11-11T16:04:17.870395016Z [err]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:17.870859962Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
+2025-11-11T16:04:17.870866136Z [err]      worker.init_process()
+2025-11-11T16:04:17.870875059Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 143, in init_process
+2025-11-11T16:04:17.873296400Z [err]    File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+2025-11-11T16:04:17.873302168Z [err]      return _bootstrap._gcd_import(name[level:], package, level)
+2025-11-11T16:04:17.873308400Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:17.873314700Z [err]    File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+2025-11-11T16:04:17.873321279Z [err]    File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+2025-11-11T16:04:17.873326856Z [err]    File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+2025-11-11T16:04:17.873333132Z [err]    File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+2025-11-11T16:04:17.873339515Z [err]    File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+2025-11-11T16:04:17.873345613Z [err]    File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+2025-11-11T16:04:17.873354217Z [err]    File "/app/app.py", line 15, in <module>
+2025-11-11T16:04:17.873370007Z [err]      from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
+2025-11-11T16:04:17.873377110Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
+2025-11-11T16:04:17.873384341Z [err]      from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
+2025-11-11T16:04:17.873412682Z [err]    File "/app/nova_sonic_es_sd.py", line 18, in <module>
+2025-11-11T16:04:17.873426488Z [err]      raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
+2025-11-11T16:04:17.873432171Z [err]  ImportError: reactivex not installed: No module named 'rx'. Run: pip install reactivex>=4.0.0
+2025-11-11T16:04:17.873438133Z [err]  [2025-11-11 16:04:16 +0000] [2] [INFO] Worker exiting (pid: 2)
+2025-11-11T16:04:17.873444032Z [err]  [2025-11-11 16:04:16 +0000] [1] [ERROR] Worker (pid:2) exited with code 3
+2025-11-11T16:04:17.878404880Z [err]  [2025-11-11 16:04:16 +0000] [1] [ERROR] Shutting down: Master
+2025-11-11T16:04:17.878410888Z [err]  [2025-11-11 16:04:16 +0000] [1] [ERROR] Reason: Worker failed to boot.
+2025-11-11T16:04:17.878417997Z [inf]  [start.sh] Using PORT=8080
+2025-11-11T16:04:17.917668664Z [err]  [2025-11-11 16:04:17 +0000] [1] [INFO] Starting gunicorn 21.2.0
+2025-11-11T16:04:17.921022157Z [err]  [2025-11-11 16:04:17 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
+2025-11-11T16:04:17.921028560Z [err]  [2025-11-11 16:04:17 +0000] [1] [INFO] Using worker: eventlet
+2025-11-11T16:04:17.926733149Z [err]  [2025-11-11 16:04:17 +0000] [2] [INFO] Booting worker with pid: 2
+2025-11-11T16:04:18.792023597Z [err]  [2025-11-11 16:04:18 +0000] [2] [ERROR] Exception in worker process
+2025-11-11T16:04:18.792036218Z [err]  Traceback (most recent call last):
+2025-11-11T16:04:18.792044102Z [err]    File "/app/nova_sonic_es_sd.py", line 16, in <module>
+2025-11-11T16:04:18.792052051Z [err]      from rx.subject import Subject
+2025-11-11T16:04:18.792058924Z [err]  ModuleNotFoundError: No module named 'rx'
+2025-11-11T16:04:18.792066738Z [err]  
+2025-11-11T16:04:18.792074833Z [err]  During handling of the above exception, another exception occurred:
+2025-11-11T16:04:18.792083132Z [err]  
+2025-11-11T16:04:18.792091806Z [err]  Traceback (most recent call last):
+2025-11-11T16:04:18.792099983Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
+2025-11-11T16:04:18.792106965Z [err]      worker.init_process()
+2025-11-11T16:04:18.792114445Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 143, in init_process
+2025-11-11T16:04:18.792122418Z [err]      super().init_process()
+2025-11-11T16:04:18.792130714Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 134, in init_process
+2025-11-11T16:04:18.792139109Z [err]      self.load_wsgi()
+2025-11-11T16:04:18.792146261Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+2025-11-11T16:04:18.792152563Z [err]      self.wsgi = self.app.wsgi()
+2025-11-11T16:04:18.792159563Z [err]                  ^^^^^^^^^^^^^^^
+2025-11-11T16:04:18.792166468Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 67, in wsgi
+2025-11-11T16:04:18.792174940Z [err]      self.callable = self.load()
+2025-11-11T16:04:18.792181304Z [err]                      ^^^^^^^^^^^
+2025-11-11T16:04:18.792187386Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+2025-11-11T16:04:18.794058777Z [err]      return self.load_wsgiapp()
+2025-11-11T16:04:18.794065221Z [err]             ^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:18.794071500Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+2025-11-11T16:04:18.794079790Z [err]      return util.import_app(self.app_uri)
+2025-11-11T16:04:18.794085874Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:18.794092579Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 371, in import_app
+2025-11-11T16:04:18.794098463Z [err]      mod = importlib.import_module(module)
+2025-11-11T16:04:18.794103956Z [err]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:18.794109941Z [err]    File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+2025-11-11T16:04:18.794116349Z [err]      return _bootstrap._gcd_import(name[level:], package, level)
+2025-11-11T16:04:18.794124210Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:18.794131204Z [err]    File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+2025-11-11T16:04:18.795026088Z [err]    File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+2025-11-11T16:04:18.795035565Z [err]    File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+2025-11-11T16:04:18.795042099Z [err]    File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+2025-11-11T16:04:18.795048183Z [err]    File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+2025-11-11T16:04:18.795054539Z [err]    File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+2025-11-11T16:04:18.795062092Z [err]    File "/app/app.py", line 15, in <module>
+2025-11-11T16:04:18.795068168Z [err]      from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
+2025-11-11T16:04:18.795074162Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
+2025-11-11T16:04:18.798461723Z [err]      from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
+2025-11-11T16:04:18.798467946Z [err]    File "/app/nova_sonic_es_sd.py", line 18, in <module>
+2025-11-11T16:04:18.798474936Z [err]      raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
+2025-11-11T16:04:18.798481343Z [err]  ImportError: reactivex not installed: No module named 'rx'. Run: pip install reactivex>=4.0.0
+2025-11-11T16:04:18.798488982Z [err]  [2025-11-11 16:04:18 +0000] [2] [INFO] Worker exiting (pid: 2)
+2025-11-11T16:04:18.798496528Z [err]  [2025-11-11 16:04:18 +0000] [1] [ERROR] Worker (pid:2) exited with code 3
+2025-11-11T16:04:18.798503404Z [err]  [2025-11-11 16:04:18 +0000] [1] [ERROR] Shutting down: Master
+2025-11-11T16:04:18.798510781Z [err]  [2025-11-11 16:04:18 +0000] [1] [ERROR] Reason: Worker failed to boot.
+2025-11-11T16:04:19.777176835Z [inf]  [start.sh] Using PORT=8080
+2025-11-11T16:04:19.948716570Z [err]  [2025-11-11 16:04:19 +0000] [1] [INFO] Starting gunicorn 21.2.0
+2025-11-11T16:04:19.948723479Z [err]  [2025-11-11 16:04:19 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
+2025-11-11T16:04:19.948730089Z [err]  [2025-11-11 16:04:19 +0000] [1] [INFO] Using worker: eventlet
+2025-11-11T16:04:19.959843647Z [err]  [2025-11-11 16:04:19 +0000] [2] [INFO] Booting worker with pid: 2
+2025-11-11T16:04:20.609104538Z [err]  [2025-11-11 16:04:20 +0000] [2] [ERROR] Exception in worker process
+2025-11-11T16:04:20.609111571Z [err]  Traceback (most recent call last):
+2025-11-11T16:04:20.609118705Z [err]    File "/app/nova_sonic_es_sd.py", line 16, in <module>
+2025-11-11T16:04:20.609127207Z [err]      from rx.subject import Subject
+2025-11-11T16:04:20.609134863Z [err]  ModuleNotFoundError: No module named 'rx'
+2025-11-11T16:04:20.609144891Z [err]  
+2025-11-11T16:04:20.609152724Z [err]  During handling of the above exception, another exception occurred:
+2025-11-11T16:04:20.609160557Z [err]  
+2025-11-11T16:04:20.609172930Z [err]  Traceback (most recent call last):
+2025-11-11T16:04:20.609179531Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
+2025-11-11T16:04:20.609185401Z [err]      worker.init_process()
+2025-11-11T16:04:20.609192650Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 143, in init_process
+2025-11-11T16:04:20.609199014Z [err]      super().init_process()
+2025-11-11T16:04:20.609206257Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 134, in init_process
+2025-11-11T16:04:20.609212729Z [err]      self.load_wsgi()
+2025-11-11T16:04:20.609219546Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+2025-11-11T16:04:20.609225989Z [err]      self.wsgi = self.app.wsgi()
+2025-11-11T16:04:20.609232254Z [err]                  ^^^^^^^^^^^^^^^
+2025-11-11T16:04:20.609237887Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 67, in wsgi
+2025-11-11T16:04:20.609245846Z [err]      self.callable = self.load()
+2025-11-11T16:04:20.609254336Z [err]                      ^^^^^^^^^^^
+2025-11-11T16:04:20.609261085Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+2025-11-11T16:04:20.611768302Z [err]      from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
+2025-11-11T16:04:20.611776428Z [err]    File "/app/nova_sonic_es_sd.py", line 18, in <module>
+2025-11-11T16:04:20.611803469Z [err]      raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
+2025-11-11T16:04:20.611810412Z [err]  ImportError: reactivex not installed: No module named 'rx'. Run: pip install reactivex>=4.0.0
+2025-11-11T16:04:20.611818037Z [err]  [2025-11-11 16:04:20 +0000] [2] [INFO] Worker exiting (pid: 2)
+2025-11-11T16:04:20.611824638Z [err]  [2025-11-11 16:04:20 +0000] [1] [ERROR] Worker (pid:2) exited with code 3
+2025-11-11T16:04:20.611831376Z [err]  [2025-11-11 16:04:20 +0000] [1] [ERROR] Shutting down: Master
+2025-11-11T16:04:20.611837771Z [err]  [2025-11-11 16:04:20 +0000] [1] [ERROR] Reason: Worker failed to boot.
+2025-11-11T16:04:20.611953036Z [err]      return self.load_wsgiapp()
+2025-11-11T16:04:20.611959964Z [err]             ^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:20.611967051Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+2025-11-11T16:04:20.611974090Z [err]      return util.import_app(self.app_uri)
+2025-11-11T16:04:20.611980568Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:20.611988513Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 371, in import_app
+2025-11-11T16:04:20.611996104Z [err]      mod = importlib.import_module(module)
+2025-11-11T16:04:20.612002949Z [err]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:20.612009393Z [err]    File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+2025-11-11T16:04:20.612015857Z [err]      return _bootstrap._gcd_import(name[level:], package, level)
+2025-11-11T16:04:20.612022990Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:20.612029456Z [err]    File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+2025-11-11T16:04:20.612039315Z [err]    File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+2025-11-11T16:04:20.612046265Z [err]    File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+2025-11-11T16:04:20.612055829Z [err]    File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+2025-11-11T16:04:20.612071663Z [err]    File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+2025-11-11T16:04:20.612079204Z [err]    File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+2025-11-11T16:04:20.612084658Z [err]    File "/app/app.py", line 15, in <module>
+2025-11-11T16:04:20.612091472Z [err]      from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
+2025-11-11T16:04:20.612099453Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
+2025-11-11T16:04:21.627144743Z [inf]  [start.sh] Using PORT=8080
+2025-11-11T16:04:21.756055590Z [err]  [2025-11-11 16:04:21 +0000] [1] [INFO] Starting gunicorn 21.2.0
+2025-11-11T16:04:21.756061582Z [err]  [2025-11-11 16:04:21 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
+2025-11-11T16:04:21.756067338Z [err]  [2025-11-11 16:04:21 +0000] [1] [INFO] Using worker: eventlet
+2025-11-11T16:04:21.759033115Z [err]  [2025-11-11 16:04:21 +0000] [2] [INFO] Booting worker with pid: 2
+2025-11-11T16:04:22.100339017Z [err]  During handling of the above exception, another exception occurred:
+2025-11-11T16:04:22.100345208Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 67, in wsgi
+2025-11-11T16:04:22.100349358Z [err]  
+2025-11-11T16:04:22.100355133Z [err]  Traceback (most recent call last):
+2025-11-11T16:04:22.100358664Z [err]      self.callable = self.load()
+2025-11-11T16:04:22.100361660Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
+2025-11-11T16:04:22.100366924Z [err]      worker.init_process()
+2025-11-11T16:04:22.100373893Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 143, in init_process
+2025-11-11T16:04:22.100379659Z [err]                      ^^^^^^^^^^^
+2025-11-11T16:04:22.100389219Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+2025-11-11T16:04:22.100391047Z [err]      super().init_process()
+2025-11-11T16:04:22.100399998Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 134, in init_process
+2025-11-11T16:04:22.100407492Z [err]      self.load_wsgi()
+2025-11-11T16:04:22.100414085Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+2025-11-11T16:04:22.100420380Z [err]      self.wsgi = self.app.wsgi()
+2025-11-11T16:04:22.100430165Z [err]                  ^^^^^^^^^^^^^^^
+2025-11-11T16:04:22.100553740Z [err]  [2025-11-11 16:04:22 +0000] [2] [ERROR] Exception in worker process
+2025-11-11T16:04:22.100560453Z [err]  Traceback (most recent call last):
+2025-11-11T16:04:22.100567133Z [err]    File "/app/nova_sonic_es_sd.py", line 16, in <module>
+2025-11-11T16:04:22.100573576Z [err]      from rx.subject import Subject
+2025-11-11T16:04:22.100579579Z [err]  ModuleNotFoundError: No module named 'rx'
+2025-11-11T16:04:22.100585400Z [err]  
+2025-11-11T16:04:22.102098757Z [err]    File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+2025-11-11T16:04:22.102100100Z [err]             ^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:22.102110309Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+2025-11-11T16:04:22.102110689Z [err]    File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+2025-11-11T16:04:22.102116529Z [err]      return util.import_app(self.app_uri)
+2025-11-11T16:04:22.102120451Z [err]    File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+2025-11-11T16:04:22.102123637Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:22.102129864Z [err]    File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+2025-11-11T16:04:22.102129865Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 371, in import_app
+2025-11-11T16:04:22.102136391Z [err]      mod = importlib.import_module(module)
+2025-11-11T16:04:22.102140847Z [err]    File "/app/app.py", line 15, in <module>
+2025-11-11T16:04:22.102143835Z [err]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:22.102149927Z [err]      from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
+2025-11-11T16:04:22.102149932Z [err]    File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+2025-11-11T16:04:22.102158281Z [err]      return _bootstrap._gcd_import(name[level:], package, level)
+2025-11-11T16:04:22.102160466Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
+2025-11-11T16:04:22.102165425Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:22.102178153Z [err]    File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+2025-11-11T16:04:22.102184683Z [err]    File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+2025-11-11T16:04:22.102204329Z [err]      return self.load_wsgiapp()
+2025-11-11T16:04:22.587468624Z [err]      from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
+2025-11-11T16:04:22.587472408Z [err]    File "/app/nova_sonic_es_sd.py", line 18, in <module>
+2025-11-11T16:04:22.587476467Z [err]      raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
+2025-11-11T16:04:22.587480465Z [err]  ImportError: reactivex not installed: No module named 'rx'. Run: pip install reactivex>=4.0.0
+2025-11-11T16:04:22.587484785Z [err]  [2025-11-11 16:04:22 +0000] [2] [INFO] Worker exiting (pid: 2)
+2025-11-11T16:04:22.587488576Z [err]  [2025-11-11 16:04:22 +0000] [1] [ERROR] Worker (pid:2) exited with code 3
+2025-11-11T16:04:22.587492488Z [err]  [2025-11-11 16:04:22 +0000] [1] [ERROR] Shutting down: Master
+2025-11-11T16:04:22.587497889Z [err]  [2025-11-11 16:04:22 +0000] [1] [ERROR] Reason: Worker failed to boot.
+2025-11-11T16:04:23.603238663Z [inf]  [start.sh] Using PORT=8080
+2025-11-11T16:04:23.896544098Z [err]  [2025-11-11 16:04:23 +0000] [1] [INFO] Starting gunicorn 21.2.0
+2025-11-11T16:04:23.896554641Z [err]  [2025-11-11 16:04:23 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
+2025-11-11T16:04:23.896562785Z [err]  [2025-11-11 16:04:23 +0000] [1] [INFO] Using worker: eventlet
+2025-11-11T16:04:23.899861789Z [err]  [2025-11-11 16:04:23 +0000] [2] [INFO] Booting worker with pid: 2
+2025-11-11T16:04:24.637079047Z [err]      self.load_wsgi()
+2025-11-11T16:04:24.637091773Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+2025-11-11T16:04:24.637103826Z [err]      self.wsgi = self.app.wsgi()
+2025-11-11T16:04:24.637118498Z [err]                  ^^^^^^^^^^^^^^^
+2025-11-11T16:04:24.637126792Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 67, in wsgi
+2025-11-11T16:04:24.637136012Z [err]      self.callable = self.load()
+2025-11-11T16:04:24.637144138Z [err]                      ^^^^^^^^^^^
+2025-11-11T16:04:24.637151040Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+2025-11-11T16:04:24.637181045Z [err]  [2025-11-11 16:04:24 +0000] [2] [ERROR] Exception in worker process
+2025-11-11T16:04:24.637188043Z [err]  Traceback (most recent call last):
+2025-11-11T16:04:24.637194943Z [err]    File "/app/nova_sonic_es_sd.py", line 16, in <module>
+2025-11-11T16:04:24.637202242Z [err]      from rx.subject import Subject
+2025-11-11T16:04:24.637209422Z [err]  ModuleNotFoundError: No module named 'rx'
+2025-11-11T16:04:24.637216776Z [err]  
+2025-11-11T16:04:24.637224488Z [err]  During handling of the above exception, another exception occurred:
+2025-11-11T16:04:24.637232125Z [err]  
+2025-11-11T16:04:24.637239723Z [err]  Traceback (most recent call last):
+2025-11-11T16:04:24.637246599Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
+2025-11-11T16:04:24.637252016Z [err]      worker.init_process()
+2025-11-11T16:04:24.637257591Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 143, in init_process
+2025-11-11T16:04:24.637268474Z [err]      super().init_process()
+2025-11-11T16:04:24.637273873Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 134, in init_process
+2025-11-11T16:04:24.641590832Z [err]      return self.load_wsgiapp()
+2025-11-11T16:04:24.641596340Z [err]             ^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:24.641602188Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+2025-11-11T16:04:24.641608731Z [err]      return util.import_app(self.app_uri)
+2025-11-11T16:04:24.641614847Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:24.641620569Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 371, in import_app
+2025-11-11T16:04:24.641625987Z [err]      mod = importlib.import_module(module)
+2025-11-11T16:04:24.641661444Z [err]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:24.641670874Z [err]    File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+2025-11-11T16:04:24.641676343Z [err]      return _bootstrap._gcd_import(name[level:], package, level)
+2025-11-11T16:04:24.641681884Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:24.641689615Z [err]    File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+2025-11-11T16:04:24.641696384Z [err]    File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+2025-11-11T16:04:24.641702567Z [err]    File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+2025-11-11T16:04:24.641709353Z [err]    File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+2025-11-11T16:04:24.641715914Z [err]    File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+2025-11-11T16:04:24.641721507Z [err]    File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+2025-11-11T16:04:24.641726475Z [err]    File "/app/app.py", line 15, in <module>
+2025-11-11T16:04:24.641730719Z [err]      from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
+2025-11-11T16:04:24.641735403Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
+2025-11-11T16:04:24.642017975Z [err]      from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
+2025-11-11T16:04:24.642023352Z [err]    File "/app/nova_sonic_es_sd.py", line 18, in <module>
+2025-11-11T16:04:24.642029018Z [err]      raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
+2025-11-11T16:04:24.642034883Z [err]  ImportError: reactivex not installed: No module named 'rx'. Run: pip install reactivex>=4.0.0
+2025-11-11T16:04:24.642041452Z [err]  [2025-11-11 16:04:24 +0000] [2] [INFO] Worker exiting (pid: 2)
+2025-11-11T16:04:24.642047357Z [err]  [2025-11-11 16:04:24 +0000] [1] [ERROR] Worker (pid:2) exited with code 3
+2025-11-11T16:04:24.642053415Z [err]  [2025-11-11 16:04:24 +0000] [1] [ERROR] Shutting down: Master
+2025-11-11T16:04:24.642058112Z [err]  [2025-11-11 16:04:24 +0000] [1] [ERROR] Reason: Worker failed to boot.
+2025-11-11T16:04:25.627501310Z [inf]  [start.sh] Using PORT=8080
+2025-11-11T16:04:25.656790306Z [err]  [2025-11-11 16:04:25 +0000] [1] [INFO] Starting gunicorn 21.2.0
+2025-11-11T16:04:25.656796497Z [err]  [2025-11-11 16:04:25 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
+2025-11-11T16:04:25.656801943Z [err]  [2025-11-11 16:04:25 +0000] [1] [INFO] Using worker: eventlet
+2025-11-11T16:04:25.659544011Z [err]  [2025-11-11 16:04:25 +0000] [2] [INFO] Booting worker with pid: 2
+2025-11-11T16:04:25.922987726Z [err]  [2025-11-11 16:04:25 +0000] [2] [ERROR] Exception in worker process
+2025-11-11T16:04:25.922989615Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 67, in wsgi
+2025-11-11T16:04:25.923001226Z [err]  Traceback (most recent call last):
+2025-11-11T16:04:25.923002619Z [err]      self.callable = self.load()
+2025-11-11T16:04:25.923009992Z [err]    File "/app/nova_sonic_es_sd.py", line 16, in <module>
+2025-11-11T16:04:25.923012022Z [err]                      ^^^^^^^^^^^
+2025-11-11T16:04:25.923018718Z [err]      from rx.subject import Subject
+2025-11-11T16:04:25.923020428Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+2025-11-11T16:04:25.923026062Z [err]  ModuleNotFoundError: No module named 'rx'
+2025-11-11T16:04:25.923039576Z [err]  
+2025-11-11T16:04:25.923046003Z [err]  During handling of the above exception, another exception occurred:
+2025-11-11T16:04:25.923051840Z [err]  
+2025-11-11T16:04:25.923061151Z [err]  Traceback (most recent call last):
+2025-11-11T16:04:25.923067965Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
+2025-11-11T16:04:25.923073908Z [err]      worker.init_process()
+2025-11-11T16:04:25.923078163Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 143, in init_process
+2025-11-11T16:04:25.923082418Z [err]      super().init_process()
+2025-11-11T16:04:25.923087527Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 134, in init_process
+2025-11-11T16:04:25.923092607Z [err]      self.load_wsgi()
+2025-11-11T16:04:25.923100304Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+2025-11-11T16:04:25.923105083Z [err]      self.wsgi = self.app.wsgi()
+2025-11-11T16:04:25.923109689Z [err]                  ^^^^^^^^^^^^^^^
+2025-11-11T16:04:25.925042421Z [err]      return self.load_wsgiapp()
+2025-11-11T16:04:25.925046498Z [err]             ^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:25.925050520Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+2025-11-11T16:04:25.925057528Z [err]      return util.import_app(self.app_uri)
+2025-11-11T16:04:25.925064337Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:25.925071053Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 371, in import_app
+2025-11-11T16:04:25.925077041Z [err]      mod = importlib.import_module(module)
+2025-11-11T16:04:25.925081960Z [err]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:25.925087807Z [err]    File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+2025-11-11T16:04:25.925093164Z [err]      return _bootstrap._gcd_import(name[level:], package, level)
+2025-11-11T16:04:25.925098399Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:25.925102658Z [err]    File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+2025-11-11T16:04:25.925107096Z [err]    File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+2025-11-11T16:04:25.925112568Z [err]    File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+2025-11-11T16:04:25.925117708Z [err]    File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+2025-11-11T16:04:25.925123267Z [err]    File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+2025-11-11T16:04:25.925127885Z [err]    File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+2025-11-11T16:04:25.925133196Z [err]    File "/app/app.py", line 15, in <module>
+2025-11-11T16:04:25.925138091Z [err]      from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
+2025-11-11T16:04:25.925142710Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
+2025-11-11T16:04:25.926969230Z [err]      from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
+2025-11-11T16:04:25.926976297Z [err]    File "/app/nova_sonic_es_sd.py", line 18, in <module>
+2025-11-11T16:04:25.926981635Z [err]      raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
+2025-11-11T16:04:25.926986818Z [err]  ImportError: reactivex not installed: No module named 'rx'. Run: pip install reactivex>=4.0.0
+2025-11-11T16:04:25.926991304Z [err]  [2025-11-11 16:04:25 +0000] [2] [INFO] Worker exiting (pid: 2)
+2025-11-11T16:04:26.059465882Z [err]  [2025-11-11 16:04:26 +0000] [1] [ERROR] Worker (pid:2) exited with code 3
+2025-11-11T16:04:26.059472257Z [err]  [2025-11-11 16:04:26 +0000] [1] [ERROR] Shutting down: Master
+2025-11-11T16:04:26.059479375Z [err]  [2025-11-11 16:04:26 +0000] [1] [ERROR] Reason: Worker failed to boot.
+2025-11-11T16:04:27.052321066Z [inf]  [start.sh] Using PORT=8080
+2025-11-11T16:04:27.678832889Z [err]    File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+2025-11-11T16:04:27.678838532Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+2025-11-11T16:04:27.678844399Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:27.678852719Z [err]      return util.import_app(self.app_uri)
+2025-11-11T16:04:27.678852967Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+2025-11-11T16:04:27.678853022Z [err]      return _bootstrap._gcd_import(name[level:], package, level)
+2025-11-11T16:04:27.678853423Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 371, in import_app
+2025-11-11T16:04:27.678858142Z [err]    File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+2025-11-11T16:04:27.678864068Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:27.678865786Z [err]      return self.load_wsgiapp()
+2025-11-11T16:04:27.678869842Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 67, in wsgi
+2025-11-11T16:04:27.678873179Z [err]    File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+2025-11-11T16:04:27.678874394Z [err]    File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+2025-11-11T16:04:27.678880485Z [err]             ^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:27.678880553Z [err]      self.callable = self.load()
+2025-11-11T16:04:27.678883003Z [err]    File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+2025-11-11T16:04:27.678886357Z [err]    File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+2025-11-11T16:04:27.678895534Z [err]                      ^^^^^^^^^^^
+2025-11-11T16:04:27.678913428Z [err]      mod = importlib.import_module(module)
+2025-11-11T16:04:27.678930494Z [err]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:27.679279332Z [err]  [2025-11-11 16:04:27 +0000] [1] [INFO] Starting gunicorn 21.2.0
+2025-11-11T16:04:27.679285539Z [err]  [2025-11-11 16:04:27 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
+2025-11-11T16:04:27.679291891Z [err]  [2025-11-11 16:04:27 +0000] [1] [INFO] Using worker: eventlet
+2025-11-11T16:04:27.679298939Z [err]  [2025-11-11 16:04:27 +0000] [2] [INFO] Booting worker with pid: 2
+2025-11-11T16:04:27.679305608Z [err]  [2025-11-11 16:04:27 +0000] [2] [ERROR] Exception in worker process
+2025-11-11T16:04:27.679312557Z [err]  Traceback (most recent call last):
+2025-11-11T16:04:27.679317296Z [err]    File "/app/nova_sonic_es_sd.py", line 16, in <module>
+2025-11-11T16:04:27.679322128Z [err]      from rx.subject import Subject
+2025-11-11T16:04:27.679328781Z [err]  ModuleNotFoundError: No module named 'rx'
+2025-11-11T16:04:27.679336108Z [err]  
+2025-11-11T16:04:27.679343762Z [err]  During handling of the above exception, another exception occurred:
+2025-11-11T16:04:27.679351224Z [err]  
+2025-11-11T16:04:27.679358258Z [err]  Traceback (most recent call last):
+2025-11-11T16:04:27.679366405Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
+2025-11-11T16:04:27.679374982Z [err]      worker.init_process()
+2025-11-11T16:04:27.679382962Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 143, in init_process
+2025-11-11T16:04:27.679389421Z [err]      super().init_process()
+2025-11-11T16:04:27.679394199Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 134, in init_process
+2025-11-11T16:04:27.679398706Z [err]      self.load_wsgi()
+2025-11-11T16:04:27.679403362Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+2025-11-11T16:04:27.679408843Z [err]      self.wsgi = self.app.wsgi()
+2025-11-11T16:04:27.679414329Z [err]                  ^^^^^^^^^^^^^^^
+2025-11-11T16:04:27.682050471Z [err]    File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+2025-11-11T16:04:27.682055981Z [err]    File "/app/app.py", line 15, in <module>
+2025-11-11T16:04:27.682061621Z [err]      from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
+2025-11-11T16:04:27.682066542Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
+2025-11-11T16:04:27.682071508Z [err]      from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
+2025-11-11T16:04:27.682075801Z [err]    File "/app/nova_sonic_es_sd.py", line 18, in <module>
+2025-11-11T16:04:27.682079981Z [err]      raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
+2025-11-11T16:04:27.682084066Z [err]  ImportError: reactivex not installed: No module named 'rx'. Run: pip install reactivex>=4.0.0
+2025-11-11T16:04:27.682089153Z [err]  [2025-11-11 16:04:27 +0000] [2] [INFO] Worker exiting (pid: 2)
+2025-11-11T16:04:27.724046230Z [err]  [2025-11-11 16:04:27 +0000] [1] [ERROR] Worker (pid:2) exited with code 3
+2025-11-11T16:04:27.724057525Z [err]  [2025-11-11 16:04:27 +0000] [1] [ERROR] Shutting down: Master
+2025-11-11T16:04:27.724065392Z [err]  [2025-11-11 16:04:27 +0000] [1] [ERROR] Reason: Worker failed to boot.
+2025-11-11T16:04:28.776108217Z [inf]  [start.sh] Using PORT=8080
+2025-11-11T16:04:29.055634617Z [err]  [2025-11-11 16:04:29 +0000] [1] [INFO] Starting gunicorn 21.2.0
+2025-11-11T16:04:29.055641188Z [err]  [2025-11-11 16:04:29 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
+2025-11-11T16:04:29.055647364Z [err]  [2025-11-11 16:04:29 +0000] [1] [INFO] Using worker: eventlet
+2025-11-11T16:04:29.060624724Z [err]  [2025-11-11 16:04:29 +0000] [2] [INFO] Booting worker with pid: 2
+2025-11-11T16:04:29.657486679Z [err]                  ^^^^^^^^^^^^^^^
+2025-11-11T16:04:29.657498714Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/base.py", line 67, in wsgi
+2025-11-11T16:04:29.657506335Z [err]      self.callable = self.load()
+2025-11-11T16:04:29.657513216Z [err]                      ^^^^^^^^^^^
+2025-11-11T16:04:29.657520487Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+2025-11-11T16:04:29.657595444Z [err]      super().init_process()
+2025-11-11T16:04:29.657602620Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 134, in init_process
+2025-11-11T16:04:29.657608495Z [err]      self.load_wsgi()
+2025-11-11T16:04:29.657614189Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+2025-11-11T16:04:29.657621453Z [err]      self.wsgi = self.app.wsgi()
+2025-11-11T16:04:29.657622984Z [err]  [2025-11-11 16:04:29 +0000] [2] [ERROR] Exception in worker process
+2025-11-11T16:04:29.657631625Z [err]  Traceback (most recent call last):
+2025-11-11T16:04:29.657639182Z [err]    File "/app/nova_sonic_es_sd.py", line 16, in <module>
+2025-11-11T16:04:29.657647063Z [err]      from rx.subject import Subject
+2025-11-11T16:04:29.657654633Z [err]  ModuleNotFoundError: No module named 'rx'
+2025-11-11T16:04:29.657662789Z [err]  
+2025-11-11T16:04:29.657669918Z [err]  During handling of the above exception, another exception occurred:
+2025-11-11T16:04:29.657676599Z [err]  
+2025-11-11T16:04:29.657683418Z [err]  Traceback (most recent call last):
+2025-11-11T16:04:29.657692277Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
+2025-11-11T16:04:29.657700073Z [err]      worker.init_process()
+2025-11-11T16:04:29.657707411Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/workers/geventlet.py", line 143, in init_process
+2025-11-11T16:04:29.662951498Z [err]      return self.load_wsgiapp()
+2025-11-11T16:04:29.662957666Z [err]             ^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:29.662963707Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+2025-11-11T16:04:29.662970754Z [err]      return util.import_app(self.app_uri)
+2025-11-11T16:04:29.662977551Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:29.662984205Z [err]    File "/usr/local/lib/python3.12/site-packages/gunicorn/util.py", line 371, in import_app
+2025-11-11T16:04:29.662989789Z [err]      mod = importlib.import_module(module)
+2025-11-11T16:04:29.662996058Z [err]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:29.663001277Z [err]    File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+2025-11-11T16:04:29.663006691Z [err]      return _bootstrap._gcd_import(name[level:], package, level)
+2025-11-11T16:04:29.663012486Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-11T16:04:29.663018586Z [err]    File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+2025-11-11T16:04:29.663024280Z [err]    File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+2025-11-11T16:04:29.663030140Z [err]    File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+2025-11-11T16:04:29.663036446Z [err]    File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+2025-11-11T16:04:29.663042122Z [err]    File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+2025-11-11T16:04:29.663047520Z [err]    File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+2025-11-11T16:04:29.663053256Z [err]    File "/app/app.py", line 15, in <module>
+2025-11-11T16:04:29.663059028Z [err]      from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
+2025-11-11T16:04:29.663065085Z [err]    File "/app/nova_sonic_web_adapter_v3.py", line 386, in <module>
+2025-11-11T16:04:29.664295437Z [err]      from nova_sonic_es_sd import BedrockStreamManager, discover_context_sources
+2025-11-11T16:04:29.664301070Z [err]    File "/app/nova_sonic_es_sd.py", line 18, in <module>
+2025-11-11T16:04:29.664306384Z [err]      raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
+2025-11-11T16:04:29.664311396Z [err]  ImportError: reactivex not installed: No module named 'rx'. Run: pip install reactivex>=4.0.0
+2025-11-11T16:04:29.664318910Z [err]  [2025-11-11 16:04:29 +0000] [2] [INFO] Worker exiting (pid: 2)
+2025-11-11T16:04:29.664324527Z [err]  [2025-11-11 16:04:29 +0000] [1] [ERROR] Worker (pid:2) exited with code 3
+2025-11-11T16:04:29.664329971Z [err]  [2025-11-11 16:04:29 +0000] [1] [ERROR] Shutting down: Master
+2025-11-11T16:04:29.664335747Z [err]  [2025-11-11 16:04:29 +0000] [1] [ERROR] Reason: Worker failed to boot.
