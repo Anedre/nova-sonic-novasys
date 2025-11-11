@@ -1,3 +1,5 @@
 #!/bin/bash
-# Railway startup script that handles PORT variable
+set -euo pipefail
+
+echo "[start.sh] Using PORT=${PORT:-5000}"
 exec gunicorn -c gunicorn_config.py app:app
