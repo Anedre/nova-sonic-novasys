@@ -26,4 +26,4 @@ ENV PYTHONUNBUFFERED=1
 ENV PORT=5000
 
 # Comando de inicio
-CMD ["gunicorn", "--worker-class", "eventlet", "-w", "1", "--bind", "0.0.0.0:5000", "app:app"]
+CMD ["gunicorn", "-c", "gunicorn_config.py", "app:app"]

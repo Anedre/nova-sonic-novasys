@@ -308,10 +308,12 @@ def handle_prompt_select(data):
 if __name__ == '__main__':
     run_diagnostics()
     
+    port = int(os.environ.get('PORT', 5000))
+    
     safe_print("=" * 50)
     safe_print("  Nova Sonic Interface iniciando...")
     safe_print("  Accede desde:")
-    safe_print("   - Local: http://localhost:5000")
-    safe_print("   - Red: http://<tu-ip>:5000")
+    safe_print(f"   - Local: http://localhost:{port}")
+    safe_print("   - Red: http://<tu-ip>:{port}")
     safe_print("=" * 50)
-    socketio.run(app, host='0.0.0.0', port=5000, debug=True)
+    socketio.run(app, host='0.0.0.0', port=port, debug=True)
