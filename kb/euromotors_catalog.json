@@ -1,0 +1,409 @@
+{
+  "metadata": {
+    "nombre": "Catálogo Euromotors",
+    "descripcion": "Base de conocimiento de marcas, modelos, sedes y servicios del Grupo Euromotors",
+    "version": "1.0",
+    "fecha_actualizacion": "2025-11-05"
+  },
+  
+  "marcas": {
+    "audi": {
+      "nombre_display": "Audi",
+      "sedes": [
+        {"nombre": "Derby", "alias": ["derbi", "dervi", "derby", "ermi", "el ermi", "del ermi", "dermi", "el dermi", "del dermi", "dervy", "derpy", "nervi", "nerbi", "nerby", "el nervi", "del nervi", "nervy"]},
+        {"nombre": "Surquillo", "alias": ["surquilo", "surquiyo", "surkillo", "surquio", "su brillo", "sur brillo"]}
+      ],
+      "modelos": {
+        "A1": {
+          "nombre_display": "A1",
+          "anios_disponibles": [2023, 2024],
+          "transmisiones": ["AT"],
+          "segmento": "Hatchback",
+          "descripcion": "Hatchback compacto premium, ideal para ciudad"
+        },
+        "A3": {
+          "nombre_display": "A3",
+          "anios_disponibles": [2023, 2024],
+          "transmisiones": ["AT"],
+          "segmento": "Sedan compacto",
+          "descripcion": "Sedan compacto deportivo con tecnología avanzada"
+        },
+        "A4": {
+          "nombre_display": "A4",
+          "anios_disponibles": [2023, 2024, 2025],
+          "transmisiones": ["AT"],
+          "segmento": "Sedan",
+          "descripcion": "Sedan ejecutivo con diseño elegante y confort superior"
+        },
+        "Q3": {
+          "nombre_display": "Q3",
+          "anios_disponibles": [2023, 2024, 2025],
+          "transmisiones": ["AT"],
+          "segmento": "SUV compacto",
+          "descripcion": "SUV compacto urbano, perfecto equilibrio entre espacio y agilidad"
+        },
+        "Q5": {
+          "nombre_display": "Q5",
+          "anios_disponibles": [2023, 2024],
+          "transmisiones": ["AT"],
+          "segmento": "SUV mediano",
+          "descripcion": "SUV familiar con amplio espacio y tecnología quattro"
+        },
+        "Q8": {
+          "nombre_display": "Q8",
+          "anios_disponibles": [2024, 2025],
+          "transmisiones": ["AT"],
+          "segmento": "SUV grande",
+          "descripcion": "SUV de lujo de alto rendimiento con diseño deportivo"
+        }
+      }
+    },
+    
+    "volkswagen": {
+      "nombre_display": "Volkswagen",
+      "alias": ["vw", "volks", "wolkswagen", "volks wagen"],
+      "sedes": [
+        {"nombre": "Surquillo", "alias": ["surquilo", "surquiyo", "surkillo", "su brillo", "sur brillo"]},
+        {"nombre": "La Molina", "alias": ["la molina"]},
+        {"nombre": "San Borja", "alias": ["sanborja", "san borja"]},
+        {"nombre": "La Marina", "alias": ["la marina"]}
+      ],
+      "modelos": {
+        "Polo": {
+          "nombre_display": "Polo",
+          "anios_disponibles": [2020, 2021, 2022, 2023, 2024],
+          "transmisiones": ["MT", "AT"],
+          "segmento": "Hatchback",
+          "descripcion": "Hatchback compacto, práctico y confiable para ciudad"
+        },
+        "T-Cross": {
+          "nombre_display": "T-Cross",
+          "anios_disponibles": [2021, 2022, 2023, 2024],
+          "transmisiones": ["AT"],
+          "segmento": "SUV subcompacto",
+          "descripcion": "SUV urbano moderno con tecnología y conectividad"
+        },
+        "Taos": {
+          "nombre_display": "Taos",
+          "anios_disponibles": [2022, 2023, 2024],
+          "transmisiones": ["AT"],
+          "segmento": "SUV compacto",
+          "descripcion": "SUV compacto robusto, ideal para familia y aventuras"
+        },
+        "Tiguan": {
+          "nombre_display": "Tiguan",
+          "anios_disponibles": [2021, 2022, 2023, 2024],
+          "transmisiones": ["AT"],
+          "segmento": "SUV mediano",
+          "descripcion": "SUV versátil con amplio espacio y tecnología 4Motion"
+        },
+        "Amarok": {
+          "nombre_display": "Amarok",
+          "anios_disponibles": [2020, 2021, 2022, 2023],
+          "transmisiones": ["MT", "AT"],
+          "segmento": "Pick-up",
+          "descripcion": "Pick-up robusta de alto desempeño para trabajo y aventura"
+        }
+      }
+    },
+    
+    "seat": {
+      "nombre_display": "SEAT",
+      "sedes": [
+        {"nombre": "Los Negocios", "alias": ["los negocios"]}
+      ],
+      "modelos": {
+        "Ibiza": {
+          "nombre_display": "Ibiza",
+          "anios_disponibles": [2020, 2021, 2022],
+          "transmisiones": ["MT"],
+          "segmento": "Hatchback",
+          "descripcion": "Hatchback juvenil y dinámico con diseño español"
+        },
+        "Arona": {
+          "nombre_display": "Arona",
+          "anios_disponibles": [2021, 2022, 2023],
+          "transmisiones": ["MT", "AT"],
+          "segmento": "SUV subcompacto",
+          "descripcion": "SUV urbano personalizable con estilo único"
+        },
+        "Ateca": {
+          "nombre_display": "Ateca",
+          "anios_disponibles": [2021, 2022, 2023],
+          "transmisiones": ["AT"],
+          "segmento": "SUV compacto",
+          "descripcion": "SUV familiar moderno con tecnología y confort"
+        },
+        "Leon": {
+          "nombre_display": "Leon",
+          "anios_disponibles": [2020, 2021, 2022],
+          "transmisiones": ["MT", "AT"],
+          "segmento": "Hatchback/Sedan",
+          "descripcion": "Deportivo versátil disponible en hatchback y sedan"
+        }
+      }
+    },
+    
+    "porsche": {
+      "nombre_display": "Porsche",
+      "alias": ["porshe", "porche", "pochre"],
+      "sedes": [
+        {"nombre": "Surquillo", "alias": ["surquilo", "surquiyo", "su brillo"]}
+      ],
+      "modelos": {
+        "Macan": {
+          "nombre_display": "Macan",
+          "anios_disponibles": [2022, 2023, 2024],
+          "transmisiones": ["AT"],
+          "segmento": "SUV premium",
+          "descripcion": "SUV deportivo compacto con desempeño Porsche"
+        },
+        "Cayenne": {
+          "nombre_display": "Cayenne",
+          "anios_disponibles": [2022, 2023, 2024],
+          "transmisiones": ["AT"],
+          "segmento": "SUV premium",
+          "descripcion": "SUV de lujo con potencia y versatilidad excepcionales"
+        },
+        "718": {
+          "nombre_display": "718",
+          "anios_disponibles": [2022, 2023],
+          "transmisiones": ["AT"],
+          "segmento": "Deportivo",
+          "descripcion": "Roadster de motor central, pura emoción al volante"
+        },
+        "911": {
+          "nombre_display": "911",
+          "anios_disponibles": [2022, 2023, 2024],
+          "transmisiones": ["AT"],
+          "segmento": "Deportivo",
+          "descripcion": "Icono deportivo, sinónimo de ingeniería alemana"
+        },
+        "Taycan": {
+          "nombre_display": "Taycan",
+          "anios_disponibles": [2022, 2023, 2024],
+          "transmisiones": ["AT"],
+          "segmento": "Sedan eléctrico",
+          "descripcion": "Deportivo eléctrico de alto rendimiento con alma Porsche"
+        }
+      }
+    },
+    
+    "bentley": {
+      "nombre_display": "Bentley",
+      "alias": ["bently"],
+      "sedes": [
+        {"nombre": "Surquillo", "alias": ["surquilo", "su brillo"]}
+      ],
+      "modelos": {
+        "Bentayga": {
+          "nombre_display": "Bentayga",
+          "anios_disponibles": [2022, 2023, 2024],
+          "transmisiones": ["AT"],
+          "segmento": "SUV ultra-premium",
+          "descripcion": "SUV de lujo supremo, artesanía británica excepcional"
+        },
+        "Flying Spur": {
+          "nombre_display": "Flying Spur",
+          "anios_disponibles": [2022, 2023],
+          "transmisiones": ["AT"],
+          "segmento": "Sedan de lujo",
+          "descripcion": "Sedan de lujo con confort y desempeño extraordinarios"
+        },
+        "Continental GT": {
+          "nombre_display": "Continental GT",
+          "anios_disponibles": [2022, 2023, 2024],
+          "transmisiones": ["AT"],
+          "segmento": "Gran turismo",
+          "descripcion": "Coupé de gran turismo, perfección en diseño y potencia"
+        }
+      }
+    },
+    
+    "lamborghini": {
+      "nombre_display": "Lamborghini",
+      "alias": ["lambo"],
+      "sedes": [
+        {"nombre": "Surquillo", "alias": ["surquilo", "su brillo"]}
+      ],
+      "modelos": {
+        "Urus": {
+          "nombre_display": "Urus",
+          "anios_disponibles": [2022, 2023, 2024],
+          "transmisiones": ["AT"],
+          "segmento": "SUV de alto desempeño",
+          "descripcion": "Super SUV con alma de superdeportivo italiano"
+        },
+        "Revuelto": {
+          "nombre_display": "Revuelto",
+          "anios_disponibles": [2024, 2025],
+          "transmisiones": ["AT"],
+          "segmento": "Híbrido V12",
+          "descripcion": "Híbrido plug-in V12, el futuro de los superdeportivos"
+        },
+        "Huracán": {
+          "nombre_display": "Huracán",
+          "anios_disponibles": [2022, 2023],
+          "transmisiones": ["AT"],
+          "segmento": "Superdeportivo",
+          "descripcion": "Superdeportivo V10, adrenalina pura italiana"
+        }
+      }
+    },
+    
+    "revoshop": {
+      "nombre_display": "Revoshop",
+      "alias": ["revomotors", "revo"],
+      "sedes": [
+        {"nombre": "Marsano", "alias": ["marsano", "tomas marsano", "tomás marsano"]}
+      ],
+      "modelos": {
+        "Jetour X70": {
+          "nombre_display": "Jetour X70",
+          "anios_disponibles": [2023, 2024],
+          "transmisiones": ["AT"],
+          "segmento": "SUV",
+          "descripcion": "SUV moderno chino con excelente relación precio-valor"
+        },
+        "SsangYong Korando": {
+          "nombre_display": "SsangYong Korando",
+          "anios_disponibles": [2022, 2023],
+          "transmisiones": ["AT"],
+          "segmento": "SUV",
+          "descripcion": "SUV coreano robusto con amplia garantía"
+        },
+        "Karry": {
+          "nombre_display": "Karry",
+          "anios_disponibles": [2022, 2023],
+          "transmisiones": ["MT"],
+          "segmento": "Comercial",
+          "descripcion": "Vehículos comerciales económicos y confiables"
+        },
+        "Kaiyi": {
+          "nombre_display": "Kaiyi",
+          "anios_disponibles": [2023, 2024],
+          "transmisiones": ["AT"],
+          "segmento": "Sedan/SUV",
+          "descripcion": "Línea versátil de sedanes y SUVs accesibles"
+        },
+        "FAW": {
+          "nombre_display": "FAW",
+          "anios_disponibles": [2022, 2023],
+          "transmisiones": ["MT", "AT"],
+          "segmento": "Variado",
+          "descripcion": "Marca china con variedad de vehículos comerciales y particulares"
+        }
+      }
+    },
+    
+    "kyc": {
+      "nombre_display": "KYC",
+      "sedes": [
+        {"nombre": "Tomás Marsano", "alias": ["tomas marsano", "marsano"]},
+        {"nombre": "Plaza Lima Norte", "alias": ["plaza lima norte"]}
+      ],
+      "modelos": {}
+    }
+  },
+  
+  "servicios": {
+    "venta_autos": {
+      "nombre": "Venta de Autos",
+      "descripcion": "Asesoría para compra de vehículos nuevos y seminuevos",
+      "datos_requeridos": ["nombre", "telefono", "marca", "modelo", "local_preferido", "horario_contacto"],
+      "datos_opcionales": ["email", "placa", "anio", "transmision", "financiamiento", "test_drive"]
+    },
+    "cita_taller": {
+      "nombre": "Cita de Taller",
+      "descripcion": "Servicio de mantenimiento, diagnóstico y reparación",
+      "datos_requeridos": ["nombre", "telefono", "marca", "local", "motivo", "horario_contacto"],
+      "datos_opcionales": ["email", "placa", "modelo", "anio", "fecha_preferida"],
+      "motivos": ["mantenimiento", "diagnostico", "garantia", "reparacion"]
+    },
+    "repuestos_accesorios": {
+      "nombre": "Repuestos y Accesorios",
+      "descripcion": "Venta de repuestos originales y accesorios",
+      "datos_requeridos": ["nombre", "telefono", "marca", "local", "pieza_accesorio", "horario_contacto"],
+      "datos_opcionales": ["email", "placa", "modelo"]
+    },
+    "planchado_pintura": {
+      "nombre": "Planchado y Pintura",
+      "descripcion": "Servicio de reparación de carrocería y pintura",
+      "datos_requeridos": ["nombre", "telefono", "local", "descripcion_breve", "horario_contacto"],
+      "datos_opcionales": ["email", "marca", "placa", "modelo", "fecha_preferida"]
+    },
+    "otras_consultas": {
+      "nombre": "Otras Consultas",
+      "descripcion": "Consultas generales sobre servicios del grupo",
+      "datos_requeridos": ["nombre", "telefono", "tema", "horario_contacto"],
+      "datos_opcionales": ["email", "marca"]
+    }
+  },
+  
+  "validaciones": {
+    "documento": {
+      "dni": {
+        "tipo": "DNI",
+        "pais": "Perú",
+        "longitud": 8,
+        "formato": "numérico",
+        "patron": "^[0-9]{8}$"
+      },
+      "ce": {
+        "tipo": "CE",
+        "pais": "Internacional",
+        "longitud_min": 8,
+        "longitud_max": 12,
+        "formato": "alfanumérico",
+        "patron": "^[A-Z0-9]{8,12}$"
+      }
+    },
+    "telefono": {
+      "peru": {
+        "codigo_pais": "+51",
+        "longitud": 9,
+        "patron": "^\\+51[9][0-9]{8}$",
+        "formato_hablado": "más cincuenta y uno — [3 dígitos] — [2] — [2] — [2]"
+      }
+    },
+    "email": {
+      "patron": "^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+      "normalizaciones": {
+        "arroba": "@",
+        "punto": ".",
+        "guion bajo": "_",
+        "guion medio": "-"
+      }
+    },
+    "placa": {
+      "peru": {
+        "formato": "AAA-123 o ABC-123",
+        "patron": "^[A-Z]{3}-[0-9]{3}$",
+        "formato_hablado": "deletrear letra por letra, luego números"
+      }
+    },
+    "anio": {
+      "min": 1990,
+      "max": 2026,
+      "nota": "año actual + 1 para modelos del próximo año"
+    }
+  },
+  
+  "transmisiones": {
+    "AT": "Automática",
+    "MT": "Manual"
+  },
+  
+  "horarios_atencion": {
+    "lunes_viernes": "9:00 AM - 7:00 PM",
+    "sabados": "9:00 AM - 2:00 PM",
+    "domingos": "Cerrado",
+    "nota": "Horarios pueden variar según sede"
+  },
+  
+  "financiamiento": {
+    "disponible": true,
+    "entidades": ["Banco de Crédito BCP", "BBVA", "Scotiabank", "Interbank"],
+    "nota": "Asesor especializado proporciona tasas y condiciones específicas"
+  }
+}

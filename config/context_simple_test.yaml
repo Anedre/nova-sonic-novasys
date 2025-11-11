@@ -1,0 +1,3 @@
+sources:
+  - type: file_prompt
+    path: context/prompts/simple_math_tutor.txt

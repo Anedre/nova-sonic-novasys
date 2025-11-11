@@ -1,0 +1,5 @@
+sources:
+  - type: file_prompt
+    path: context/prompts/udep_system_prompt_v8_minimal.txt
+  - type: file_kb
+    path: kb/udep_catalog.json

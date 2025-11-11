@@ -1,0 +1,5 @@
+sources:
+  - type: file_prompt
+    path: context/prompts/udep_system_prompt_v7_conversational.txt
+  - type: file_kb
+    path: kb/udep_catalog.json

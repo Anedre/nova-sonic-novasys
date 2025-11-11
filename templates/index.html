@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Sonic - Llamada de Voz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+<body>
+    <!-- Barra superior fija -->
+    <header class="app-header">
+        <div class="header-brand">
+            <span class="brand-icon">🎙️</span>
+            <h1 class="brand-title">Nova Sonic Voice AI</h1>
+        </div>
+        <div class="header-controls">
+            <select id="prompt-select" class="header-select" aria-label="Selecciona el prompt">
+                <option value="udep_original">UDEP Original</option>
+                <option value="euromotors">🚗 Euromotors</option>
+                <option value="v8_minimal">V8 Mínimo</option>
+                <option value="v7_conversational">V7 Conversacional</option>
+                <option value="v6_structured">V6 Estructurado</option>
+                <option value="simple_test">🧪 Test Simple</option>
+            </select>
+            <select id="voice-select" class="header-select" aria-label="Selecciona la voz">
+                <option value="es-ES-Female">🇪🇸 Mujer ES</option>
+                <option value="es-ES-Male">🇪🇸 Hombre ES</option>
+                <option value="es-MX-Female">🇲🇽 Mujer MX</option>
+                <option value="es-US-Female">🇺🇸 Mujer US</option>
+            </select>
+            <button id="debugToggle" class="header-debug-btn" title="Debug">⚙</button>
+        </div>
+    </header>
+
+    <!-- Contenedor principal con 3 columnas -->
+    <div class="app-container">
+        <!-- Columna izquierda: Timeline y acciones -->
+        <aside class="sidebar sidebar-left">
+            <section class="panel panel-timeline">
+                <div class="panel-header">
+                    <h2>📋 Actividad</h2>
+                </div>
+                <ul class="timeline" id="sessionTimeline"></ul>
+            </section>
+
+            <section class="panel panel-actions">
+                <div class="panel-header">
+                    <h2>⚡ Acciones</h2>
+                </div>
+                <div class="action-buttons">
+                    <button id="exportTranscriptButton" class="action-btn" disabled>
+                        <span class="btn-icon">⬇</span>
+                        <span class="btn-label">Exportar</span>
+                    </button>
+                    <button id="resetTranscriptButton" class="action-btn">
+                        <span class="btn-icon">🧹</span>
+                        <span class="btn-label">Limpiar</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="panel panel-metrics">
+                <div class="panel-header">
+                    <h2>📊 Sesión</h2>
+                </div>
+                <div class="session-stats">
+                    <div class="stat-card stat-primary">
+                        <div class="stat-icon">⏱️</div>
+                        <div class="stat-content">
+                            <span class="stat-label">Duración</span>
+                            <span class="stat-value" id="sessionDurationLabel">00:00</span>
+                        </div>
+                        <div class="stat-pulse"></div>
+                    </div>
+                    
+                    <div class="stat-card stat-usage">
+                        <div class="stat-icon">🔢</div>
+                        <div class="stat-content">
+                            <span class="stat-label">Tokens</span>
+                            <span class="stat-value" id="tokenInfo">0</span>
+                        </div>
+                        <div class="stat-progress">
+                            <div class="stat-progress-bar" id="tokenProgress"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card stat-cost">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-content">
+                            <span class="stat-label">Costo</span>
+                            <span class="stat-value" id="costInfo">$0.00</span>
+                        </div>
+                        <div class="stat-sparkline" id="costSparkline"></div>
+                    </div>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Columna central: Control de llamada -->
+        <main class="main-call-area">
+            <div class="call-card">
+                <div class="call-avatar-section">
+                    <div class="avatar-circle" id="avatarCircle">
+                        <div class="avatar-pulse"></div>
+                        <span class="avatar-icon">🎤</span>
+                    </div>
+                    <h2 class="agent-name">Zhenia</h2>
+                    <p class="call-status" id="callStatus">Conectando...</p>
+                    
+                    <div class="bot-status-bar">
+                        <div class="status-indicator" id="statusIndicator">
+                            <span class="status-dot"></span>
+                            <span class="status-text" id="streamHealth">En espera</span>
+                        </div>
+                        <div class="latency-badge" id="latencyBadgeContainer">
+                            <span class="latency-icon">⚡</span>
+                            <span class="latency-value" id="latencyBadge">--</span>
+                            <span class="latency-unit">ms</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="call-button-section">
+                    <button id="callButton" class="call-button" disabled>
+                        <span class="call-icon">📞</span>
+                    </button>
+                    <p class="call-hint" id="callHint">Presiona para conectar</p>
+                    <div class="mic-visualizer">
+                        <div class="mic-bar" id="micLevelBar">
+                            <div class="mic-bar-fill" id="micLevelFill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="transcript-section">
+                    <div class="transcript-header">
+                        <h3>💬 Conversación en vivo</h3>
+                    </div>
+                    <div id="transcript" class="transcript"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Columna derecha: Lead capture -->
+        <aside class="sidebar sidebar-right">
+            <section class="panel panel-lead" id="leadCard">
+                <div class="panel-header">
+                    <h2>🎯 Lead Capturado</h2>
+                </div>
+                <div class="lead-progress-section">
+                    <div class="lead-progress-track">
+                        <div class="lead-progress-bar" id="leadProgressBar"></div>
+                    </div>
+                    <span class="lead-progress-label" id="leadProgressLabel">0% completo</span>
+                </div>
+                <p class="lead-empty" id="leadEmptyState">Aún no se registran datos.</p>
+                <ul class="lead-list" id="leadFieldsList"></ul>
+                <div class="lead-actions">
+                    <button id="copyLeadButton" class="action-btn action-btn-primary" disabled>
+                        <span class="btn-icon">📋</span>
+                        <span class="btn-label">Copiar Lead</span>
+                    </button>
+                </div>
+            </section>
+        </aside>
+    </div>
+
+    <!-- Panel de debug flotante -->
+    <div id="debugPanel" class="debug-panel hidden">
+        <div class="debug-header" id="debugHeader">
+            <div class="debug-title-section">
+                <span class="debug-drag-icon">⋮⋮</span>
+                <h3>Debug Console</h3>
+            </div>
+            <div class="debug-toolbar">
+                <select id="debugFilter" class="debug-filter">
+                    <option value="all">Todos</option>
+                    <option value="error">❌ Errores</option>
+                    <option value="warning">⚠️ Warnings</option>
+                    <option value="info">ℹ️ Info</option>
+                    <option value="success">✅ Success</option>
+                </select>
+                <button id="debugCopy" class="debug-btn" title="Copiar log completo">📋</button>
+                <button id="debugClear" class="debug-btn" title="Limpiar consola">🗑️</button>
+                <button id="debugClose" class="debug-close">✕</button>
+            </div>
+        </div>
+        <div id="debugContent" class="debug-content"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

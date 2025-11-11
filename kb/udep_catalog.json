@@ -1,0 +1,40 @@
+{
+  "universidad": "Universidad de Piura",
+  "unidad": "Posgrado UDEP",
+  "programas": [
+    {
+      "nombre": "MBA – Finanzas",
+      "modalidades": ["presencial", "hibrida"],
+      "fechas_inicio": "Oct 2025; Mar 2026",
+      "duracion": "20-24 meses",
+      "costo_referencial": "desde S/ 1500/mes",
+      "sede": "Lima"
+    },
+    {
+      "nombre": "Maestría en Data Science",
+      "modalidades": ["hibrida", "online"],
+      "fechas_inicio": "Nov 2025; Abr 2026",
+      "duracion": "18-22 meses",
+      "costo_referencial": "desde S/ 1300/mes",
+      "sede": "Lima/Online"
+    },
+    {
+      "nombre": "Diplomado en Ciberseguridad",
+      "modalidades": ["online"],
+      "fechas_inicio": "Ene 2026; May 2026",
+      "duracion": "5-6 meses",
+      "costo_referencial": "desde S/ 900/mes",
+      "sede": "Online"
+    }
+  ],
+  "politicas": {
+    "Costos": "Valores referenciales; ofrecer cotización formal",
+    "Requisitos": "Bachiller, CV, DNI, ficha; segun programa carta o entrevista",
+    "Horarios": "Semana (L-J 19:00–22:00), Fin de semana (Sáb franjas), Intensivo online (M-J 19:00–21:30)"
+  },
+  "contacto": {
+    "correo": "admision.posgrado@udep.pe",
+    "telefono": "+51 1 555 0000",
+    "whatsapp": "+51 999 999 999"
+  }
+}

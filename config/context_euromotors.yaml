@@ -1,0 +1,5 @@
+sources:
+  - type: file_prompt
+    path: context/prompts/prompt_euromotors.txt
+  - type: file_kb
+    path: kb/euromotors_catalog.json

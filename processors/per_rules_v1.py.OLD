@@ -1,0 +1,802 @@
+# processors/per_rules_v1.py
+import re, json, datetime
+from pathlib import Path
+from typing import Dict, Optional, List, Tuple
+from .base import DataProcessor
+
+# ----------------- Normalización/ASR -----------------
+_CANON = {
+    "sete": "siete", "treita":"treinta","trenta":"treinta",
+    "nobenta":"noventa","diesiseis":"dieciseis","dieciséis":"dieciseis",
+    "hifen":"guion","hífen":"guion"
+}
+def _canon(w: str) -> str:
+    return _CANON.get(w, w)
+
+# ----------------- Números -----------------
+_DIGIT_WORDS = {
+    "cero":"0","cer0":"0","uno":"1","una":"1","dos":"2","tres":"3",
+    "cuatro":"4","cinco":"5","seis":"6","siete":"7","ocho":"8","nueve":"9"
+}
+_TENS_MAP   = {
+    "veinte":"20","treinta":"30","cuarenta":"40","cincuenta":"50",
+    "sesenta":"60","setenta":"70","ochenta":"80","noventa":"90"
+}
+_TEENS_MAP  = {
+    "diez":"10","once":"11","doce":"12","trece":"13","catorce":"14","quince":"15",
+    "dieciseis":"16","diecisiete":"17","dieciocho":"18","diecinueve":"19"
+}
+_HUNDREDS_MAP = {
+    "cien": 100,
+    "ciento": 100,
+    "doscientos": 200,
+    "doscientas": 200,
+    "trescientos": 300,
+    "trescientas": 300,
+    "cuatrocientos": 400,
+    "cuatrocientas": 400,
+    "quinientos": 500,
+    "quinientas": 500,
+    "seiscientos": 600,
+    "seiscientas": 600,
+    "setecientos": 700,
+    "setecientas": 700,
+    "ochocientos": 800,
+    "ochocientas": 800,
+    "novecientos": 900,
+    "novecientas": 900,
+}
+_NAME_LEADING_FILLERS = {
+    "correcto", "genial", "perfecto", "excelente", "muy", "bien", "gracias",
+    "entonces", "vale", "ok", "listo", "claro", "quedo", "queda", "confirmo",
+    "confirmamos", "te", "me", "pues", "bueno", "entonces", "de", "acuerdo",
+    "entendido", "listos", "queda", "quedamos", "eh", "mmm", "mm", "este", "ya",
+    "oye", "mira", "llamo"
+}
+_NAME_TRAILING_STOPS = {
+    "asesor", "asesora", "asesores", "un", "una", "el", "la", "los", "las",
+    "se", "comunicara", "comunicará", "contigo", "hoy", "mañana", "para", "darte",
+    "mas", "más", "detalles", "muchas", "gracias", "por", "tu", "interes",
+    "interés", "en", "el", "diplomado", "maestria", "maestría", "programa",
+    "si", "tienes", "alguna", "otra", "pregunta", "necesitas", "algo", "mas",
+    "más", "no", "dudes", "en", "preguntar", "cualquier", "cosa"
+}
+_EXPECT_TO_FIELD = {
+    "nombre": "nombre_completo",
+    "dni": "dni",
+    "telefono": "telefono",
+    "email": "email",
+}
+_NUM_TOKEN_RE = re.compile(r"[a-záéíóúñü]+|\d+", re.I)
+def _tokens(text: str) -> List[str]:
+    return [_canon(t.lower()) for t in _NUM_TOKEN_RE.findall(text or "")]
+
+
+def _consume_spanish_number(tokens: List[str], start: int) -> Tuple[int, int]:
+    """Consume secuencias como 'novecientos cincuenta y tres' -> (953, 4)."""
+    n = len(tokens)
+    i = start
+    value = 0
+    consumed = 0
+    used = False
+    has_hundreds = False
+    has_tens_or_teens = False
+    added_unit = False
+
+    if i < n and tokens[i] in _HUNDREDS_MAP:
+        value += _HUNDREDS_MAP[tokens[i]]
+        consumed += 1
+        i += 1
+        used = True
+        has_hundreds = True
+
+    while i < n:
+        tok = tokens[i]
+        if tok in {"y", "e"}:
+            consumed += 1
+            i += 1
+            continue
+        if tok in _TEENS_MAP:
+            value += int(_TEENS_MAP[tok])
+            consumed += 1
+            i += 1
+            used = True
+            has_tens_or_teens = True
+            break
+        if tok.startswith("veinti") and len(tok) > 6:
+            unit = _DIGIT_WORDS.get(tok[6:])
+            if unit is not None:
+                value += 20 + int(unit)
+                consumed += 1
+                i += 1
+                used = True
+                has_tens_or_teens = True
+                break
+        if tok in _TENS_MAP:
+            value += int(_TENS_MAP[tok])
+            consumed += 1
+            i += 1
+            used = True
+            has_tens_or_teens = True
+            continue
+        unit = _DIGIT_WORDS.get(tok)
+        if unit is not None:
+            if not (has_hundreds or has_tens_or_teens):
+                # Secuencias simples como "nueve cinco" se manejan fuera.
+                return 0, 0
+            value += int(unit)
+            consumed += 1
+            i += 1
+            used = True
+            added_unit = True
+            break
+        break
+
+    if used and (has_hundreds or has_tens_or_teens):
+        return value, consumed
+    if used and value in (100, 200, 300, 400, 500, 600, 700, 800, 900):
+        return value, consumed
+    return 0, 0
+
+def _parse_spanish_pairs_to_digits(text: str) -> str:
+    """
+    'siete cero'->'70'; 'cuarenta y nueve'->'49'; 'veintidos'->'22';
+    dígitos crudos -> tal cual.
+    """
+    toks = _tokens(text)
+    i, out, n = 0, [], len(toks)
+    def _unit(tok: str) -> Optional[str]: return _DIGIT_WORDS.get(tok)
+    while i < n:
+        t = toks[i]
+        if t.isdigit():
+            out.extend(list(t)); i += 1; continue
+        complex_val, consumed = _consume_spanish_number(toks, i)
+        if consumed:
+            out.extend(list(str(complex_val)))
+            i += consumed
+            continue
+        if t in _TEENS_MAP:
+            out.extend(list(_TEENS_MAP[t])); i += 1; continue
+        if t.startswith("veinti") and len(t) > 6:
+            u = _unit(t[6:]); 
+            if u is not None: out.extend(list("2"+u)); i += 1; continue
+        if t in _TENS_MAP:
+            nxt = toks[i+1] if i+1 < n else None
+            nxt2= toks[i+2] if i+2 < n else None
+            if nxt == "y" and nxt2 and _unit(nxt2):
+                out.append(_TENS_MAP[t][0]); out.append(_unit(nxt2)); i += 3; continue
+            if nxt and _unit(nxt):
+                out.append(_TENS_MAP[t][0]); out.append(_unit(nxt)); i += 2; continue
+            out.extend(list(_TENS_MAP[t])); i += 1; continue
+        u = _unit(t)
+        if u is not None: out.append(u); i += 1; continue
+        i += 1
+    return "".join(out)
+
+def _is_valid_dni(s: str) -> bool:
+    return bool(re.fullmatch(r"\d{8}", s or ""))
+
+def _normalize_phone(s: str) -> Optional[str]:
+    if not s: return None
+    s2 = re.sub(r"[^\d]", "", s)
+    s2 = re.sub(r"^(?:51|051|0051)", "", s2)  # quita +51/051
+    if re.fullmatch(r"9\d{8}", s2): return s2
+    return s2 if re.fullmatch(r"\d{9,12}", s2) else None
+
+
+def _extract_name_from_user(text: str) -> Optional[str]:
+    """Extrae nombre SOLO de texto del usuario, no del asistente."""
+    if not text:
+        return None
+
+    # Buscar patrón "me llamo X", "soy X", "mi nombre es X"
+    match = re.search(r"\b(?:me\s+llamo|soy|mi\s+nombre\s+es)\s+([a-záéíóúñü\s\-]+)", text, re.I)
+    if match:
+        candidate = match.group(1).strip()
+    else:
+        # Si no hay patrón, asumir que todo el texto es el nombre
+        candidate = text.strip()
+
+    # Tokenizar y limpiar
+    tokens = [w.capitalize() for w in re.findall(r"[a-záéíóúñü\-]+", candidate, re.I)]
+    if not tokens:
+        return None
+
+    # Quitar fillers iniciales (eh, correcto, genial, etc.)
+    while tokens and tokens[0].lower() in _NAME_LEADING_FILLERS:
+        tokens.pop(0)
+
+    # Quitar fillers finales
+    candidate_tokens: List[str] = []
+    for tok in tokens:
+        lower_tok = tok.lower()
+        if lower_tok in _NAME_TRAILING_STOPS:
+            break
+        candidate_tokens.append(tok)
+
+    if not candidate_tokens:
+        return None
+
+    # Requerir al menos 2 tokens o 1 token con longitud razonable
+    if len(candidate_tokens) < 2 and len(candidate_tokens[0]) < 4:
+        return None
+
+    # Tomar máximo 4 tokens (nombre + apellidos)
+    candidate = " ".join(candidate_tokens[:4]).strip()
+    if candidate and candidate.lower() not in _NAME_LEADING_FILLERS:
+        return candidate
+
+    return None
+
+# ----------------- Email hablado -----------------
+_VALID_EMAIL_RE = re.compile(r"[\w\.-]+@[\w\.-]+\.\w{2,}", re.I)
+_EMAIL_TRIGGERS = ("arroba","@","correo","email","gmail","hotmail","outlook","yahoo","udep","edu","punto")
+
+def _strip_email_leading_noise_raw(text: str) -> str:
+    t = (text or "").lower().strip()
+    patterns = [
+        r'^(?:sí|si|claro|vale|ok|okay|bueno|pues|mmm+|eh+|este|a ver|ya|entonces|mira|oye)[\s,:-]*',
+        r'^(?:mi\s+correo(?:\s+electr[oó]nico)?\s*(?:es)?|correo(?:\s+electr[oó]nico)?\s*(?:es)?|mi\s+mail\s*(?:es)?|email\s*(?:es)?|e-?mail\s*(?:es)?|confirmo\s*:?)\s*'
+    ]
+    changed = True
+    while changed:
+        changed = False
+        for p in patterns:
+            new = re.sub(p, "", t, flags=re.I)
+            if new != t:
+                t = new.strip(); changed = True
+    return t
+
+def _email_normalize_for_buffer(text: str) -> str:
+    if not text: return ""
+    t = text.lower()
+    t = re.sub(r"\barroba\b", "@", t)
+    t = re.sub(r"\b(punto|dot)\b", ".", t)
+    t = re.sub(r"\b(guion|guión|h[ií]fen)\b", "-", t)
+    t = re.sub(r"\b(guion_bajo|underscore)\b", "_", t)
+    t = re.sub(r"[^a-z0-9@\.\-_]", "", t)
+    t = re.sub(r"@([a-z0-9\-]+)(com|net|org|edu|pe)\b", r"@\1.\2", t)
+    t = re.sub(r"\.{2,}", ".", t); t = re.sub(r"@{2,}", "@", t)
+    return t
+
+def _email_clean_piece_for_local(text: str) -> str:
+    return _email_normalize_for_buffer(_strip_email_leading_noise_raw(text))
+
+def _spoken_email_extract_once(text: str) -> Optional[str]:
+    norm = _email_normalize_for_buffer(_strip_email_leading_noise_raw(text))
+    if not norm: return None
+    m = _VALID_EMAIL_RE.search(norm)
+    return m.group(0) if m else None
+
+# ----------------- Processor -----------------
+class PERulesV1(DataProcessor):
+    """
+    Captura SOLO tras confirmación:
+    1) Usuario dicta -> se guarda en pending[field]
+    2) Asistente repite -> awaiting_confirm = field
+    3) Usuario dice 'sí/correcto' -> se confirma y pasa a lead[field]
+       Si dice 'no' -> se descarta pending y se re-pide.
+    """
+    ACTION_JSON_RE = re.compile(r'(\{"action"[^\n]*\})', re.I)
+
+    def __init__(self):
+        self.lead: Dict = {
+            "nombre_completo": None,
+            "dni": None,
+            "telefono": None,
+            "email": None,
+            "programa_interes": None,
+            "modalidad_preferida": None,
+            "horario_preferido": None,
+            "consentimiento": "no",
+            "idioma": "es-PE",
+            "origen": "demo-postgrado",
+        }
+        # Expectativas del flujo
+        self._expect: Optional[str] = None   # 'nombre'|'dni'|'telefono'|'email'|'consent'|None
+
+        # Buffers “de reconocimiento” (multi-turno)
+        self._dni_buf = ""
+        self._phone_buf = ""
+        self._email_buf = ""
+
+        # Pending (aún sin confirmar)
+        self.pending: Dict[str, Optional[str]] = {
+            "nombre_completo": None,
+            "dni": None,
+            "telefono": None,
+            "email": None,
+        }
+        self.awaiting_confirm: Optional[str] = None  # cuál campo espera 'sí/no'
+
+        self._high_interest = False
+        self._contact_window = "esta semana"
+
+        self._captured_actions: List[Dict] = []
+        self._seen_payloads: set = set()
+        self._json_buffer = ""
+        self._json_silence_active = False
+
+        self._program_map = [
+            ("mba","MBA"),
+            ("finanzas","MBA – Finanzas"),
+            ("operaciones","MBA – Operaciones"),
+            ("marketing","MBA – Marketing"),
+            ("data science","Maestría en Data Science"),
+            ("transformación digital","Maestría en Transformación Digital"),
+            ("transformacion digital","Maestría en Transformación Digital"),
+            ("ciberseguridad","Diplomado en Ciberseguridad"),
+            ("project management","Diplomado en Project Management (PMI)"),
+            ("supply chain","Diplomado en Supply Chain"),
+            ("ux","Diplomado en UX/UI"),
+            ("ui","Diplomado en UX/UI"),
+        ]
+
+    def _commit_pending_field(self, field: str) -> bool:
+        val = self.pending.get(field)
+        if not val:
+            return False
+
+        if field == "dni":
+            if not _is_valid_dni(val):
+                return False
+        elif field == "telefono":
+            normalized = _normalize_phone(val)
+            if not normalized:
+                return False
+            val = normalized
+        elif field == "email":
+            if not _VALID_EMAIL_RE.fullmatch(val or ""):
+                return False
+        elif field == "nombre_completo":
+            cleaned = " ".join(
+                w.capitalize()
+                for w in re.findall(r"[a-záéíóúñü\-]+", val, re.I)
+            ).strip()
+            if len(cleaned) < 3:
+                return False
+            val = " ".join(cleaned.split()[:4])
+
+        self.lead[field] = val
+        if field == "dni":
+            self._dni_buf = ""
+        elif field == "telefono":
+            self._phone_buf = ""
+        elif field == "email":
+            self._email_buf = ""
+
+        self.pending[field] = None
+        return True
+
+    # ------------- API -------------
+    def on_assistant_text(self, text: str) -> None:
+        t = (text or "").lower()
+
+        # Qué está pidiendo el asistente
+        if re.search(r"\bnombre\b", t): self._expect = "nombre"
+        if re.search(r"\bdni\b", t): self._expect = "dni"
+        if re.search(r"\b(tel(e|é)fono|celular|n[úu]mero\s+de\s+contacto)\b", t): self._expect = "telefono"
+        if re.search(r"\b(correo\s+electr[oó]nico|email|e\-?mail)\b", t):
+            self._expect = "email"; self._email_buf = ""  # reset email
+        if re.search(r"\b(consentimiento|permiso|autoriza(?:s|n)?|aceptas?|acepta|contacte(?:mos|n)?|contacta(?:r|rme|rnos|rte|rlo|rla|rlos|rlas|remos|ría|rán|ré|rás)?)\b", t):
+            self._expect = "consent"
+
+        # Ventana de contacto en confirmaciones
+        if re.search(r"\bhoy\b", t): self._contact_window="hoy"
+        elif re.search(r"\bmañana\b", t): self._contact_window="mañana"
+        elif re.search(r"\bfin\s*de\s*semana\b", t): self._contact_window="fin_de_semana"
+
+        # Alto interés (desde asistente, p.ej. al leer intención)
+        if re.search(r"\b(asesor|inscripci[oó]n|beca|financiamiento|entrevista|examen|cupo)\b", t):
+            self._high_interest = True
+
+        # --- Detección de confirmaciones del asistente ---
+        # Claves de confirmación: "confirmo", "te confirmo", "quedo con", "entonces tu ..."
+        # Consider also typical confirmation question forms like "¿Es correcto?", "¿Está bien?", "¿Así es?"
+        confirming = bool(
+            re.search(r"\b(confirmo|te\s+confirmo|quedo\s+con|entonces\s+tu|correcto:?)\b", t)
+            or re.search(r"(¿\s*es\s+correcto\??|¿\s*est[aá]\s+bien\??|¿\s*as[ií]\s+es\??)", t)
+        )
+        if confirming:
+            digits = _parse_spanish_pairs_to_digits(text)
+
+            priority: List[str] = []
+
+            def _add_priority(field: Optional[str]) -> None:
+                if field and field not in priority:
+                    priority.append(field)
+
+            _add_priority(self.awaiting_confirm if self.awaiting_confirm in ("email", "dni", "telefono", "nombre_completo") else None)
+            _add_priority(_EXPECT_TO_FIELD.get(self._expect or ""))
+
+            if self._expect == "email" or "correo" in t or "@" in text or "arroba" in t:
+                _add_priority("email")
+            if re.search(r"\b(tel(?:e|é)fono|celular|n[úu]mero\s+de\s+contacto)\b", t):
+                _add_priority("telefono")
+            if re.search(r"\b(dni|documento|identidad)\b", t):
+                _add_priority("dni")
+            if "nombre" in t or "te llamas" in t:
+                _add_priority("nombre_completo")
+
+            default_fields = ["email", "telefono", "nombre_completo"]
+            if "dni" in priority:
+                default_fields.append("dni")
+            for default_field in default_fields:
+                _add_priority(default_field)
+
+            for field in priority:
+                if field == "email":
+                    existing = self.pending.get("email")
+                    if existing and _VALID_EMAIL_RE.fullmatch(existing or ""):
+                        self.awaiting_confirm = "email"
+                        return
+                    # NO extraer email desde texto del asistente - solo marcar para confirmación
+                    # El email ya debe estar en pending desde on_user_text
+                    if self.pending.get("email"):
+                        self.awaiting_confirm = "email"
+                        return
+                elif field == "telefono":
+                    existing = self.pending.get("telefono")
+                    if existing:
+                        normalized_existing = _normalize_phone(existing)
+                        if normalized_existing:
+                            self.pending["telefono"] = normalized_existing
+                            self.awaiting_confirm = "telefono"
+                            return
+                    # NO extraer teléfono desde texto del asistente - solo marcar para confirmación
+                    # El teléfono ya debe estar en pending desde on_user_text
+                    if self.pending.get("telefono"):
+                        self.awaiting_confirm = "telefono"
+                        return
+                elif field == "dni":
+                    existing = self.pending.get("dni")
+                    if existing and _is_valid_dni(existing):
+                        self.awaiting_confirm = "dni"
+                        return
+                    # Extraer de la frase del asistente SOLO si hay 8 dígitos claros
+                    if digits and len(digits) >= 8:
+                        dni_candidate = digits[-8:]
+                        if _is_valid_dni(dni_candidate):
+                            self.pending["dni"] = dni_candidate
+                            self.awaiting_confirm = "dni"
+                            return
+                elif field == "nombre_completo":
+                    existing_name = self.pending.get("nombre_completo")
+                    if existing_name and len(existing_name) >= 3:
+                        self.awaiting_confirm = "nombre_completo"
+                        return
+                    # NO extraer nombre desde texto del asistente - solo verificar que existe
+                    # El nombre ya debe estar en pending desde on_user_text
+                    if self.pending.get("nombre_completo"):
+                        self.awaiting_confirm = "nombre_completo"
+                        return
+
+            # Fallback: si el asistente confirma sin mencionar el campo explícito,
+            # usamos el último campo esperado con datos pendientes.
+            fallback_field = _EXPECT_TO_FIELD.get(self._expect or "")
+            if fallback_field:
+                candidate = self.pending.get(fallback_field)
+                if candidate:
+                    if fallback_field == "dni" and not _is_valid_dni(candidate):
+                        candidate = None
+                    elif fallback_field == "telefono":
+                        normalized = _normalize_phone(candidate)
+                        if normalized:
+                            self.pending[fallback_field] = normalized
+                            candidate = normalized
+                        else:
+                            candidate = None
+                    elif fallback_field == "email" and not _VALID_EMAIL_RE.fullmatch(candidate or ""):
+                        candidate = None
+                if candidate:
+                    self.awaiting_confirm = fallback_field
+                    return
+
+        # Capturar email desde confirmación incluso sin 'confirmo' (robustez)
+        if self._expect == "email" and ("correo" in t or "arroba" in t or "@" in t):
+            em = _spoken_email_extract_once(text) or _VALID_EMAIL_RE.search(_email_normalize_for_buffer(text))
+            if em:
+                self.pending["email"] = em.group(0) if hasattr(em, "group") else em
+                self.awaiting_confirm = "email"
+
+    def on_user_text(self, text: str) -> None:
+        t = (text or "").strip()
+        lower = t.lower()
+        digits_preview = _parse_spanish_pairs_to_digits(t)
+
+        # 1) Si estamos esperando confirmación de un campo:
+        if self.awaiting_confirm:
+            fld = self.awaiting_confirm
+            expected_field = _EXPECT_TO_FIELD.get(self._expect or "")
+
+            if re.search(r"\b(no|incorrecto|me\s+equivoqu[eé]|no\s+es)\b", lower, re.I):
+                self.pending[fld] = None
+                if fld == "dni":
+                    self._dni_buf = ""
+                elif fld == "telefono":
+                    self._phone_buf = ""
+                elif fld == "email":
+                    self._email_buf = ""
+                self.awaiting_confirm = None
+                self._expect = "dni" if fld == "dni" else ("telefono" if fld == "telefono" else ("email" if fld == "email" else "nombre"))
+                return
+
+            positive = re.search(r"\b(s[ií]|sí|si|correcto|as[ií] es|est[aá] bien|ok|vale|de\s+acuerdo)\b", lower, re.I)
+            committed = False
+            if positive:
+                committed = self._commit_pending_field(fld)
+                if committed and (expected_field == fld or expected_field is None):
+                    self._expect = None
+            elif expected_field and expected_field != fld:
+                should_attempt = False
+                if expected_field == "dni":
+                    should_attempt = bool(digits_preview)
+                elif expected_field == "telefono":
+                    should_attempt = bool(digits_preview)
+                elif expected_field == "email":
+                    should_attempt = bool("@" in lower or "arroba" in lower or any(k in lower for k in ("correo", "email", "gmail", "hotmail", "outlook")))
+                elif expected_field == "nombre_completo":
+                    should_attempt = bool(re.search(r"\b(me\s+llamo|soy|nombre)\b", lower, re.I))
+                else:
+                    should_attempt = bool(t)
+                if should_attempt:
+                    committed = self._commit_pending_field(fld)
+
+            if committed:
+                self.awaiting_confirm = None
+            else:
+                return
+
+        # 2) Email directo o hablado (solo pending; commit tras confirmación del bot)
+        m = _VALID_EMAIL_RE.search(t)
+        if m:
+            self.pending["email"] = m.group(0)
+            self._email_buf = ""
+        else:
+            has_trigger = any(k in lower for k in _EMAIL_TRIGGERS)
+            should_listen = self._expect == "email" or has_trigger
+            if should_listen:
+                piece = _email_clean_piece_for_local(t)
+                if piece:
+                    self._email_buf = (self._email_buf + piece)[-160:]
+                    last_at = self._email_buf.rfind("@")
+                    if last_at > 0:
+                        start = max(0, last_at - 48)
+                        self._email_buf = self._email_buf[start:]
+                vm = _VALID_EMAIL_RE.search(self._email_buf)
+                if vm:
+                    self.pending["email"] = vm.group(0)
+                    self._email_buf = ""
+
+        # 3) Nombre - capturar desde usuario con filtrado mejorado
+        if re.search(r"\b(me\s+llamo|soy|mi\s+nombre\s+es)\b", lower, re.I):
+            candidate = _extract_name_from_user(t)
+            if candidate:
+                self.pending["nombre_completo"] = candidate
+                self._expect = "nombre"
+
+        elif self._expect == "nombre" and self.pending.get("nombre_completo"):
+            # apellido suelto
+            extra = " ".join(re.findall(r"[a-záéíóúñü\-]+", t, re.I))
+            if 2 <= len(extra) <= 40 and not re.search(r"\d|@|\.", extra):
+                full = f"{self.pending['nombre_completo']} {extra.title()}".strip()
+                tokens = full.split()
+                self.pending["nombre_completo"] = " ".join(tokens[:4])
+
+        # 4) Programa / modalidad / horario (se confirman en bloque final; pero podemos setear directo)
+        for key, label in self._program_map:
+            if re.search(rf"\b{re.escape(key)}\b", t, re.I):
+                self.lead["programa_interes"] = label; break
+
+        if re.search(r"\bpresencial\b", t, re.I): self.lead["modalidad_preferida"] = "presencial"
+        elif re.search(r"\bh[ií]brida\b", t, re.I): self.lead["modalidad_preferida"] = "hibrida"
+        elif re.search(r"\bonline|en\s+l[ií]nea\b", t, re.I) or re.search(r"\bvirtual\b", t, re.I) or re.search(r"\ba\s+distancia\b", t, re.I) or re.search(r"\bremot[ao]\b", t, re.I):
+            self.lead["modalidad_preferida"] = "online"
+
+        if re.search(r"\bfin\s*de\s*semana\b", t, re.I) or re.search(r"\bs[áa]bado(s)?\b", t, re.I):
+            self.lead["horario_preferido"] = "fin_de_semana"
+        elif re.search(r"\bsemana\b", t, re.I) or re.search(r"\blunes\s+a\s+jueves\b", t, re.I):
+            self.lead["horario_preferido"] = "semana"
+        elif re.search(r"\bintensivo\b", t, re.I):
+            self.lead["horario_preferido"] = "intensivo"
+
+        # 5) Consentimiento
+        consent_triggers = (
+            self._expect == "consent"
+            or re.search(r"\b(consentimiento|permiso|autoriza(?:s|n)?|acepto|aceptamos|aceptar[ée]?|aceptar[íi]a|aceptaría|contacte(?:mos|n)?|contacta(?:r|rme|rnos|rte|rlo|rla|rlos|rlas|remos|ría|rán|ré|rás)?)\b", lower, re.I)
+            or re.search(r"\b(contacten|contactarme|contactarnos|contactarte|contactarlo|contactarla|contactarlos|contactarlas)\b", lower, re.I)
+            or re.search(r"\b(hoy|mañana|fin\s*de\s*semana)\b", lower, re.I)
+        )
+        if consent_triggers:
+            if re.search(r"\b(s[ií]|sí|si|correcto|as[ií]\s+es|est[aá]\s+bien|ok|vale|de\s+acuerdo|acepto|autorizo|claro|por\s+supuesto|perfecto)\b", lower, re.I) or re.search(r"\b(hoy|mañana|fin\s*de\s*semana)\b", lower, re.I):
+                self.lead["consentimiento"] = "si"
+                if re.search(r"\bhoy\b", t, re.I): self._contact_window="hoy"
+                elif re.search(r"\bmañana\b", t, re.I): self._contact_window="mañana"
+                elif re.search(r"\bfin\s*de\s*semana\b", t, re.I): self._contact_window="fin_de_semana"
+
+        # 6) Números (DNI/Tel) -> pending (commit tras confirmación del bot)
+        if not self.awaiting_confirm:
+            if self._expect not in ("telefono", "dni"):
+                if re.search(r"\b(celular|tel[eé]fono|whatsapp|n[uú]mero\s+de\s+contacto)\b", lower):
+                    self._expect = "telefono"
+                elif re.search(r"\b(dni|documento|identidad)\b", lower):
+                    self._expect = "dni"
+
+        digits = digits_preview
+        if digits and self._expect == "telefono":
+            if len(digits) <= 8 and not self.lead.get("dni") and not self.pending.get("dni"):
+                self._dni_buf += digits
+                if len(self._dni_buf) > 16:
+                    self._dni_buf = self._dni_buf[-16:]
+                if len(self._dni_buf) >= 8:
+                    candidate_dni = self._dni_buf[-8:]
+                    if _is_valid_dni(candidate_dni):
+                        self.pending["dni"] = candidate_dni
+
+        if digits:
+            if self._expect == "dni":
+                self._dni_buf += digits
+                if len(self._dni_buf) > 16:
+                    self._dni_buf = self._dni_buf[-16:]
+                if len(self._dni_buf) >= 8:
+                    self.pending["dni"] = self._dni_buf[-8:]
+            elif self._expect == "telefono":
+                self._phone_buf += digits
+                if len(self._phone_buf) > 24:
+                    self._phone_buf = self._phone_buf[-24:]
+                if len(self._phone_buf) >= 9:
+                    ph = _normalize_phone(self._phone_buf[-12:])
+                    if ph: self.pending["telefono"] = ph
+
+        if self._expect == "nombre" and not self.awaiting_confirm:
+            if not re.search(r"\d|@|\.", t):
+                candidate = _extract_name_from_user(t)
+                if candidate:
+                    self.pending["nombre_completo"] = candidate
+
+    # --- JSON del modelo (no voz) ---
+    def maybe_capture_action(self, text: str) -> bool:
+        if text:
+            self._json_buffer += text
+            if len(self._json_buffer) > 4096:
+                self._json_buffer = self._json_buffer[-4096:]
+
+        buffer = self._json_buffer
+        if not buffer:
+            return self._json_silence_active
+
+        lower_buffer = buffer.lower()
+        start = lower_buffer.find('{"action')
+        if start != -1:
+            substring = buffer[start:]
+            braces = 0
+            in_string = False
+            escape = False
+            complete_index: Optional[int] = None
+            for idx, ch in enumerate(substring):
+                if escape:
+                    escape = False
+                    continue
+                if ch == '\\':
+                    escape = True
+                    continue
+                if ch == '"':
+                    in_string = not in_string
+                    continue
+                if in_string:
+                    continue
+                if ch == '{':
+                    braces += 1
+                elif ch == '}':
+                    braces -= 1
+                    if braces == 0:
+                        complete_index = idx
+                        break
+
+            if complete_index is not None:
+                candidate = substring[:complete_index + 1]
+                raw = candidate.strip()
+                if raw not in self._seen_payloads:
+                    try:
+                        payload = json.loads(raw)
+                        if isinstance(payload, dict) and "action" in payload and "lead" in payload:
+                            payload["_received_at"] = datetime.datetime.utcnow().isoformat() + "Z"
+                            self._captured_actions.append(payload)
+                            self._seen_payloads.add(raw)
+                            print("\n[JSON capturado]:", raw, "\n")
+                    except json.JSONDecodeError:
+                        pass
+                tail = substring[complete_index + 1 :]
+                self._json_buffer = tail
+                if len(self._json_buffer) > 4096:
+                    self._json_buffer = self._json_buffer[-4096:]
+            else:
+                # JSON aún no completo, mantener buffer
+                self._json_silence_active = True
+                return True
+
+            self._json_silence_active = True
+            return True
+
+        if buffer.strip().startswith('{'):
+            self._json_silence_active = True
+            return True
+
+        heuristics = any(
+            keyword in lower_buffer
+            for keyword in (
+                '"action"',
+                '"lead"',
+                'action":',
+                'lead":',
+                'store_and_handoff',
+                '"channel"',
+                'channel":',
+                '"handoff"',
+            )
+        )
+        if heuristics:
+            self._json_silence_active = True
+            return True
+
+        self._json_silence_active = False
+        self._json_buffer = ""
+        return False
+
+    def on_content_end(self) -> None:
+        self._json_buffer = ""
+        self._json_silence_active = False
+        return
+
+    def on_session_end(self, session_id: str) -> Optional[str]:
+        """
+        Exporta JSON del modelo si existe; si no, fallback:
+        - Si consentimiento='si' y (tel/email) y programa → store_and_handoff.
+        - Si hay algún dato → store.
+        OJO: Solo se exportan campos ya confirmados (en lead).
+        """
+        if not self.lead.get("nombre_completo") and self.pending.get("nombre_completo"):
+            self._commit_pending_field("nombre_completo")
+
+        if not self._captured_actions:
+            lead = dict(self.lead)
+
+            # sanitiza confirmados
+            if lead.get("dni") and not _is_valid_dni(lead["dni"]): lead["dni"] = None
+            if lead.get("telefono"): lead["telefono"] = _normalize_phone(lead["telefono"])
+
+            have_contact = bool(lead.get("telefono") or lead.get("email"))
+            have_program = bool(lead.get("programa_interes"))
+            consent_yes = (lead.get("consentimiento") == "si")
+
+            action: Optional[Dict] = None
+            if consent_yes and have_contact and have_program:
+                action = {
+                    "action":"store_and_handoff","channel":"s2s","lead":lead,
+                    "handoff":{"motivo":"alto_interes" if self._high_interest else "contacto_solicitado",
+                               "prioridad":"alta" if self._high_interest else "media",
+                               "ventana_contacto": self._contact_window}
+                }
+            elif any(v for k, v in lead.items() if k not in ("idioma","origen")):
+                action = {"action":"store","channel":"s2s","lead":lead}
+
+            if action:
+                action["_received_at"] = datetime.datetime.utcnow().isoformat()+"Z"
+                action["_session_id"] = session_id
+                self._captured_actions.append(action)
+                print("\n[JSON generado localmente]:", json.dumps(action, ensure_ascii=False), "\n")
+
+        if not self._captured_actions:
+            print("No se capturaron leads/acciones para exportar.")
+            return None
+
+        ts = datetime.datetime.utcnow().strftime("%Y%m%d-%H%M%S")
+        fname = f"leads_session_{ts}_{session_id[:8]}.json"
+        path = Path(".") / fname
+        with open(path,"w",encoding="utf-8") as f:
+            json.dump(self._captured_actions, f, ensure_ascii=False, indent=2)
+        print(f"Leads exportados en: {path.resolve()}")
+        return str(path)
+
+    def snapshot_lead(self) -> Dict:
+        return dict(self.lead)
