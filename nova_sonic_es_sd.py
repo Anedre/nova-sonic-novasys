@@ -13,10 +13,12 @@ from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
 
 try:
-    from rx.subject import Subject
+    # Prefer the modern namespace exposed by reactivex>=4
+    from reactivex.subject import Subject
 except ImportError:
     try:
-        from reactivex.subject import Subject
+        # Fallback kept for older environments that still expose the legacy alias
+        from rx.subject import Subject
     except ImportError as e:
         raise ImportError(f"reactivex not installed: {e}. Run: pip install reactivex>=4.0.0")
 

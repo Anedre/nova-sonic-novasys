@@ -1,4 +1,3 @@
-2025-11-11T16:12:21.599364251Z [inf]      Uninstalling pip-25.0.1:
 2025-11-11T16:12:21.734463164Z [inf]        Successfully uninstalled pip-25.0.1
 2025-11-11T16:12:23.757274569Z [inf]  Successfully installed pip-25.3
 2025-11-11T16:12:23.757281202Z [err]  WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
@@ -999,3 +998,4 @@
 2025-11-11T16:12:55.143257247Z [err]  [2025-11-11 16:12:55 +0000] [1] [ERROR] Worker (pid:9) exited with code 3
 2025-11-11T16:12:55.143266023Z [err]  [2025-11-11 16:12:55 +0000] [1] [ERROR] Shutting down: Master
 2025-11-11T16:12:55.143273821Z [err]  [2025-11-11 16:12:55 +0000] [1] [ERROR] Reason: Worker failed to boot.
+2025-11-11T16:21:18.000000000Z [inf]  Stopping Container
