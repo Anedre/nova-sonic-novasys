@@ -44,9 +44,10 @@ socketio = SocketIO(
     ping_interval=10,
     ping_timeout=20,
     max_http_buffer_size=4 * 1024 * 1024,
-    # Forzar WebSocket desde el inicio, evitar handshake con polling
-    transports=['websocket'],
-    allow_upgrades=False,
+    # Permitir WebSocket y polling como fallback para compatibilidad con proxies
+    # App Runner/ALB puede bloquear WebSocket upgrade inicial
+    transports=['websocket', 'polling'],
+    allow_upgrades=True,
     # Configuración adicional para estabilidad
     engineio_logger=False,
     logger=False
