@@ -11,6 +11,8 @@ from pathlib import Path
 from threading import Thread
 
 from dotenv import load_dotenv
+import eventlet
+eventlet.monkey_patch()
 
 from nova_sonic_web_adapter_v3 import NovaSonicWebAdapterV3
 from config import (
@@ -34,7 +36,15 @@ def safe_print(msg):
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'nova-sonic-secret-key-2025'
-socketio = SocketIO(app, cors_allowed_origins="*", async_mode='threading')
+# Usar Eventlet para WebSocket en producción (reduce latencia vs polling)
+socketio = SocketIO(
+    app,
+    cors_allowed_origins="*",
+    async_mode='eventlet',
+    ping_interval=10,
+    ping_timeout=20,
+    max_http_buffer_size=4 * 1024 * 1024,
+)
 
 # Diccionario para manejar múltiples sesiones de Nova Sonic
 nova_adapters = {}
@@ -158,13 +168,21 @@ def handle_call_started(data):
                 'message': f'👤 Transcripción: {text[:50]}...'
             }, room=session_id)
         
+        _last_audio_emit_ts = {'ts': None}
         def on_audio_response(audio_base64):
+            now = datetime.datetime.now().timestamp()
+            jitter_ms = None
+            if _last_audio_emit_ts['ts'] is not None:
+                jitter_ms = int((now - _last_audio_emit_ts['ts']) * 1000)
+            _last_audio_emit_ts['ts'] = now
+
             socketio.emit('audio_playback', {
                 'audio': audio_base64
             }, room=session_id)
-            socketio.emit('debug', {
-                'message': '🔊 Audio de respuesta enviado'
-            }, room=session_id)
+            if jitter_ms is not None and jitter_ms > 400:
+                socketio.emit('debug', {
+                    'message': f'🔊 Audio enviado (jitter {jitter_ms} ms)'
+                }, room=session_id)
         
         def on_debug(message):
             socketio.emit('debug', {
